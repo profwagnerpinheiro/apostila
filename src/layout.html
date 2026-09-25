@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{tituloPagina}}</title>
+<meta name="author" content="Prof. Wagner Pinheiro">
+<meta name="description" content="Apostila de Física — Capítulo {{numero}}: {{titulo}}.">
+<link rel="stylesheet" href="styles/fontes.css">
+<link rel="stylesheet" href="katex/katex.min.css">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/apostila.css">
+<link rel="stylesheet" href="styles/print.css" media="print">
+</head>
+<body>
+
+<!-- Barra superior (só na tela) -->
+<header class="barra">
+  <a class="barra-marca" href="#topo" aria-label="Início do capítulo">{{atomo}}</a>
+  <p class="barra-titulo"><span class="barra-cap">Cap. {{numero}}</span> {{titulo}}</p>
+</header>
+
+<!-- Capa -->
+<section class="capa" id="topo">
+  <svg class="capa-deco capa-deco--topo" viewBox="0 0 118 62" aria-hidden="true">
+    <polygon class="deco-laranja" points="0,0 118,0 88,30 0,14"/>
+    <polygon class="deco-marinho" points="0,17 42,24 0,62"/>
+  </svg>
+  <svg class="capa-deco capa-deco--base" viewBox="92 235 118 62" aria-hidden="true">
+    <polygon class="deco-laranja" points="210,297 92,297 118,262 210,277"/>
+    <polygon class="deco-marinho" points="210,280 168,273 210,235"/>
+  </svg>
+  <div class="capa-miolo">
+    <div class="marca marca--capa">{{atomo}}<p class="marca-nome">Wagner Pinheiro</p><p class="marca-area">Física</p></div>
+    <h1 class="capa-titulo">{{tituloCapaHtml}}</h1>
+    <p class="capa-capitulo">Capítulo {{numero}}</p>
+    <div class="capa-topicos">
+      <p class="capa-topicos-rotulo">Neste capítulo</p>
+      <ul>{{topicosHtml}}</ul>
+    </div>
+    <figure class="regua" aria-label="Régua milimetrada de 10 cm">
+      {{regua}}
+      <figcaption>régua em escala real · 10 cm</figcaption>
+    </figure>
+    <p class="capa-volume">{{volume}} · {{ano}}</p>
+  </div>
+</section>
+
+<!-- Moldura da página impressa: gerada à parte e aplicada sob cada página do miolo (scripts/pdf.mjs) -->
+<div class="moldura" aria-hidden="true">
+<div class="pagina-topo">
+  <svg class="pagina-faixa" viewBox="0 0 210 30" preserveAspectRatio="none">
+    <polygon class="deco-laranja" points="0,0 118,0 104,9 0,9"/>
+    <polygon class="deco-marinho" points="0,9 11,9 0,30"/>
+  </svg>
+  <div class="marca marca--pagina">{{atomo}}<p class="marca-nome">Wagner Pinheiro</p><p class="marca-area">Física</p></div>
+</div>
+<div class="pagina-lado">
+  <svg viewBox="0 0 12 60" preserveAspectRatio="none"><polygon class="deco-marinho" points="12,0 12,60 0,60 0,14"/></svg>
+</div>
+<div class="pagina-rodape">
+  <svg class="pagina-faixa" viewBox="0 0 210 8" preserveAspectRatio="none">
+    <polygon class="deco-laranja" points="0,8 0,0 210,0 210,8"/>
+  </svg>
+  <ul class="contatos">{{contatos}}</ul>
+</div>
+</div>
+
+<div class="leiaute">
+  <nav class="sumario" aria-label="Sumário do capítulo">
+    <p class="sumario-rotulo">Sumário</p>
+    <ol>{{sumario}}</ol>
+  </nav>
+  <main class="corpo">
+{{conteudo}}
+  </main>
+</div>
+
+<footer class="rodape-web">
+  <div class="marca marca--rodape">{{atomo}}<p class="marca-nome">Wagner Pinheiro</p><p class="marca-area">Física</p></div>
+  <ul class="contatos">{{contatos}}</ul>
+</footer>
+
+<script src="scripts/apostila.js" defer></script>
+</body>
+</html>

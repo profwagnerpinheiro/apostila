@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Tokens — Apostila de Física · Prof. Wagner Pinheiro
+   Toda cor, fonte e medida usada nos componentes vem daqui.
+   Cores da marca amostradas do material original (logo e capa).
+   ========================================================================== */
+
+:root {
+  /* ---- Marca ---- */
+  --marinho: #03407c;          /* azul da marca: títulos, tabelas, logo */
+  --marinho-escuro: #022a52;   /* texto sobre fundos claros de destaque */
+  --laranja: #f2721c;          /* acento: numeração, marcadores, capa */
+  --laranja-escuro: #c4560b;   /* laranja para texto (contraste AA sobre branco) */
+  --ceu: #e8eff8;              /* tinta azul clara: caixas de fórmula, resolução */
+  --ceu-forte: #c9d8ec;        /* linhas de tabela, bordas suaves */
+  --pessego: #fdeadb;          /* tinta laranja clara: gabarito, avisos */
+
+  /* ---- Neutros (levemente puxados para o azul) ---- */
+  --papel: #ffffff;
+  --papel-2: #f6f8fb;
+  --tinta: #17202e;            /* texto corrido */
+  --tinta-2: #4a5568;          /* legendas, metadados */
+  --regra: #d5dde8;            /* fios e divisórias */
+
+  /* ---- Semânticas (modo estudo na versão web) ---- */
+  --certo: #1f7a4d;
+  --certo-fundo: #e3f4ea;
+  --errado: #b42318;
+  --errado-fundo: #fdecea;
+
+  /* ---- Papéis (componentes usam estes, não as cores de marca) ---- */
+  --fundo: var(--papel);
+  --fundo-2: var(--papel-2);
+  --texto: var(--tinta);
+  --texto-2: var(--tinta-2);
+  --titulo: var(--marinho);
+  --acento: var(--laranja);
+  --acento-texto: var(--laranja-escuro);
+  --caixa: var(--ceu);
+  --caixa-borda: var(--ceu-forte);
+  --destaque: var(--pessego);
+  --fio: var(--regra);
+  --tabela-cabecalho: var(--marinho);
+  --tabela-cabecalho-texto: #ffffff;
+  --tabela-zebra: var(--ceu);
+  --deco-azul: var(--marinho);   /* formas geométricas da capa e das páginas */
+  --deco-laranja: var(--laranja);
+
+  /* ---- Tipografia ---- */
+  --fonte-display: "Lilita One", "Arial Rounded MT Bold", "Nunito", system-ui, sans-serif;
+  --fonte-titulo: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --fonte-texto: "Source Serif 4", "Georgia", "Cambria", serif;
+
+  /* Escala (razão ~1,2) — valores de tela; o print.css redefine em pt */
+  --t-xs: 0.78rem;
+  --t-sm: 0.875rem;
+  --t-base: 1.0625rem;
+  --t-md: 1.25rem;
+  --t-lg: 1.5rem;
+  --t-xl: 2rem;
+  --t-display: clamp(2.6rem, 8vw, 4.4rem);
+
+  --entrelinha: 1.6;
+  --entrelinha-titulo: 1.15;
+
+  /* ---- Espaço, raio, sombra ---- */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+
+  --raio: 6px;
+  --raio-pilula: 999px;
+  --sombra-selo: 4px 4px 0 var(--acento);  /* sombra "carimbo" dos banners */
+
+  --largura-leitura: 68ch;
+}
+
+/* Tema escuro — só na tela; o PDF é sempre claro. */
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --fundo: #0e1622;
+    --fundo-2: #152033;
+    --texto: #e3e9f2;
+    --texto-2: #9fb0c6;
+    --titulo: #8fb8f0;
+    --acento: #ff8a3d;
+    --acento-texto: #ffa266;
+    --caixa: #16263d;
+    --caixa-borda: #26405f;
+    --destaque: #3a2616;
+    --fio: #26344a;
+    --tabela-cabecalho: #1d4f8c;
+    --tabela-zebra: #132035;
+    --deco-azul: #1d4f8c;
+    --certo: #5fd49a;
+    --certo-fundo: #10301f;
+    --errado: #ff8a80;
+    --errado-fundo: #3a1512;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fundo: #0e1622;
+  --fundo-2: #152033;
+  --texto: #e3e9f2;
+  --texto-2: #9fb0c6;
+  --titulo: #8fb8f0;
+  --acento: #ff8a3d;
+  --acento-texto: #ffa266;
+  --caixa: #16263d;
+  --caixa-borda: #26405f;
+  --destaque: #3a2616;
+  --fio: #26344a;
+  --tabela-cabecalho: #1d4f8c;
+  --tabela-zebra: #132035;
+  --deco-azul: #1d4f8c;
+  --certo: #5fd49a;
+  --certo-fundo: #10301f;
+  --errado: #ff8a80;
+  --errado-fundo: #3a1512;
+}

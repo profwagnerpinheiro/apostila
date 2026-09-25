@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Impressão — A4, duas colunas, cabeçalho e rodapé da marca em toda página.
+   Carregado com media="print". O PDF é gerado por scripts/pdf.mjs em duas
+   passadas (capa e miolo) para que a numeração do miolo comece em 1.
+   ========================================================================== */
+
+@page {
+  size: A4;
+  margin: 31mm 14mm 23mm 14mm;
+
+  @bottom-right {
+    content: counter(page);
+    vertical-align: top;
+    padding-top: 10.5mm;
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
+    font-size: 13pt;
+    color: #03407c;
+  }
+}
+
+@page capa {
+  margin: 0;
+  @bottom-right { content: none; }
+}
+
+:root {
+  /* escala em pontos para o papel */
+  --t-xs: 7.2pt;
+  --t-sm: 8.6pt;
+  --t-base: 9.8pt;
+  --t-md: 11pt;
+  --t-lg: 12.5pt;
+  --t-xl: 15pt;
+  --entrelinha: 1.45;
+  --sombra-selo: 1.4mm 1.4mm 0 var(--acento);
+}
+
+html { scroll-padding: 0; }
+body {
+  padding: 0;
+  font-size: var(--t-base);
+  line-height: var(--entrelinha);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  orphans: 3;
+  widows: 3;
+}
+
+.barra, .sumario, .rodape-web, .retorno { display: none !important; }
+
+/* ---------------------------------------------------------------- capa (página inteira) */
+
+.capa {
+  page: capa;
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--papel);
+  break-after: page;
+}
+.capa-deco { width: 118mm; height: 62mm; }
+.capa-miolo { height: 100%; padding: 36mm 22mm 30mm; align-content: start; gap: 5.5mm; }
+.marca--capa .atomo { width: 24mm; height: 24mm; margin-bottom: 2mm; }
+.marca--capa .marca-nome { font-size: 17pt; }
+.marca--capa .marca-area { font-size: 15pt; }
+.capa-titulo { margin-top: 12mm; font-size: 62pt; line-height: 1; }
+.capa-capitulo { font-size: 15pt; margin-top: 2mm; }
+.capa-topicos { margin-top: 6mm; max-width: 150mm; }
+.capa-topicos-rotulo { font-size: 8pt; margin-bottom: 2.5mm; }
+.capa-topicos ul { gap: 2mm; }
+.capa-topicos li { font-size: 9pt; padding: 1mm 3.2mm; }
+.regua { width: 101mm; margin-top: 8mm; }
+.regua figcaption { font-size: 6.5pt; }
+.capa-volume { position: absolute; left: 20mm; bottom: 16mm; font-size: 9pt; text-align: left; }
+
+/* ---------------------------------------------------------------- moldura (cabeçalho e rodapé)
+
+   O Chromium não repete elementos fixos de forma confiável na impressão.
+   Por isso a moldura é impressa sozinha, numa página A4 sem margens, e o
+   scripts/pdf.mjs a aplica sob cada página do miolo. Fundo transparente
+   em tudo para as duas camadas se sobreporem. */
+
+@page moldura {
+  margin: 0;
+  @bottom-right { content: none; }
+}
+
+html, body { background: transparent; }
+
+.moldura { page: moldura; position: relative; width: 210mm; height: 297mm; }
+.pagina-topo, .pagina-lado, .pagina-rodape { position: absolute; }
+
+.pagina-topo { top: 0; left: 0; width: 210mm; height: 31mm; }
+.pagina-topo .pagina-faixa { position: absolute; inset: 0; width: 210mm; height: 31mm; }
+.marca--pagina { position: absolute; top: 5mm; right: 12mm; }
+.marca--pagina .atomo { width: 11mm; height: 11mm; margin-bottom: 0.8mm; }
+.marca--pagina .marca-nome { font-size: 8.4pt; }
+.marca--pagina .marca-area { font-size: 8pt; }
+
+.pagina-lado { right: 0; bottom: 30mm; width: 7mm; height: 45mm; }
+.pagina-lado svg { width: 100%; height: 100%; display: block; }
+
+.pagina-rodape { bottom: 0; left: 0; width: 210mm; height: 23mm; }
+.pagina-rodape .pagina-faixa { position: absolute; left: 0; bottom: 0; width: 210mm; height: 2.2mm; }
+.pagina-rodape .contatos { position: absolute; left: 16mm; right: 30mm; top: 10mm; justify-content: flex-start; gap: 7mm; }
+.pagina-rodape .contato { font-size: 8.4pt; }
+.pagina-rodape .contato svg { width: 5mm; height: 5mm; }
+
+/* O que cada passada do PDF imprime */
+html.imprimir-moldura .moldura { display: block; }
+html.imprimir-moldura .capa,
+html.imprimir-moldura .leiaute,
+html.imprimir-capa .leiaute,
+html.imprimir-conteudo .capa { display: none !important; }
+
+/* ---------------------------------------------------------------- miolo em duas colunas */
+
+.leiaute { display: block; max-width: none; margin: 0; padding: 0; }
+.corpo {
+  max-width: none;
+  columns: 2;
+  column-gap: 9mm;
+  column-rule: 0.8pt solid var(--marinho);
+  column-fill: auto;
+}
+
+.abertura {
+  display: block;
+  column-span: all;
+  margin: 0 0 6mm;
+  padding-top: 1.5mm; /* o acento do "Í" não pode encostar no limite da área útil, senão é cortado */
+  text-align: center;
+}
+.corpo .abertura p { text-align: center; }
+.abertura-rotulo {
+  margin: 0 0 1mm;
+  font: 900 8pt / 1 var(--fonte-titulo);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--acento-texto);
+}
+.abertura-titulo {
+  margin: 0;
+  font: 900 16pt / 1.1 var(--fonte-titulo);
+  text-transform: uppercase;
+  color: var(--titulo);
+}
+
+.corpo p { text-align: justify; margin-bottom: 0.7em; }
+.secao { margin-bottom: 6mm; }
+.secao h2 { margin-bottom: 2.5mm; break-after: avoid; }
+.secao h3 { margin: 4.5mm 0 1.8mm; break-after: avoid; }
+.rotulo { break-after: avoid; }
+
+.tabela { overflow: visible; margin: 2.5mm 0 4mm; }
+.tabela table { font-size: 8.4pt; }
+.tabela thead th, .tabela tbody th, .tabela td { padding: 1.1mm 2mm; }
+.tabela--relacao td { white-space: normal; }
+
+.classificacao-ramos { grid-template-columns: 1fr 1fr; gap: 3mm; }
+.classe { padding: 2.4mm 2.6mm; }
+.classe-nome { font-size: 8.8pt; }
+.classe-def, .classe-exemplos { font-size: 8.4pt; text-align: left !important; }
+.requisitos li { font-size: 6.6pt; padding: 0.3mm 1.6mm 0.3mm 1.2mm; }
+
+.katex-display { overflow: visible; }
+.formula { padding: 1mm 3.5mm 2.5mm; }
+.formula-legenda { grid-template-columns: 1fr; }
+
+.secao h2.selo { font-size: var(--t-xl); margin: 1mm 0 5mm; padding: 1.5mm 4mm 1.2mm; }
+
+.questao { margin-bottom: 5mm; }
+.questao-cab { break-after: avoid; }
+.questao-num { min-width: 5.4mm; height: 5.4mm; font-size: 8pt; }
+.alternativas { margin-bottom: 2mm; break-before: avoid; }
+.alt { padding: 0; border: 0; }
+
+.resolucao { margin-top: 2mm; }
+.resolucao > summary { padding: 1.6mm 3mm; cursor: auto; }
+.resolucao > summary::after,
+.resolucao[open] > summary::after { content: none; }
+.resolucao > :not(summary) { margin-inline: 3mm; }
+.resolucao > :last-child { padding-bottom: 2mm; }
+.gabarito-linha strong { min-width: 5mm; height: 5mm; }
+
+.gabarito > summary { cursor: auto; font-size: 10pt; padding: 1.8mm 3.5mm; }
+.gabarito ol { grid-template-columns: repeat(3, 1fr); padding: 3mm 3.5mm; gap: 1.6mm 2mm; }
+.gabarito-letra { width: 5mm; height: 5mm; }
+
+.figura img { width: 42mm; }
+
+.tabela, .formula, .proporcao, .alternativas, .figura, .classificacao,
+.decisao, .virgula, .katex-display, .gabarito, .exemplos li, .regras li { break-inside: avoid; }

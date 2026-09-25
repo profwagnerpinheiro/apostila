@@ -1,0 +1,484 @@
+<!-- meta
+{
+  "numero": "01",
+  "titulo": "Conceitos Básicos de Física",
+  "tituloCapa": ["Conceitos", "Básicos de", "Física"],
+  "volume": "Volume 1",
+  "ano": "2025",
+  "arquivo": "cap01-conceitos-basicos",
+  "topicos": [
+    "Grandezas escalares e vetoriais",
+    "Sistema Internacional de Unidades",
+    "Conversões e regra de três",
+    "Notação científica",
+    "Ordem de grandeza"
+  ]
+}
+-->
+
+<header class="abertura">
+  <p class="abertura-rotulo">Capítulo 01</p>
+  <h1 class="abertura-titulo">Conceitos básicos de física</h1>
+</header>
+
+<section class="secao" id="grandezas">
+  <h2>Grandezas físicas</h2>
+  <p>Para compreendermos melhor os conceitos físicos, é fundamental entendermos o que são <strong>grandezas físicas</strong>. Definimos grandeza física como algo que pode ser medido, de forma qualitativa ou quantitativa, em relação aos fenômenos físicos. Por exemplo: massa de um corpo, força, velocidade, aceleração etc.</p>
+  <p>Na física, podemos classificar as grandezas em <strong>vetoriais</strong> ou <strong>escalares</strong>.</p>
+
+  <figure class="classificacao" aria-label="Classificação das grandezas físicas">
+    <p class="classificacao-raiz">Grandeza física</p>
+    <div class="classificacao-ramos">
+      <div class="classe">
+        <p class="classe-nome">Grandeza escalar</p>
+        <p class="classe-def">Fica definida apenas com <strong>valor numérico</strong> e <strong>unidade</strong>.</p>
+        <ul class="requisitos">
+          <li>valor numérico</li>
+          <li>unidade</li>
+          <li class="nao">direção</li>
+          <li class="nao">sentido</li>
+        </ul>
+        <p class="classe-exemplos">Ex.: volume $V$, massa $m$, temperatura $T$.</p>
+      </div>
+      <div class="classe classe--vetor">
+        <p class="classe-nome">Grandeza vetorial</p>
+        <p class="classe-def">Precisa de <strong>módulo</strong> (valor numérico e unidade), <strong>direção</strong> e <strong>sentido</strong>.</p>
+        <ul class="requisitos">
+          <li>valor numérico</li>
+          <li>unidade</li>
+          <li>direção</li>
+          <li>sentido</li>
+        </ul>
+        <p class="classe-exemplos">Ex.: força $\vec{F}$, deslocamento $\vec{d}$, velocidade $\vec{v}$.</p>
+      </div>
+    </div>
+  </figure>
+</section>
+
+<section class="secao" id="unidades">
+  <h2>Unidades de medidas</h2>
+  <p>Como cada fenômeno envolve uma ou mais grandezas, é fundamental conhecermos a unidade associada a cada medida na Física. Por exemplo, com uma régua milimetrada podemos medir o comprimento de um objeto. O comprimento pode ser medido em metro (m), centímetro (cm), quilômetro (km), milímetro (mm) etc.</p>
+  <p>Para facilitar e padronizar as medições e as relações internacionais, foi criado em 1960 o <strong>Sistema Internacional de Unidades (SI)</strong>. Abaixo estão as grandezas fundamentais e suas unidades padrão.</p>
+
+  <div class="tabela">
+    <table>
+      <caption>Grandezas fundamentais do SI</caption>
+      <thead>
+        <tr><th scope="col">Grandeza</th><th scope="col">Unidade</th><th scope="col">Símbolo</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Comprimento</th><td>metro</td><td class="simbolo">m</td></tr>
+        <tr><th scope="row">Massa</th><td>quilograma</td><td class="simbolo">kg</td></tr>
+        <tr><th scope="row">Tempo</th><td>segundo</td><td class="simbolo">s</td></tr>
+        <tr><th scope="row">Corrente elétrica</th><td>ampere</td><td class="simbolo">A</td></tr>
+        <tr><th scope="row">Temperatura</th><td>kelvin</td><td class="simbolo">K</td></tr>
+        <tr><th scope="row">Quantidade de matéria</th><td>mol</td><td class="simbolo">mol</td></tr>
+        <tr><th scope="row">Intensidade luminosa</th><td>candela</td><td class="simbolo">cd</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Unidade de comprimento</h3>
+  <p>Existem diversas unidades para medirmos comprimento. No SI, os mais usados são o metro e seus múltiplos e submúltiplos, obtidos com prefixos.</p>
+  <div class="tabela tabela--relacao">
+    <table>
+      <thead><tr><th scope="col">Unidade</th><th scope="col">Relação com o SI</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">quilômetro</th><td>$1\ \text{km} = 1000\ \text{m} = 10^3\ \text{m}$</td></tr>
+        <tr><th scope="row">centímetro</th><td>$1\ \text{m} = 100\ \text{cm} = 10^2\ \text{cm}$</td></tr>
+        <tr><th scope="row">milímetro</th><td>$1\ \text{cm} = 10\ \text{mm}$</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Unidade de tempo</h3>
+  <p>No SI, a unidade de intervalo de tempo é o segundo (s). No dia a dia, porém, usamos com frequência outras unidades, como a hora, o minuto, o dia e o mês.</p>
+  <div class="tabela tabela--relacao">
+    <table>
+      <thead><tr><th scope="col">Unidade</th><th scope="col">Relação com o SI</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">minuto</th><td>$1\ \text{min} = 60\ \text{s}$</td></tr>
+        <tr><th scope="row">hora</th><td>$1\ \text{h} = 60\ \text{min} = 3600\ \text{s}$</td></tr>
+        <tr><th scope="row">dia</th><td>$1\ \text{d} = 24\ \text{h} = 86\,400\ \text{s}$</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Unidade de massa</h3>
+  <p>Como já vimos, a unidade de massa no SI é o quilograma. Na prática, usamos diversas unidades para representar quantidades de massa.</p>
+  <div class="tabela tabela--relacao">
+    <table>
+      <thead><tr><th scope="col">Unidade</th><th scope="col">Relação com o SI</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">quilograma</th><td>$1\ \text{kg} = 1000\ \text{g}$</td></tr>
+        <tr><th scope="row">tonelada</th><td>$1\ \text{t} = 1000\ \text{kg}$</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="secao" id="conversoes">
+  <h2>Conversões de unidades</h2>
+  <p>Saber mudar de unidade é uma habilidade muito importante na resolução de problemas. Para isso, precisamos entender o que são grandezas <strong>diretamente</strong> e <strong>inversamente proporcionais</strong>.</p>
+
+  <p class="termo"><strong>Grandezas diretamente proporcionais</strong> são aquelas em que, quando uma aumenta, a outra aumenta na mesma proporção. Exemplo: um cachorrinho come 3 kg de ração. Se dobrarmos a quantidade de cachorrinhos, a quantidade de ração também vai dobrar.</p>
+  <div class="proporcao proporcao--direta" role="group" aria-label="Grandezas diretamente proporcionais">
+    <span>1 cachorrinho</span><span>3 kg de ração</span>
+    <span>2 cachorrinhos</span><span>6 kg de ração</span>
+  </div>
+
+  <p class="termo"><strong>Grandezas inversamente proporcionais</strong> são aquelas em que, quando uma aumenta, a outra diminui na mesma proporção. Exemplo: uma pessoa leva uma hora para pintar uma parede. Duas pessoas igualmente competentes levariam apenas meia hora.</p>
+  <div class="proporcao proporcao--inversa" role="group" aria-label="Grandezas inversamente proporcionais">
+    <span>1 pessoa</span><span>1 h de trabalho</span>
+    <span>2 pessoas</span><span>0,5 h de trabalho</span>
+  </div>
+
+  <h3>Regra de três simples</h3>
+  <p>A regra de três simples é uma relação de proporção entre duas grandezas diretamente ou inversamente proporcionais. Podemos resolver problemas usando as regras abaixo.</p>
+
+  <p class="termo"><strong>Grandezas diretamente proporcionais:</strong> igualamos o produto dos meios ao produto dos extremos (multiplicamos “em cruz”).</p>
+  <div class="proporcao proporcao--direta" role="group" aria-label="Regra de três direta">
+    <span>1 cachorrinho</span><span>3 kg de ração</span>
+    <span>2 cachorrinhos</span><span>$x$</span>
+  </div>
+  $$\begin{aligned} 1 \cdot x &= 2 \cdot 3 \\ x &= 6\ \text{kg de ração} \end{aligned}$$
+
+  <p class="termo"><strong>Grandezas inversamente proporcionais:</strong> igualamos os produtos dos valores que estão na mesma linha.</p>
+  <div class="proporcao proporcao--inversa" role="group" aria-label="Regra de três inversa">
+    <span>1 pessoa</span><span>1 h de trabalho</span>
+    <span>2 pessoas</span><span>$x$</span>
+  </div>
+  $$\begin{aligned} 1 \cdot 1 &= 2 \cdot x \\ x &= \tfrac{1}{2} = 0{,}5\ \text{h de trabalho} \end{aligned}$$
+</section>
+
+<section class="secao pratica" id="pratica-1">
+  <h2 class="selo">Hora de praticar!</h2>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">Unesp</span></p>
+    <p>O intervalo de tempo de 2,4 minutos equivale, no Sistema Internacional de Unidades (SI), a:</p>
+    <ol class="alternativas">
+      <li>24 segundos.</li>
+      <li>124 segundos.</li>
+      <li>144 segundos.</li>
+      <li>160 segundos.</li>
+      <li>240 segundos.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>No SI, a unidade de tempo é o segundo, e 1 minuto equivale a 60 segundos.</p>
+      <div class="proporcao proporcao--direta">
+        <span>1 min</span><span>60 s</span>
+        <span>2,4 min</span><span>$x$</span>
+      </div>
+      $$1 \cdot x = 60 \cdot 2{,}4 \;\Rightarrow\; x = 144\ \text{s}$$
+      <p class="gabarito-linha">Gabarito: <strong>C</strong></p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">2</span><span class="questao-fonte">G1 – CFTRJ 2019</span></p>
+    <p>Podemos considerar que a velocidade de crescimento do cabelo humano é, em média, de 1 milímetro a cada três dias. Essa velocidade pode variar de pessoa para pessoa, mas é constante para cada um de nós, não havendo qualquer base científica que comprove que podemos acelerar o crescimento capilar cortando o cabelo em determinada fase da Lua ou aparando as pontas para dar força ao fio. O que se pode afirmar é que os hábitos de alimentação e o metabolismo de cada indivíduo influenciam diretamente no crescimento dos fios.</p>
+    <p>Se os cabelos de uma jovem têm velocidade de crescimento que acompanha a média, em quanto tempo seu cabelo crescerá 9 cm?</p>
+    <ol class="alternativas">
+      <li>9 horas.</li>
+      <li>9 dias.</li>
+      <li>9 meses.</li>
+      <li>9 anos.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Usando regra de três simples e direta, com $9\ \text{cm} = 90\ \text{mm}$:</p>
+      <div class="proporcao proporcao--direta">
+        <span>1 mm</span><span>3 dias</span>
+        <span>90 mm</span><span>$t$</span>
+      </div>
+      $$t = 270\ \text{dias} \approx 9\ \text{meses}$$
+      <p class="gabarito-linha">Gabarito: <strong>C</strong></p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">3</span><span class="questao-fonte">PUC-RJ</span></p>
+    <p>Você está viajando a uma velocidade de 1 km/min. Sua velocidade em km/h é:</p>
+    <ol class="alternativas">
+      <li>3600</li>
+      <li>$1/60$</li>
+      <li>3,6</li>
+      <li>60</li>
+      <li>$1/3600$</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Usando regra de três simples:</p>
+      <div class="proporcao proporcao--direta">
+        <span>1 h</span><span>60 min</span>
+        <span>$x$</span><span>1 min</span>
+      </div>
+      $$x = \frac{1}{60}\ \text{h}$$
+      <p>Portanto,</p>
+      $$1\ \frac{\text{km}}{\text{min}} = \frac{1\ \text{km}}{\frac{1}{60}\ \text{h}} = 60\ \text{km/h}$$
+      <p class="gabarito-linha">Gabarito: <strong>D</strong></p>
+    </details>
+  </article>
+</section>
+
+<section class="secao" id="notacao-cientifica">
+  <h2>Notação científica</h2>
+  <p>A <strong>notação científica</strong> é uma maneira simplificada de representar valores compostos por muitos algarismos. De forma geral, escrevemos um número em notação científica assim:</p>
+
+  <div class="formula">
+    $$X = N \cdot 10^{L}$$
+    <dl class="formula-legenda">
+      <div><dt>$X$</dt><dd>número em notação científica</dd></div>
+      <div><dt>$N$</dt><dd>valor numérico, com $1 \le N &lt; 10$</dd></div>
+      <div><dt>$L$</dt><dd>expoente (inteiro)</dd></div>
+      <div><dt>$10$</dt><dd>base da potência</dd></div>
+    </dl>
+  </div>
+
+  <p class="rotulo">Exemplos</p>
+  <ol class="exemplos">
+    <li>$24.000.000 = 2{,}4 \cdot 10^{7}$</li>
+    <li>$624.000.000.000.000 = 6{,}24 \cdot 10^{14}$</li>
+    <li>$0{,}000013 = 1{,}3 \cdot 10^{-5}$</li>
+    <li>$0{,}000000234 = 2{,}34 \cdot 10^{-7}$</li>
+  </ol>
+
+  <p class="rotulo">Regra simples</p>
+  <ol class="regras">
+    <li>
+      <p>Se “passarmos” a vírgula da <strong>direita para a esquerda</strong>, o expoente é <strong>positivo</strong>.</p>
+      <div class="virgula virgula--esquerda">$24.000.000 = 2{,}4 \cdot 10^{\htmlClass{sinal sinal--mais}{(+)}7}$</div>
+    </li>
+    <li>
+      <p>Se “passarmos” a vírgula da <strong>esquerda para a direita</strong>, o expoente é <strong>negativo</strong>.</p>
+      <div class="virgula virgula--direita">$0{,}000013 = 1{,}3 \cdot 10^{\htmlClass{sinal sinal--menos}{(-)}5}$</div>
+    </li>
+  </ol>
+</section>
+
+<section class="secao" id="ordem-de-grandeza">
+  <h2>Ordem de grandeza</h2>
+  <p>A <strong>ordem de grandeza</strong> de uma medida é a potência de base 10 mais próxima do valor encontrado para a grandeza. É uma estimativa que nos dá uma ideia do tamanho da medida.</p>
+
+  <p class="rotulo">Regras</p>
+  <ol class="regras">
+    <li>Escreva a medida em notação científica: $N \cdot 10^{L}$.</li>
+    <li>
+      Analise o valor de $N$:
+      <div class="decisao">
+        <div class="decisao-caso">
+          <p class="decisao-condicao">$N &lt; \sqrt{10} \approx 3{,}16$</p>
+          <p class="decisao-resultado">$\text{OG} = 10^{L}$</p>
+          <p class="decisao-nota">$L$ não muda</p>
+        </div>
+        <div class="decisao-caso">
+          <p class="decisao-condicao">$N \ge \sqrt{10} \approx 3{,}16$</p>
+          <p class="decisao-resultado">$\text{OG} = 10^{L+1}$</p>
+          <p class="decisao-nota">soma-se 1 ao expoente</p>
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section class="secao pratica" id="pratica-2">
+  <h2 class="selo">Hora de praticar!</h2>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">Uespi 2012</span></p>
+    <p>Estima-se que o planeta Terra tenha se formado há cerca de 4,5 bilhões de anos. Qual é a ordem de grandeza da idade da Terra em horas?</p>
+    <ol class="alternativas">
+      <li>$10^{11}$</li>
+      <li>$10^{14}$</li>
+      <li>$10^{15}$</li>
+      <li>$10^{17}$</li>
+      <li>$10^{19}$</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Lembremos o critério para estabelecer a ordem de grandeza (OG). Escreve-se o número em notação científica, $N = k \cdot 10^{n}$:</p>
+      $$\begin{cases} |k| &lt; \sqrt{10} \;\Rightarrow\; \text{OG} = 10^{n} \\ |k| \ge \sqrt{10} \;\Rightarrow\; \text{OG} = 10^{n+1} \end{cases}$$
+      <p>Para o exercício, temos $\Delta t = 4{,}5$ bilhões de anos:</p>
+      $$\begin{aligned} \Delta t &= 4{,}5 \cdot 10^{9}\ \text{anos} \times 365\ \frac{\text{dias}}{\text{ano}} \times 24\ \frac{\text{horas}}{\text{dia}} \\ \Delta t &\approx 3{,}9 \cdot 10^{13}\ \text{horas} \end{aligned}$$
+      <p>Como $3{,}9 &gt; \sqrt{10}$:</p>
+      $$\text{OG} = 10^{13+1} = 10^{14}$$
+      <p class="gabarito-linha">Gabarito: <strong>B</strong></p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">2</span><span class="questao-fonte">UPF 2021</span></p>
+    <p>A galáxia de Andrômeda é considerada atualmente a mais próxima da Via Láctea, estando a aproximadamente 2,54 milhões de anos-luz de distância da Terra. Isso significa que a distância de Andrômeda até a Terra, em metros, é da ordem de grandeza de: (Considere a velocidade da luz como sendo $3 \cdot 10^{8}\ \text{m/s}$.)</p>
+    <ol class="alternativas">
+      <li>$10^{17}$</li>
+      <li>$10^{22}$</li>
+      <li>$10^{21}$</li>
+      <li>$10^{23}$</li>
+      <li>$10^{15}$</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Quantidade de segundos em 1 ano:</p>
+      $$365 \cdot 24 \cdot 60 \cdot 60\ \text{s} \cong 3{,}15 \cdot 10^{7}\ \text{s}$$
+      <p>Assim, a distância entre Andrômeda e a Terra equivale a:</p>
+      $$\begin{aligned} \Delta s &= v \cdot \Delta t \\ \Delta s &= 3 \cdot 10^{8} \cdot \left(3{,}15 \cdot 10^{7} \cdot 2{,}54 \cdot 10^{6}\right) \\ \Delta s &\approx 2{,}4 \cdot 10^{22}\ \text{m} \end{aligned}$$
+      <p>Portanto, a ordem de grandeza é $10^{22}$.</p>
+      <p class="gabarito-linha">Gabarito: <strong>B</strong></p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="">
+    <p class="questao-cab"><span class="questao-num">3</span><span class="questao-fonte">UFPE 2011</span></p>
+    <p>Um estudante de Física aceita o desafio de determinar a ordem de grandeza do número de feijões em 5 kg de feijão, sem utilizar qualquer instrumento de medição. Ele simplesmente despeja os feijões em um recipiente com formato de paralelepípedo e conta quantos feijões há na aresta de menor comprimento $c$, como mostrado na figura. Ele verifica que a aresta $c$ comporta 10 feijões. Calcule a potência da ordem de grandeza do número de feijões no recipiente, sabendo que a relação entre os comprimentos das arestas é:</p>
+    $$\frac{a}{4} = \frac{b}{3} = \frac{c}{1}$$
+    <figure class="figura">
+      <img src="assets/figuras/cap01-feijoes.jpg" width="291" height="339" alt="Recipiente em forma de paralelepípedo cheio de feijões, com arestas a (altura), b (profundidade) e c (largura); a aresta c comporta 10 feijões.">
+      <figcaption>Fonte: Interbits®</figcaption>
+    </figure>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      $$\frac{a}{4} = \frac{b}{3} = \frac{c}{1} \;\Rightarrow\; a = 4c,\quad b = 3c$$
+      $$\begin{aligned} V &= a \cdot b \cdot c = 4c \cdot 3c \cdot c = 12c^{3} \\ V &= 12 \cdot 10^{3} = 1{,}2 \cdot 10^{4} \;\rightarrow\; 10^{4} \end{aligned}$$
+      <p>Portanto, a potência da ordem de grandeza do número de feijões é igual a <strong>4</strong>.</p>
+    </details>
+  </article>
+</section>
+
+<section class="secao lista" id="lista">
+  <h2 class="selo">Lista de exercícios</h2>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">UFPE</span></p>
+    <p>Em um bairro com 2500 casas, o consumo médio diário de água por casa é de 1000 litros. Qual a ordem de grandeza do volume que a caixa d’água do bairro deve ter, em m³, para abastecer todas as casas por um dia, sem faltar água?</p>
+    <ol class="alternativas">
+      <li>$10^{3}$</li><li>$10^{4}$</li><li>$10^{5}$</li><li>$10^{6}$</li><li>$10^{7}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">2</span><span class="questao-fonte">UFRRJ</span></p>
+    <p>Uma determinada marca de automóvel possui um tanque de gasolina com volume igual a 54 litros. O manual de apresentação do veículo informa que ele pode percorrer 12 km com 1 litro. Supondo-se que as informações do fabricante sejam verdadeiras, a ordem de grandeza da distância, medida em metros, que o automóvel pode percorrer, após ter o tanque completamente cheio, sem precisar reabastecer, é de:</p>
+    <ol class="alternativas">
+      <li>$10^{0}$</li><li>$10^{2}$</li><li>$10^{3}$</li><li>$10^{5}$</li><li>$10^{6}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">3</span><span class="questao-fonte">UFU</span></p>
+    <p>Em 2014, um importante trabalho publicado revelou novos dados sobre a estrutura em larga escala do universo, indicando que nossa galáxia faz parte de um superaglomerado chamado Laniakea, com massa de cerca de $10^{17}$ estrelas como o Sol, que tem $2 \cdot 10^{30}\ \text{kg}$ de massa, aproximadamente. Em 2015, o Prêmio Nobel de Física foi concedido a cientistas que descobriram uma das menores massas, $4 \cdot 10^{-33}\ \text{g}$, a de um neutrino, um tipo de partícula elementar.</p>
+    <p>Em ciência, uma maneira de se trabalhar com valores muito grandes ou muito pequenos é a ordem de grandeza. Com base nas duas descobertas apontadas, quantas vezes a ordem de grandeza da massa de Laniakea é maior do que a de um neutrino?</p>
+    <ol class="alternativas">
+      <li>$10^{82}$</li><li>$10^{79}$</li><li>$10^{49}$</li><li>$10^{62}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">4</span><span class="questao-fonte">UFC</span></p>
+    <p>Uma esfera de cobre com raio da ordem de micrômetros possui uma carga da ordem de dez mil cargas elementares, distribuídas uniformemente sobre sua superfície. Considere que a densidade superficial é mantida constante. Assinale a alternativa que contém a ordem de grandeza do número de cargas elementares em uma esfera de cobre com raio da ordem de milímetros.</p>
+    <ol class="alternativas">
+      <li>$10^{19}$</li><li>$10^{16}$</li><li>$10^{13}$</li><li>$10^{10}$</li><li>$10^{1}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">5</span><span class="questao-fonte">Cesgranrio</span></p>
+    <p>O fumo é comprovadamente um vício prejudicial à saúde. Segundo dados da Organização Mundial da Saúde, um fumante médio, ou seja, aquele que consome cerca de 10 cigarros por dia, ao chegar à meia-idade terá problemas cardiovasculares. A ordem de grandeza do número de cigarros consumidos por esse fumante durante 30 anos é de:</p>
+    <ol class="alternativas">
+      <li>$10^{2}$</li><li>$10^{3}$</li><li>$10^{4}$</li><li>$10^{5}$</li><li>$10^{6}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">6</span><span class="questao-fonte">UFPE</span></p>
+    <p>O fluxo total de sangue na grande circulação, também chamado de débito cardíaco, faz com que o coração de um homem adulto seja responsável pelo bombeamento, em média, de 20 litros por minuto. Qual a ordem de grandeza do volume de sangue, em litros, bombeado pelo coração em um dia?</p>
+    <ol class="alternativas">
+      <li>$10^{2}$</li><li>$10^{3}$</li><li>$10^{4}$</li><li>$10^{5}$</li><li>$10^{6}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">7</span><span class="questao-fonte">Enem PPL</span></p>
+    <p>Astrônomos medem a velocidade de afastamento de galáxias distantes pela detecção da luz emitida por esses sistemas. A Lei de Hubble afirma que a velocidade de afastamento de uma galáxia (em km/s) é proporcional à sua distância até a Terra, medida em megaparsec (Mpc). Nessa lei, a constante de proporcionalidade é a constante de Hubble ($H_0$) e seu valor mais aceito é de $72\ \frac{\text{km/s}}{\text{Mpc}}$. O parsec (pc) é uma unidade de distância utilizada em astronomia que vale aproximadamente $3 \cdot 10^{16}\ \text{m}$. Observações astronômicas determinaram que a velocidade de afastamento de uma determinada galáxia é de 1.440 km/s. Utilizando a Lei de Hubble, pode-se concluir que a distância até essa galáxia, medida em km, é igual a:</p>
+    <ol class="alternativas">
+      <li>$20 \cdot 10^{0}$</li><li>$20 \cdot 10^{6}$</li><li>$6 \cdot 10^{20}$</li><li>$6 \cdot 10^{23}$</li><li>$6 \cdot 10^{26}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">8</span><span class="questao-fonte">CFTCE</span></p>
+    <p>No painel de um carro, está indicado no velocímetro que ele já “rodou” 120.000 km. A alternativa que melhor indica a ordem de grandeza do número de voltas efetuadas pela roda desse carro, sabendo que o diâmetro dela vale 50 cm, é: (Adote $\pi = 3$. Despreze possíveis derrapagens e frenagens.)</p>
+    <ol class="alternativas">
+      <li>$10^{8}$</li><li>$10^{7}$</li><li>$10^{6}$</li><li>$10^{5}$</li><li>$10^{4}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">9</span><span class="questao-fonte">UFRRJ</span></p>
+    <p>O censo populacional realizado em 1970 constatou que a população do Brasil era de 90 milhões de habitantes. Hoje, o censo estima uma população de 150 milhões de habitantes. A ordem de grandeza que melhor expressa o aumento populacional é:</p>
+    <ol class="alternativas">
+      <li>$10^{6}$</li><li>$10^{7}$</li><li>$10^{8}$</li><li>$10^{9}$</li><li>$10^{10}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">10</span><span class="questao-fonte">Udesc</span></p>
+    <p>Assinale a alternativa que expressa CORRETAMENTE as unidades do SI (Sistema Internacional de Unidades) para medir as grandezas comprimento, massa e tempo, respectivamente.</p>
+    <ol class="alternativas">
+      <li>quilômetro (km), tonelada (t) e hora (h).</li>
+      <li>quilômetro (km), quilograma (kg) e hora (h).</li>
+      <li>metro (m), grama (g) e segundo (s).</li>
+      <li>metro (m), quilograma (kg) e segundo (s).</li>
+      <li>centímetro (cm), grama (g) e segundo (s).</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">11</span><span class="questao-fonte">UFV</span></p>
+    <p>Considere o volume de uma gota como $5{,}0 \cdot 10^{-2}\ \text{mL}$. A ordem de grandeza do número de gotas em um litro de água é:</p>
+    <ol class="alternativas">
+      <li>$10^{3}$</li><li>$10^{5}$</li><li>$10^{2}$</li><li>$10^{4}$</li><li>$10^{6}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">12</span><span class="questao-fonte">UFF</span></p>
+    <p>Os produtos químicos que liberam clorofluorcarbonos para a atmosfera têm sido considerados pelos ambientalistas como um dos causadores da destruição do ozônio na estratosfera. A cada primavera aparece no hemisfério sul, particularmente na Antártida, uma região de baixa camada de ozônio (“buraco”). No ano 2000, a área dessa região equivalia a, aproximadamente, 5% da superfície de nosso planeta.</p>
+    <p>A ordem de grandeza que estima, em km², a área mencionada é: (Dado: raio da Terra $= 6{,}4 \cdot 10^{3}\ \text{km}$.)</p>
+    <ol class="alternativas">
+      <li>$10^{3}$</li><li>$10^{4}$</li><li>$10^{7}$</li><li>$10^{9}$</li><li>$10^{12}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">13</span><span class="questao-fonte">FEI</span></p>
+    <p>A massa do Sol é cerca de $1{,}99 \cdot 10^{30}\ \text{kg}$. A massa do átomo de hidrogênio, constituinte principal do Sol, é $1{,}67 \cdot 10^{-27}\ \text{kg}$. Quantos átomos de hidrogênio há, aproximadamente, no Sol?</p>
+    <ol class="alternativas">
+      <li>$1{,}5 \cdot 10^{-57}$ átomos</li>
+      <li>$1{,}2 \cdot 10^{57}$ átomos</li>
+      <li>$1{,}5 \cdot 10^{57}$ átomos</li>
+      <li>$1{,}2 \cdot 10^{-57}$ átomos</li>
+      <li>$1{,}2 \cdot 10^{3}$ átomos</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">14</span><span class="questao-fonte">UFPE</span></p>
+    <p>Qual a ordem de grandeza, em km/h, da velocidade orbital da Terra em torno do Sol? A distância média da Terra ao Sol é $1{,}5 \cdot 10^{8}\ \text{km}$.</p>
+    <ol class="alternativas">
+      <li>$10^{6}$</li><li>$10^{5}$</li><li>$10^{4}$</li><li>$10^{3}$</li><li>$10^{2}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">15</span><span class="questao-fonte">UFPI</span></p>
+    <p>A nossa galáxia, a Via Láctea, contém cerca de 400 bilhões de estrelas. Suponha que 0,05% dessas estrelas possuam um sistema planetário onde exista um planeta semelhante à Terra. O número de planetas semelhantes à Terra, na Via Láctea, é:</p>
+    <ol class="alternativas">
+      <li>$2 \cdot 10^{4}$</li><li>$2 \cdot 10^{6}$</li><li>$2 \cdot 10^{8}$</li><li>$2 \cdot 10^{11}$</li><li>$2 \cdot 10^{12}$</li>
+    </ol>
+  </article>
+
+  <!-- O gabarito é gerado pelo build a partir dos data-gabarito da lista. -->
+  <aside class="gabarito" data-gerar-gabarito></aside>
+</section>
