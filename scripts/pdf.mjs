@@ -1,6 +1,6 @@
 // Gera o PDF A4 de cada capítulo em dist/ a partir da versão web.
 // Três passadas, unidas com pdf-lib:
-//   1. capa (página inteira, sem margens)
+//   1. abertura do capítulo (página inteira, sem margens)
 //   2. moldura (cabeçalho, rodapé e formas da marca numa A4 transparente)
 //   3. miolo (duas colunas, numerado a partir de 1)
 // Cada página do miolo recebe a moldura por baixo, como um papel timbrado.
@@ -34,16 +34,16 @@ async function imprimir(url, classe) {
   return pagina.pdf({ preferCSSPageSize: true, printBackground: true });
 }
 
-const capitulos = (await readdir(dist)).filter((f) => f.endsWith(".html") && !["index.html", "artifact.html"].includes(f));
+const capitulos = (await readdir(dist)).filter((f) => f.endsWith(".html") && f !== "index.html" && !f.startsWith("artifact"));
 for (const arquivo of capitulos) {
   const url = pathToFileURL(path.join(dist, arquivo)).href;
-  const capa = await imprimir(url, "imprimir-capa");
+  const abertura = await imprimir(url, "imprimir-abertura");
   const moldura = await imprimir(url, "imprimir-moldura");
   const miolo = await imprimir(url, "imprimir-conteudo");
 
   const final = await PDFDocument.create();
-  const [paginaCapa] = await final.copyPages(await PDFDocument.load(capa), [0]);
-  final.addPage(paginaCapa);
+  const [paginaAbertura] = await final.copyPages(await PDFDocument.load(abertura), [0]);
+  final.addPage(paginaAbertura);
 
   const [timbre] = await final.embedPdf(moldura, [0]);
   const docMiolo = await PDFDocument.load(miolo);

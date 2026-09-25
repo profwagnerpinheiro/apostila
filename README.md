@@ -2,7 +2,7 @@
 
 Material didático de Física escrito uma vez em HTML e publicado em dois formatos:
 
-- **PDF A4** para impressão, com capa, duas colunas e a identidade visual da marca → [`pdf/`](pdf/)
+- **PDF A4** para impressão, no formato de livro didático (abertura de capítulo, boxes na margem, exercícios resolvidos e propostos) → [`pdf/`](pdf/)
 - **Versão web** para ler no celular, com sumário, tema escuro e modo estudo (o aluno marca a alternativa e recebe a correção na hora)
 
 O guia visual completo (cores, fontes, grade, componentes e como escrever cada um) está em **[DESIGN.md](DESIGN.md)**.
@@ -11,7 +11,8 @@ O guia visual completo (cores, fontes, grade, componentes e como escrever cada u
 
 | Nº | Capítulo | PDF |
 |---|---|---|
-| 01 | Conceitos Básicos de Física | [cap01-conceitos-basicos.pdf](pdf/cap01-conceitos-basicos.pdf) |
+| 1 | Conceitos básicos de Física | [cap01-conceitos-basicos.pdf](pdf/cap01-conceitos-basicos.pdf) |
+| 2 | Vetores | [cap02-vetores.pdf](pdf/cap02-vetores.pdf) |
 
 ## Como usar
 
@@ -31,23 +32,24 @@ npm run dev     # gera e abre em http://localhost:4321
 ```
 src/
   capitulos/        um arquivo HTML por capítulo (conteúdo + bloco meta)
-  layout.html       capa, moldura das páginas, sumário e rodapé
+  layout.html       abertura do capítulo, moldura das páginas, sumário e rodapé
   styles/
     tokens.css      cores, fontes, escala — a fonte da verdade do design
     apostila.css    componentes e versão web
-    print.css       A4, duas colunas, capa e moldura
+    print.css       A4 de livro: coluna de texto + margem, abertura e moldura
   scripts/apostila.js   modo estudo (web)
   assets/figuras/   imagens dos capítulos
 scripts/
-  build.mjs         monta o HTML, renderiza as fórmulas (KaTeX), gera sumário e gabarito
-  pdf.mjs           imprime capa, moldura e miolo com o Chromium e junta tudo num PDF
+  build.mjs         monta o HTML, numera seções/tabelas/figuras, renderiza as fórmulas (KaTeX), gera sumário e respostas
+  figuras.mjs       figuras vetoriais (setas, ângulos) e ilustrações das aberturas
+  pdf.mjs           imprime abertura, moldura e miolo com o Chromium e junta tudo num PDF
   serve.mjs         servidor local para a versão web
 pdf/                PDFs gerados (versionados para download direto)
 ```
 
 ## Novo capítulo
 
-1. Copie `src/capitulos/01-conceitos-basicos.html` para `src/capitulos/02-<assunto>.html`.
-2. Ajuste o bloco `<!-- meta { … } -->` do topo: `numero`, `titulo`, `tituloCapa` (linhas do título da capa), `arquivo` e `topicos`.
+1. Copie `src/capitulos/02-vetores.html` para `src/capitulos/03-<assunto>.html`.
+2. Ajuste o bloco `<!-- meta { … } -->` do topo: `numero`, `titulo`, `arquivo`, `ilustracao`, `paraComecar` e `objetivos`.
 3. Escreva o conteúdo com os componentes do [DESIGN.md](DESIGN.md). Fórmulas em LaTeX entre `$…$` ou `$$…$$`.
 4. Rode `npm run pdf` e confira o resultado em `pdf/` e em `dist/`.

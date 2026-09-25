@@ -17,53 +17,49 @@
 <!-- Barra superior (só na tela) -->
 <header class="barra">
   <a class="barra-marca" href="#topo" aria-label="Início do capítulo">{{atomo}}</a>
-  <p class="barra-titulo"><span class="barra-cap">Cap. {{numero}}</span> {{titulo}}</p>
+  <p class="barra-titulo"><span class="barra-cap">Capítulo {{numero}}</span> {{titulo}}</p>
 </header>
 
-<!-- Capa -->
-<section class="capa" id="topo">
-  <svg class="capa-deco capa-deco--topo" viewBox="0 0 118 62" aria-hidden="true">
-    <polygon class="deco-laranja" points="0,0 118,0 88,30 0,14"/>
-    <polygon class="deco-marinho" points="0,17 42,24 0,62"/>
-  </svg>
-  <svg class="capa-deco capa-deco--base" viewBox="92 235 118 62" aria-hidden="true">
-    <polygon class="deco-laranja" points="210,297 92,297 118,262 210,277"/>
-    <polygon class="deco-marinho" points="210,280 168,273 210,235"/>
-  </svg>
-  <div class="capa-miolo">
-    <div class="marca marca--capa">{{atomo}}<p class="marca-nome">Wagner Pinheiro</p><p class="marca-area">Física</p></div>
-    <h1 class="capa-titulo">{{tituloCapaHtml}}</h1>
-    <p class="capa-capitulo">Capítulo {{numero}}</p>
-    <div class="capa-topicos">
-      <p class="capa-topicos-rotulo">Neste capítulo</p>
-      <ul>{{topicosHtml}}</ul>
+<!-- Abertura do capítulo -->
+<section class="abertura" id="topo">
+  <div class="abertura-faixa">
+    <div class="abertura-cabeca">
+      <p class="abertura-rotulo">Capítulo</p>
+      <p class="abertura-numero">{{numero}}</p>
+      <h1 class="abertura-titulo">{{titulo}}</h1>
     </div>
-    <figure class="regua" aria-label="Régua milimetrada de 10 cm">
-      {{regua}}
-      <figcaption>régua em escala real · 10 cm</figcaption>
+    <figure class="abertura-ilustracao">
+      <div class="ilustracao-rolagem">{{ilustracao}}</div>
+      <figcaption>{{legendaIlustracao}}</figcaption>
     </figure>
-    <p class="capa-volume">{{volume}} · {{ano}}</p>
+  </div>
+  <div class="abertura-texto">
+    <div class="para-comecar">
+      <h2 class="abertura-secao">Para começar</h2>
+      <p>{{paraComecar}}</p>
+    </div>
+    <div class="objetivos">
+      <h2 class="abertura-secao">Neste capítulo você vai</h2>
+      <ul>{{objetivosHtml}}</ul>
+    </div>
+  </div>
+  <div class="abertura-pe">
+    <div class="marca">{{atomo}}<p class="marca-nome">Wagner Pinheiro <span>Física</span></p></div>
+    <p class="abertura-volume">{{volume}} · {{ano}}</p>
   </div>
 </section>
 
-<!-- Moldura da página impressa: gerada à parte e aplicada sob cada página do miolo (scripts/pdf.mjs) -->
+<!-- Moldura das páginas impressas: cabeçalho corrido, aba lateral e rodapé.
+     Impressa à parte e aplicada sob cada página do miolo (scripts/pdf.mjs). -->
 <div class="moldura" aria-hidden="true">
-<div class="pagina-topo">
-  <svg class="pagina-faixa" viewBox="0 0 210 30" preserveAspectRatio="none">
-    <polygon class="deco-laranja" points="0,0 118,0 104,9 0,9"/>
-    <polygon class="deco-marinho" points="0,9 11,9 0,30"/>
-  </svg>
-  <div class="marca marca--pagina">{{atomo}}<p class="marca-nome">Wagner Pinheiro</p><p class="marca-area">Física</p></div>
-</div>
-<div class="pagina-lado">
-  <svg viewBox="0 0 12 60" preserveAspectRatio="none"><polygon class="deco-marinho" points="12,0 12,60 0,60 0,14"/></svg>
-</div>
-<div class="pagina-rodape">
-  <svg class="pagina-faixa" viewBox="0 0 210 8" preserveAspectRatio="none">
-    <polygon class="deco-laranja" points="0,8 0,0 210,0 210,8"/>
-  </svg>
-  <ul class="contatos">{{contatos}}</ul>
-</div>
+  <div class="cabeca-corrida">
+    <p class="cabeca-corrida-titulo"><span>Capítulo {{numero}}</span> {{titulo}}</p>
+    <div class="marca">{{atomo}}<p class="marca-nome">Wagner Pinheiro <span>Física</span></p></div>
+  </div>
+  <div class="aba" style="--aba: {{numero}}"><span>{{numero}}</span></div>
+  <div class="pe-corrido">
+    <ul class="contatos">{{contatos}}</ul>
+  </div>
 </div>
 
 <div class="leiaute">
@@ -77,7 +73,7 @@
 </div>
 
 <footer class="rodape-web">
-  <div class="marca marca--rodape">{{atomo}}<p class="marca-nome">Wagner Pinheiro</p><p class="marca-area">Física</p></div>
+  <div class="marca">{{atomo}}<p class="marca-nome">Wagner Pinheiro <span>Física</span></p></div>
   <ul class="contatos">{{contatos}}</ul>
 </footer>
 

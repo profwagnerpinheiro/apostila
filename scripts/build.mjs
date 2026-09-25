@@ -1,16 +1,18 @@
 // Gera a versão web (dist/) de cada capítulo em src/capitulos.
 //
 //   node scripts/build.mjs             -> dist/<capitulo>.html + dist/index.html
-//   node scripts/build.mjs --artifact  -> também dist/artifact.html (sem <html>/<head>, para publicar como Artifact)
+//   node scripts/build.mjs --artifact  -> também dist/artifact*.html (sem <html>/<head>, para publicar como Artifact)
 //
 // O capítulo é escrito em HTML com fórmulas LaTeX entre $…$ (inline) e $$…$$ (destaque).
-// As fórmulas são convertidas aqui com KaTeX, então o HTML final não depende de JavaScript para exibir a matemática.
+// O build cuida da parte "de livro": numera seções, tabelas e figuras, monta o sumário
+// e o gabarito, desenha as figuras vetoriais e converte as fórmulas com KaTeX.
 
 import { readFile, writeFile, mkdir, readdir, cp, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import katex from "katex";
+import { substituirFiguras, ilustracoes } from "./figuras.mjs";
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const src = path.join(raiz, "src");
@@ -42,7 +44,7 @@ function renderizarMatematica(html, origem) {
     .replace(/\$([^$\n]+?)\$/g, (_, tex) => renderizar(tex, false, origem));
 }
 
-// ---------------------------------------------------------------- peças gráficas
+// ---------------------------------------------------------------- marca e rodapé
 
 const atomo = `<svg class="atomo" viewBox="0 0 64 64" role="img" aria-label="Logo: átomo">
   <g class="atomo-orbitas" fill="none" stroke-width="3.2">
@@ -55,21 +57,6 @@ const atomo = `<svg class="atomo" viewBox="0 0 64 64" role="img" aria-label="Log
   <circle class="atomo-eletron" cx="45.5" cy="56.4" r="3.2"/>
   <circle class="atomo-eletron" cx="46" cy="7.8" r="3.2"/>
 </svg>`;
-
-// Régua de 100 mm desenhada em milímetros reais (viewBox em mm, largura 100mm no impresso).
-function regua() {
-  const tracos = [];
-  const numeros = [];
-  for (let mm = 0; mm <= 100; mm++) {
-    const altura = mm % 10 === 0 ? 5 : mm % 5 === 0 ? 3.4 : 2;
-    tracos.push(`M${mm + 0.5} 0v${altura}`);
-    if (mm % 10 === 0) numeros.push(`<text x="${mm + 0.5}" y="9.2">${mm / 10}</text>`);
-  }
-  return `<svg class="regua-svg" viewBox="0 0 101 10.5" aria-hidden="true">
-    <path class="regua-tracos" d="${tracos.join("")}"/>
-    <g class="regua-numeros">${numeros.join("")}</g>
-  </svg>`;
-}
 
 const icones = {
   instagram: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>`,
@@ -85,7 +72,7 @@ const contatos = [
   .map(([icone, texto]) => `<li class="contato contato--${icone}">${icones[icone]}<span>${texto}</span></li>`)
   .join("");
 
-// ---------------------------------------------------------------- capítulo
+// ---------------------------------------------------------------- estrutura de livro
 
 function lerMeta(html, arquivo) {
   const m = html.match(/<!--\s*meta\s*([\s\S]*?)-->/);
@@ -93,23 +80,71 @@ function lerMeta(html, arquivo) {
   return { meta: JSON.parse(m[1]), corpo: html.slice(m.index + m[0].length) };
 }
 
-function gerarGabarito(corpo) {
-  const inicio = corpo.indexOf('class="secao lista"');
-  if (inicio < 0) return corpo;
-  const lista = corpo.slice(inicio);
-  const itens = [...lista.matchAll(/data-gabarito="([a-e]?)"[^>]*>\s*<p class="questao-cab"><span class="questao-num">(\d+)<\/span>/g)]
-    .map(([, letra, num]) => `<li><span class="gabarito-num">${num}</span><span class="gabarito-letra">${letra.toUpperCase() || "—"}</span></li>`)
-    .join("");
-  const bloco = `<details class="gabarito"><summary>Gabarito</summary><ol>${itens}</ol></details>`;
-  return corpo.replace(/<aside class="gabarito" data-gerar-gabarito><\/aside>/, bloco);
+const semTags = (s) => s.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+
+// Divide o corpo em <section class="secao ..."> para tratar teoria e exercícios de forma diferente.
+function secoes(corpo) {
+  return [...corpo.matchAll(/<section class="secao([^"]*)" id="([^"]+)">[\s\S]*?<\/section>/g)].map((m) => ({
+    html: m[0],
+    exercicios: /\bexercicios\b/.test(m[1]),
+    id: m[2],
+  }));
+}
+
+// Seções de teoria recebem número (1, 2, 3…); tabelas e figuras da teoria, "Tabela 2.1", "Figura 2.3".
+function numerar(corpo, cap) {
+  let secao = 0;
+  let tabela = 0;
+  let figura = 0;
+  for (const s of secoes(corpo)) {
+    let html = s.html;
+    if (!s.exercicios) {
+      secao += 1;
+      html = html.replace(/<h2>/, `<h2><span class="secao-num">${secao}</span> `);
+    }
+    html = html.replace(/<caption>/g, () => `<caption><span class="legenda-num">Tabela ${cap}.${++tabela}</span> `);
+    if (!s.exercicios) {
+      html = html.replace(/(<figure class="(?:figura|esquema)[^"]*">[\s\S]*?)<figcaption>/g, (_, antes) => `${antes}<figcaption><span class="legenda-num">Figura ${cap}.${++figura}</span> `);
+    }
+    corpo = corpo.replace(s.html, () => html); // função: o HTML tem "$" das fórmulas
+  }
+  return corpo;
 }
 
 function gerarSumario(corpo) {
-  const itens = [];
-  for (const [, id, titulo] of corpo.matchAll(/<section class="secao[^"]*" id="([^"]+)">\s*<h2[^>]*>([\s\S]*?)<\/h2>/g)) {
-    itens.push(`<li><a href="#${id}">${titulo.replace(/<[^>]+>/g, "")}</a></li>`);
-  }
-  return itens.join("");
+  return secoes(corpo)
+    .map((s) => {
+      const h2 = s.html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/);
+      const num = h2[1].match(/<span class="secao-num">(\d+)<\/span>/);
+      const titulo = semTags(h2[1].replace(/<span class="secao-num">\d+<\/span>/, ""));
+      const marcador = num ? num[1] : "•";
+      return `<li class="${s.exercicios ? "sumario-exercicios" : ""}"><a href="#${s.id}"><span class="sumario-num">${marcador}</span>${titulo}</a></li>`;
+    })
+    .join("");
+}
+
+function gerarGabarito(corpo) {
+  const inicio = corpo.indexOf("exercicios--propostos");
+  if (inicio < 0) return corpo;
+  const lista = corpo.slice(inicio);
+  const itens = [...lista.matchAll(/data-gabarito="([a-e]?)"[^>]*>[\s\S]*?<span class="questao-num">(\w+)<\/span>/g)]
+    .map(([, letra, num]) => `<li><span class="gabarito-num">${num}.</span> <span class="gabarito-letra">${letra || "—"}</span></li>`)
+    .join("");
+  const bloco = `<details class="gabarito"><summary>Respostas</summary><ol>${itens}</ol></details>`;
+  return corpo.replace(/<aside class="gabarito" data-gerar-gabarito><\/aside>/, bloco);
+}
+
+// Alternativas curtas (potências de 10, números) ficam lado a lado em colunas alinhadas;
+// as médias, em linha corrida; as longas, uma por linha.
+function marcarAlternativasCurtas(corpo) {
+  return corpo.replace(/<ol class="alternativas">([\s\S]*?)<\/ol>/g, (bloco, itens) => {
+    // comprimento aproximado do que aparece na página (sem comandos LaTeX, $, chaves etc.)
+    const visivel = (t) => semTags(t).replace(/\\cdot/g, "·").replace(/\\[a-zA-Z]+/g, "").replace(/[${}^_\\]/g, "").replace(/\s+/g, " ").trim();
+    const textos = [...itens.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => visivel(m[1]));
+    const maior = Math.max(...textos.map((t) => t.length));
+    const tipo = maior <= 10 ? "curtas" : maior <= 24 ? "medias" : "";
+    return tipo ? bloco.replace('class="alternativas"', `class="alternativas alternativas--${tipo}"`) : bloco;
+  });
 }
 
 function preencher(modelo, dados) {
@@ -121,21 +156,30 @@ function preencher(modelo, dados) {
 
 async function construirCapitulo(arquivo, layout) {
   const bruto = await readFile(path.join(src, "capitulos", arquivo), "utf8");
-  const { meta, corpo: corpoBruto } = lerMeta(bruto, arquivo);
-  const corpo = renderizarMatematica(gerarGabarito(corpoBruto), arquivo);
+  const { meta, corpo: original } = lerMeta(bruto, arquivo);
+  const ilustrar = ilustracoes[meta.ilustracao];
+  if (!ilustrar) throw new Error(`${arquivo}: "ilustracao" deve ser uma de: ${Object.keys(ilustracoes).join(", ")}`);
+
+  let corpo = numerar(original, meta.numero);
+  const sumario = gerarSumario(corpo);
+  corpo = gerarGabarito(corpo);
+  corpo = marcarAlternativasCurtas(corpo);
+  corpo = substituirFiguras(corpo, arquivo);
+  corpo = renderizarMatematica(corpo, arquivo);
 
   const html = preencher(layout, {
-    tituloPagina: `Cap. ${meta.numero} · ${meta.titulo} — Física Prof. Wagner Pinheiro`,
+    tituloPagina: `Capítulo ${meta.numero} · ${meta.titulo} — Física Prof. Wagner Pinheiro`,
     numero: meta.numero,
     titulo: meta.titulo,
-    tituloCapaHtml: meta.tituloCapa.map((linha) => `<span>${linha}</span>`).join(" "),
-    topicosHtml: meta.topicos.map((t) => `<li>${t}</li>`).join(""),
+    paraComecar: meta.paraComecar,
+    objetivosHtml: meta.objetivos.map((t) => `<li>${t}</li>`).join(""),
+    ilustracao: ilustrar(),
+    legendaIlustracao: meta.legendaIlustracao,
     volume: meta.volume,
     ano: meta.ano,
     atomo,
-    regua: regua(),
     contatos,
-    sumario: gerarSumario(corpoBruto),
+    sumario,
     conteudo: corpo,
   });
 
@@ -144,14 +188,14 @@ async function construirCapitulo(arquivo, layout) {
   return { ...meta, html };
 }
 
-// Página de entrada simples: lista os capítulos com links para web e PDF.
+// Página de entrada: sumário geral do volume.
 function indice(capitulos) {
   const itens = capitulos
     .map(
       (c) => `<li class="indice-item">
         <span class="indice-num">${c.numero}</span>
         <a class="indice-titulo" href="${c.arquivo}.html">${c.titulo}</a>
-        <span class="indice-topicos">${c.topicos.join(" · ")}</span>
+        <span class="indice-topicos">${c.objetivos.map((o) => o.replace(/[;.]$/, "")).join(" · ")}</span>
       </li>`,
     )
     .join("");
@@ -167,8 +211,9 @@ function indice(capitulos) {
 </head>
 <body class="pagina-indice">
 <main class="indice">
-  <div class="marca marca--capa">${atomo}<p class="marca-nome">Wagner Pinheiro</p><p class="marca-area">Física</p></div>
-  <h1 class="indice-cabecalho">Apostila de Física · ${capitulos[0]?.volume ?? ""}</h1>
+  <div class="marca">${atomo}<p class="marca-nome">Wagner Pinheiro <span>Física</span></p></div>
+  <h1 class="indice-cabecalho">Física · ${capitulos[0]?.volume ?? ""}</h1>
+  <p class="sumario-rotulo">Sumário</p>
   <ol class="indice-lista">${itens}</ol>
 </main>
 </body>
@@ -179,15 +224,15 @@ function indice(capitulos) {
 
 const fontes = [
   // [pacote, família, peso, estilo]
-  ["lilita-one", "Lilita One", 400, "normal"],
-  ["nunito", "Nunito", 600, "normal"],
-  ["nunito", "Nunito", 700, "normal"],
-  ["nunito", "Nunito", 800, "normal"],
-  ["nunito", "Nunito", 900, "normal"],
   ["source-serif-4", "Source Serif 4", 400, "normal"],
   ["source-serif-4", "Source Serif 4", 400, "italic"],
   ["source-serif-4", "Source Serif 4", 600, "normal"],
   ["source-serif-4", "Source Serif 4", 700, "normal"],
+  ["source-sans-3", "Source Sans 3", 400, "normal"],
+  ["source-sans-3", "Source Sans 3", 600, "normal"],
+  ["source-sans-3", "Source Sans 3", 700, "normal"],
+  ["source-sans-3", "Source Sans 3", 900, "normal"],
+  ["nunito", "Nunito", 900, "normal"], // só na marca "Wagner Pinheiro"
 ];
 
 async function copiarFontes() {
@@ -212,6 +257,8 @@ async function copiarKatex() {
 
 // ---------------------------------------------------------------- execução
 
+if (!existsSync(path.join(nm, "katex"))) throw new Error("Rode `npm install` antes do build.");
+
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await cp(path.join(src, "styles"), path.join(dist, "styles"), { recursive: true });
@@ -228,16 +275,16 @@ for (const arquivo of arquivos) capitulos.push(await construirCapitulo(arquivo, 
 await writeFile(path.join(dist, "index.html"), indice(capitulos));
 console.log("✓ dist/index.html");
 
-if (gerarArtifact && capitulos.length) {
+if (gerarArtifact) {
   // O Artifact já envolve a página com <html>/<head>/<body>: mandamos só título, estilos e corpo.
-  const { html } = capitulos[0];
-  const head = html
-    .match(/<head>([\s\S]*?)<\/head>/)[1]
-    .replace(/<meta[^>]*>\n?/g, "")
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${capitulos[0].titulo}</title>`);
-  const body = html.match(/<body>([\s\S]*?)<\/body>/)[1];
-  await writeFile(path.join(dist, "artifact.html"), head.trim() + "\n" + body.trim() + "\n");
-  console.log("✓ dist/artifact.html");
+  for (const cap of capitulos) {
+    const head = cap.html
+      .match(/<head>([\s\S]*?)<\/head>/)[1]
+      .replace(/<meta[^>]*>\n?/g, "")
+      .replace(/<title>[\s\S]*?<\/title>/, `<title>${cap.titulo}</title>`);
+    const body = cap.html.match(/<body>([\s\S]*?)<\/body>/)[1];
+    const destino = `artifact-${cap.arquivo}.html`;
+    await writeFile(path.join(dist, destino), head.trim() + "\n" + body.trim() + "\n");
+    console.log(`✓ dist/${destino}`);
+  }
 }
-
-if (!existsSync(path.join(nm, "katex"))) console.warn("Rode `npm install` antes do build.");

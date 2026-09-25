@@ -1,0 +1,369 @@
+<!-- meta
+{
+  "numero": "2",
+  "titulo": "Vetores",
+  "volume": "Volume 1",
+  "ano": "2025",
+  "arquivo": "cap02-vetores",
+  "ilustracao": "barco",
+  "legendaIlustracao": "Um barco atravessa um rio com correnteza. Em relação à margem, sua velocidade é a soma vetorial da velocidade do barco com a da correnteza.",
+  "paraComecar": "Para chegar a um lugar, não basta saber a distância: é preciso saber para onde ir. Um avião que voa contra o vento, um barco que atravessa um rio com correnteza, duas forças puxando o mesmo objeto. Em todas essas situações, as grandezas envolvidas têm valor, direção e sentido. São grandezas vetoriais, e as representamos por setas chamadas vetores. Neste capítulo, você vai aprender a somar, subtrair e decompor essas setas.",
+  "objetivos": [
+    "representar uma grandeza vetorial por meio de um vetor;",
+    "somar vetores pelas regras do polígono e do paralelogramo;",
+    "calcular o módulo da resultante nos casos particulares;",
+    "subtrair vetores e multiplicar um vetor por um número;",
+    "decompor um vetor em componentes nos eixos x e y."
+  ]
+}
+-->
+
+<section class="secao" id="definicao">
+  <h2>Vetores</h2>
+
+  <aside class="nota nota--lembre">
+    <p class="nota-titulo">Lembre-se</p>
+    <p><strong>Módulo</strong> (ou intensidade) é o valor numérico do vetor acompanhado da unidade. Indicamos o módulo de $\vec{V}$ por $|\vec{V}|$ ou simplesmente por $V$.</p>
+  </aside>
+
+  <div class="definicao">
+    <p class="definicao-titulo">Vetor</p>
+    <p>É um segmento de reta orientado que, para ser perfeitamente definido, precisa de <strong>módulo</strong>, <strong>direção</strong> e <strong>sentido</strong>. Em outras palavras, é uma “seta”.</p>
+  </div>
+
+  <p>Usamos vetores em diversas áreas da Física, como na cinemática vetorial, ramo da Mecânica que estuda fenômenos que envolvem grandezas vetoriais, ou seja, aquelas que possuem módulo (ou intensidade), direção e sentido.</p>
+
+  <figure class="figura figura--vetorial">
+    {{fig:vetor}}
+    <figcaption>Elementos de um vetor. O comprimento da seta representa o módulo; a reta suporte, a direção; a ponta, o sentido.</figcaption>
+  </figure>
+</section>
+
+<section class="secao" id="adicao">
+  <h2>Adição vetorial</h2>
+
+  <h3>Regra do polígono</h3>
+  <p>Considerando dois vetores $\vec{V}_1$ e $\vec{V}_2$, a adição vetorial é feita unindo a extremidade de um vetor à origem do outro. O <strong>vetor resultante</strong> $\vec{V}_R$ sai da origem do primeiro vetor e vai até a extremidade do último.</p>
+
+  <div class="formula">
+    $$\vec{V}_R = \vec{V}_1 + \vec{V}_2$$
+  </div>
+
+  <figure class="figura figura--vetorial">
+    {{fig:poligono}}
+    <figcaption>Regra do polígono: a resultante liga a origem do primeiro vetor à extremidade do último.</figcaption>
+  </figure>
+
+  <p class="rotulo">Observações</p>
+  <ul class="topicos">
+    <li>A adição vetorial é válida para dois ou mais vetores.</li>
+    <li>Uma soma vetorial é diferente de uma soma algébrica: $\vec{V}_1 + \vec{V}_2 \ne V_1 + V_2$.</li>
+  </ul>
+
+  <h3>Casos particulares</h3>
+
+  <p><strong>Vetores de mesma direção e mesmo sentido.</strong> O módulo da resultante é a soma dos módulos.</p>
+  <figure class="figura figura--vetorial">
+    {{fig:mesmoSentido}}
+    <figcaption>Vetores de mesmo sentido: $F_R = F_1 + F_2$.</figcaption>
+  </figure>
+
+  <p><strong>Vetores de mesma direção e sentidos opostos.</strong> O módulo da resultante é a diferença entre os módulos, e ela aponta no sentido do vetor de maior módulo.</p>
+  <figure class="figura figura--vetorial">
+    {{fig:sentidosOpostos}}
+    <figcaption>Vetores de sentidos opostos: $F_R = F_1 - F_2$ (com $F_1 &gt; F_2$).</figcaption>
+  </figure>
+
+  <p><strong>Vetores perpendiculares</strong> ($\theta = 90°$). O módulo da resultante é obtido pelo teorema de Pitágoras.</p>
+  <div class="formula">
+    $$V_R^2 = V_1^2 + V_2^2$$
+  </div>
+  <figure class="figura figura--vetorial">
+    {{fig:pitagoras}}
+    <figcaption>Vetores perpendiculares: a resultante é a hipotenusa do triângulo retângulo.</figcaption>
+  </figure>
+
+  <h3>Regra do paralelogramo</h3>
+
+  <aside class="nota nota--saiba">
+    <p class="nota-titulo">Saiba mais</p>
+    <p>A regra do paralelogramo contém os casos particulares. Para $\theta = 0°$, $\cos\theta = 1$ e $V_R = V_1 + V_2$. Para $\theta = 90°$, $\cos\theta = 0$ e a fórmula vira o teorema de Pitágoras. Para $\theta = 180°$, $\cos\theta = -1$ e $V_R = |V_1 - V_2|$.</p>
+  </aside>
+
+  <p>Se dois vetores formam entre si um ângulo $\theta$ qualquer, podemos utilizar a regra do paralelogramo. Colocamos os dois vetores com a mesma origem e completamos o paralelogramo; a resultante é a diagonal que parte dessa origem.</p>
+  <div class="formula">
+    $$V_R^2 = V_1^2 + V_2^2 + 2\,V_1 V_2 \cos\theta$$
+  </div>
+  <figure class="figura figura--vetorial">
+    {{fig:paralelogramo}}
+    <figcaption>Regra do paralelogramo: $\theta$ é o ângulo entre os vetores, com origens coincidentes.</figcaption>
+  </figure>
+</section>
+
+<section class="secao" id="diferenca">
+  <h2>Diferença entre dois vetores</h2>
+  <p>Considere os vetores $\vec{V}_1$ e $\vec{V}_2$. O vetor diferença $\vec{V}_D$ é dado por:</p>
+  <div class="formula">
+    $$\vec{V}_D = \vec{V}_2 - \vec{V}_1 = \vec{V}_2 + \left(-\vec{V}_1\right)$$
+  </div>
+  <p>Ou seja, subtrair um vetor é o mesmo que somar o seu oposto. Com os dois vetores na mesma origem, $\vec{V}_D$ vai da extremidade de $\vec{V}_1$ até a extremidade de $\vec{V}_2$.</p>
+  <figure class="figura figura--vetorial">
+    {{fig:diferenca}}
+    <figcaption>Diferença entre vetores: $\vec{V}_D = \vec{V}_2 - \vec{V}_1$.</figcaption>
+  </figure>
+</section>
+
+<section class="secao" id="produto">
+  <h2>Produto de um número por um vetor</h2>
+  <p>Quando multiplicamos um número $A$ por um vetor $\vec{V}$, o resultado é um vetor $\vec{B}$ com a mesma direção de $\vec{V}$ e módulo dado pelo produto:</p>
+  <div class="formula">
+    $$\vec{B} = A \cdot \vec{V} \qquad |\vec{B}| = |A| \cdot |\vec{V}|$$
+  </div>
+  <p>Se $A$ for positivo, $\vec{B}$ tem o mesmo sentido de $\vec{V}$; se $A$ for negativo, o sentido se inverte.</p>
+  <figure class="figura figura--vetorial">
+    {{fig:produto}}
+    <figcaption>Com $A = 2$, o módulo dobra; com $A = -1$, obtemos o vetor oposto $-\vec{V}$.</figcaption>
+  </figure>
+</section>
+
+<section class="secao" id="decomposicao">
+  <h2>Decomposição de um vetor</h2>
+
+  <aside class="nota nota--lembre">
+    <p class="nota-titulo">Lembre-se</p>
+    <p>$\operatorname{sen} 30° = \cos 60° = \tfrac{1}{2}$<br>$\operatorname{sen} 60° = \cos 30° = \tfrac{\sqrt{3}}{2} \approx 0{,}87$<br>$\operatorname{sen} 45° = \cos 45° = \tfrac{\sqrt{2}}{2} \approx 0{,}71$</p>
+  </aside>
+
+  <p>Considere um vetor $\vec{V}$ representado no plano cartesiano. Podemos escrevê-lo como a soma de dois vetores sobre os eixos $x$ e $y$: os vetores $\vec{V}_x$ e $\vec{V}_y$, chamados <strong>componentes</strong> de $\vec{V}$.</p>
+  <p>A decomposição de um vetor consiste em reescrevê-lo no plano cartesiano por meio de suas componentes. Determinamos os módulos de $V_x$ e $V_y$ pelas razões trigonométricas no triângulo retângulo:</p>
+  <div class="formula">
+    $$V_x = V \cos\theta \qquad V_y = V \operatorname{sen}\theta$$
+  </div>
+  <figure class="figura figura--vetorial">
+    {{fig:decomposicao}}
+    <figcaption>Componentes de $\vec{V}$ nos eixos: $\vec{V} = \vec{V}_x + \vec{V}_y$.</figcaption>
+  </figure>
+</section>
+
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos">
+  <h2>Exercícios resolvidos</h2>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R1</span><span class="questao-fonte">Mackenzie</span></p>
+    <figure class="figura">
+      <img src="assets/figuras/cap02-mackenzie-poligono.png" width="692" height="417" alt="Quadrilátero P1, P2, P3, P4: vetor a de P1 a P2, vetor b de P2 a P3, vetor d de P3 a P4 e vetor c de P1 a P4.">
+    </figure>
+    <p>Uma partícula move-se do ponto $P_1$ ao $P_4$ em três deslocamentos vetoriais sucessivos $\vec{a}$, $\vec{b}$ e $\vec{d}$. Então o vetor de deslocamento $\vec{d}$ é:</p>
+    <ol class="alternativas">
+      <li>$\vec{c} - (\vec{a} + \vec{b})$</li>
+      <li>$\vec{a} + \vec{b} + \vec{c}$</li>
+      <li>$(\vec{a} + \vec{c}) - \vec{b}$</li>
+      <li>$\vec{a} - \vec{b} + \vec{c}$</li>
+      <li>$\vec{c} - \vec{a} + \vec{b}$</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Temos uma soma vetorial. Pela regra do polígono, o vetor que vai de $P_1$ a $P_4$ é a resultante dos três deslocamentos:</p>
+      $$\vec{a} + \vec{b} + \vec{d} = \vec{c}$$
+      <p>Isolando o vetor $\vec{d}$:</p>
+      $$\vec{d} = \vec{c} - (\vec{a} + \vec{b})$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">R2</span><span class="questao-fonte">Mackenzie</span></p>
+    <p>Um avião, após deslocar-se 120 km para nordeste (NE), desloca-se 160 km para sudeste (SE). Sendo um quarto de hora o tempo total dessa viagem, o módulo da velocidade vetorial média do avião, nesse tempo, foi de:</p>
+    <ol class="alternativas">
+      <li>320 km/h</li>
+      <li>480 km/h</li>
+      <li>540 km/h</li>
+      <li>640 km/h</li>
+      <li>800 km/h</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Dados: $d_1 = 120\ \text{km}$; $d_2 = 160\ \text{km}$; $\Delta t = \tfrac{1}{4}\ \text{h}$. As direções NE e SE são perpendiculares, como mostra a figura.</p>
+      <figure class="figura">
+        <img src="assets/figuras/cap02-mackenzie-aviao.png" width="747" height="334" alt="Deslocamentos d1 para nordeste e d2 para sudeste formando ângulo reto, e o deslocamento resultante d; ao lado, rosa dos ventos.">
+      </figure>
+      <p>Aplicando o teorema de Pitágoras:</p>
+      $$\begin{aligned} d^2 &= d_1^2 + d_2^2 = 120^2 + 160^2 \\ d^2 &= 14\,400 + 25\,600 = 40\,000 \\ d &= \sqrt{40\,000} = 200\ \text{km} \end{aligned}$$
+      <p>O módulo da velocidade vetorial média é:</p>
+      $$|\vec{v}_m| = \frac{|\vec{d}|}{\Delta t} = \frac{200}{\frac{1}{4}} = 800\ \text{km/h}$$
+      <p class="resposta">Resposta: alternativa <strong>e</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">R3</span><span class="questao-fonte">Ufal</span></p>
+    <p>A localização de um lago, em relação a uma caverna pré-histórica, exigia que se caminhasse 200 m numa certa direção e, a seguir, 480 m numa direção perpendicular à primeira. A distância em linha reta, da caverna ao lago, era, em metros:</p>
+    <ol class="alternativas">
+      <li>680</li>
+      <li>600</li>
+      <li>540</li>
+      <li>520</li>
+      <li>500</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>A figura mostra os deslocamentos citados e a distância procurada $D$.</p>
+      <figure class="figura">
+        <img src="assets/figuras/cap02-ufal-lago.png" width="530" height="563" alt="Triângulo retângulo: 200 m da caverna para a direita, 480 m para cima até o lago, e a hipotenusa D ligando caverna e lago.">
+      </figure>
+      <p>Como o triângulo é retângulo, aplicamos o teorema de Pitágoras:</p>
+      $$D^2 = 200^2 + 480^2 = 270\,400 \;\Rightarrow\; D = 520\ \text{m}$$
+      <p class="resposta">Resposta: alternativa <strong>d</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R4</span><span class="questao-fonte">Uece</span></p>
+    <p>Um barco pode viajar a uma velocidade de 11 km/h em um lago em que a água está parada. Em um rio, o barco pode manter a mesma velocidade com relação à água. Se esse barco viaja no Rio São Francisco, cuja velocidade da água, em relação à margem, assume-se 0,83 m/s, qual é sua velocidade aproximada em relação a uma árvore plantada na beira do rio quando seu movimento é no sentido da correnteza e contra a correnteza, respectivamente?</p>
+    <ol class="alternativas">
+      <li>14 km/h e 8 km/h.</li>
+      <li>10,2 m/s e 11,8 m/s.</li>
+      <li>8 km/h e 14 km/h.</li>
+      <li>11,8 m/s e 10,2 m/s.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Dados: $v_B = 11\ \text{km/h}$; $v_A = 0{,}83\ \text{m/s} = 0{,}83 \times 3{,}6 \approx 3\ \text{km/h}$.</p>
+      <p>Na descida (a favor da correnteza), os vetores têm o mesmo sentido:</p>
+      $$v = v_B + v_A = 11 + 3 = 14\ \text{km/h}$$
+      <p>Na subida (contra a correnteza), os vetores têm sentidos opostos:</p>
+      $$v = v_B - v_A = 11 - 3 = 8\ \text{km/h}$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+</section>
+
+<section class="secao exercicios exercicios--propostos lista" id="propostos">
+  <h2>Exercícios propostos</h2>
+  <p class="caderno">Faça no caderno. Não escreva na apostila.</p>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">Unichristus – Medicina 2022</span></p>
+    <p>A figura a seguir apresenta o percurso realizado por um pedestre tendo como ponto de partida e de chegada a mesma localização física, como mostrado na imagem. O espaço percorrido no trajeto do pedestre foi de aproximadamente 3.400 m. O tempo que o pedestre levou para percorrer esse trajeto foi de 680 segundos.</p>
+    <figure class="figura figura--larga">
+      <img src="assets/figuras/cap02-unichristus-mapa.png" width="864" height="701" alt="Mapa de ruas do bairro Aldeota com setas indicando o percurso fechado do pedestre, que começa e termina no mesmo ponto.">
+      <figcaption>Disponível em: https://www.google.com.br/maps. Acesso em: 31 maio 2021 (adaptado).</figcaption>
+    </figure>
+    <p>Sobre a velocidade vetorial do pedestre no percurso indicado na figura, dentro do intervalo de posição indicado, constata-se que o(a):</p>
+    <ol class="alternativas">
+      <li>módulo da velocidade média vetorial nos primeiros 380 s foi de 2,5 m/s.</li>
+      <li>velocidade vetorial é constante, uma vez que o pedestre não parou em local nenhum.</li>
+      <li>módulo da velocidade vetorial média é nulo.</li>
+      <li>velocidade vetorial tem módulo constante em todo o percurso.</li>
+      <li>módulo da velocidade média vetorial no percurso completo foi de 5 m/s.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">2</span><span class="questao-fonte">PUC-PR</span></p>
+    <p>Um ônibus percorre em 30 minutos as ruas de um bairro, de A até B, como mostra a figura:</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap02-pucpr-bairro.png" width="801" height="534" alt="Quarteirões quadrados com o trajeto do ônibus em ziguezague de A, no canto superior esquerdo, até B; cotas de 200 m na horizontal e 100 m na vertical.">
+    </figure>
+    <p>Considerando a distância entre duas ruas paralelas consecutivas igual a 100 m, analise as afirmações:</p>
+    <ol class="itens-romanos">
+      <li>A velocidade vetorial média nesse percurso tem módulo 1 km/h.</li>
+      <li>O ônibus percorre 1500 m entre os pontos A e B.</li>
+      <li>O módulo do vetor deslocamento é 500 m.</li>
+      <li>A velocidade vetorial média do ônibus entre A e B tem módulo 3 km/h.</li>
+    </ol>
+    <p>Estão corretas:</p>
+    <ol class="alternativas">
+      <li>I e III.</li><li>I e IV.</li><li>III e IV.</li><li>I e II.</li><li>II e III.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">3</span><span class="questao-fonte">PUC-Campinas</span></p>
+    <p>Num bairro onde todos os quarteirões são quadrados e as ruas paralelas distam 100 m uma da outra, um transeunte faz o percurso de P a Q pela trajetória representada no esquema a seguir.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap02-puccamp-quarteiroes.png" width="676" height="455" alt="Malha quadriculada de 100 m com trajetória em escada de P, no alto à esquerda, até Q, embaixo à direita.">
+    </figure>
+    <p>O deslocamento vetorial desse transeunte tem módulo, em metros, igual a:</p>
+    <ol class="alternativas">
+      <li>300</li><li>350</li><li>400</li><li>500</li><li>700</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">4</span><span class="questao-fonte">EEAR 2017</span></p>
+    <p>Sobre uma mesa sem atrito, um objeto sofre a ação de duas forças, $F_1 = 9\ \text{N}$ e $F_2 = 15\ \text{N}$, que estão dispostas de modo a formar entre si um ângulo de 120°. A intensidade da força resultante, em newtons, será de:</p>
+    <ol class="alternativas">
+      <li>$3\sqrt{24}$</li><li>$3\sqrt{19}$</li><li>$\sqrt{306}$</li><li>$\sqrt{24}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">5</span><span class="questao-fonte">PUC-RJ 2010</span></p>
+    <p>Um pequeno avião acelera, logo após a sua decolagem, em linha reta, formando um ângulo de 45° com o plano horizontal. Sabendo que a componente horizontal de sua aceleração é de $6{,}0\ \text{m/s}^2$, calcule a componente vertical da mesma. (Considere $g = 10\ \text{m/s}^2$.)</p>
+    <ol class="alternativas">
+      <li>$6{,}0\ \text{m/s}^2$</li><li>$4{,}0\ \text{m/s}^2$</li><li>$16{,}0\ \text{m/s}^2$</li><li>$12{,}0\ \text{m/s}^2$</li><li>$3{,}0\ \text{m/s}^2$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="texto-base"><strong>Texto para a próxima questão.</strong> Um barco tenta atravessar um rio navegando perpendicularmente em relação às suas margens na direção AB, saindo da posição A, como mostra a figura. Como temos correnteza no rio, ele atinge a outra margem na posição C, distante de A 50 metros, após navegar durante 25 segundos. Sabe-se que a largura do rio é de 30 metros.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap02-rio-barco.png" width="859" height="418" alt="Rio entre duas margens: barco parte de A apontando para B, na margem oposta; a correnteza aponta para a direita e o ponto C fica à direita de B.">
+    </figure>
+    <p class="questao-cab"><span class="questao-num">6</span><span class="questao-fonte">G1 – CCampos 2007</span></p>
+    <p>Com base nos dados, qual a distância de B a C?</p>
+    <ol class="alternativas">
+      <li>30 m</li><li>40 m</li><li>50 m</li><li>80 m</li><li>100 m</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">7</span><span class="questao-fonte">UEL 1994</span></p>
+    <p>Considere as seguintes grandezas físicas mecânicas: TEMPO, MASSA, FORÇA, VELOCIDADE e TRABALHO. Dentre elas, têm caráter vetorial apenas:</p>
+    <ol class="alternativas">
+      <li>força e velocidade.</li>
+      <li>massa e força.</li>
+      <li>tempo e massa.</li>
+      <li>velocidade e trabalho.</li>
+      <li>tempo e trabalho.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">8</span><span class="questao-fonte">PUC-RJ 2007</span></p>
+    <p>Um avião em voo horizontal voa a favor do vento com velocidade de 180 km/h em relação ao solo. Na volta, ao voar contra o vento, o avião voa com velocidade de 150 km/h em relação ao solo. Sabendo-se que o vento e o módulo da velocidade do avião (em relação ao ar) permanecem constantes, o módulo da velocidade do avião e do vento durante o voo, respectivamente, são:</p>
+    <ol class="alternativas">
+      <li>165 km/h e 15 km/h</li>
+      <li>160 km/h e 20 km/h</li>
+      <li>155 km/h e 25 km/h</li>
+      <li>150 km/h e 30 km/h</li>
+      <li>145 km/h e 35 km/h</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">9</span><span class="questao-fonte">Mackenzie 1998</span></p>
+    <p>Com seis vetores de módulos iguais a 8 u, construiu-se o hexágono regular a seguir. O módulo do vetor resultante desses 6 vetores é:</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap02-mackenzie-hexagono.png" width="534" height="359" alt="Hexágono regular formado por seis vetores desenhados sobre os lados.">
+    </figure>
+    <ol class="alternativas">
+      <li>40 u</li><li>32 u</li><li>24 u</li><li>16 u</li><li>zero</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">10</span><span class="questao-fonte">UFC 1999</span></p>
+    <p>Na figura a seguir, onde o reticulado forma quadrados de lados $\ell = 0{,}5\ \text{cm}$, estão desenhados 10 vetores contidos no plano $xy$. O módulo da soma de todos esses vetores é, em centímetros:</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap02-ufc-reticulado.png" width="576" height="467" alt="Reticulado quadriculado nos eixos x e y com dez vetores em ziguezague, cinco na fileira de cima e cinco na de baixo.">
+    </figure>
+    <ol class="alternativas">
+      <li>0,0</li><li>0,5</li><li>1,0</li><li>1,5</li><li>2,0</li>
+    </ol>
+  </article>
+
+  <!-- O gabarito é gerado pelo build a partir dos data-gabarito desta seção. -->
+  <aside class="gabarito" data-gerar-gabarito></aside>
+</section>

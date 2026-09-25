@@ -1,87 +1,111 @@
 <!-- meta
 {
-  "numero": "01",
-  "titulo": "Conceitos Básicos de Física",
-  "tituloCapa": ["Conceitos", "Básicos de", "Física"],
+  "numero": "1",
+  "titulo": "Conceitos básicos de Física",
   "volume": "Volume 1",
   "ano": "2025",
   "arquivo": "cap01-conceitos-basicos",
-  "topicos": [
-    "Grandezas escalares e vetoriais",
-    "Sistema Internacional de Unidades",
-    "Conversões e regra de três",
-    "Notação científica",
-    "Ordem de grandeza"
+  "ilustracao": "escala",
+  "legendaIlustracao": "Tamanhos e distâncias no Universo, em metros. Cada marca da escala é 10 vezes maior que a anterior.",
+  "paraComecar": "Quanto mede uma formiga? E a distância da Terra ao Sol? Para responder a perguntas como essas, a Física precisa de três ferramentas: grandezas bem definidas, unidades padronizadas e uma forma prática de escrever números muito grandes ou muito pequenos. A escala acima vai do tamanho de um próton ao tamanho do Universo observável, e cada marca representa uma potência de 10. Ao final deste capítulo, você saberá ler, converter e estimar medidas como essas.",
+  "objetivos": [
+    "diferenciar grandezas escalares e vetoriais;",
+    "reconhecer as unidades de base do Sistema Internacional (SI);",
+    "converter unidades usando a regra de três simples;",
+    "escrever números em notação científica;",
+    "estimar a ordem de grandeza de uma medida."
   ]
 }
 -->
 
-<header class="abertura">
-  <p class="abertura-rotulo">Capítulo 01</p>
-  <h1 class="abertura-titulo">Conceitos básicos de física</h1>
-</header>
-
 <section class="secao" id="grandezas">
   <h2>Grandezas físicas</h2>
-  <p>Para compreendermos melhor os conceitos físicos, é fundamental entendermos o que são <strong>grandezas físicas</strong>. Definimos grandeza física como algo que pode ser medido, de forma qualitativa ou quantitativa, em relação aos fenômenos físicos. Por exemplo: massa de um corpo, força, velocidade, aceleração etc.</p>
-  <p>Na física, podemos classificar as grandezas em <strong>vetoriais</strong> ou <strong>escalares</strong>.</p>
 
-  <figure class="classificacao" aria-label="Classificação das grandezas físicas">
-    <p class="classificacao-raiz">Grandeza física</p>
-    <div class="classificacao-ramos">
-      <div class="classe">
-        <p class="classe-nome">Grandeza escalar</p>
-        <p class="classe-def">Fica definida apenas com <strong>valor numérico</strong> e <strong>unidade</strong>.</p>
-        <ul class="requisitos">
-          <li>valor numérico</li>
-          <li>unidade</li>
-          <li class="nao">direção</li>
-          <li class="nao">sentido</li>
-        </ul>
-        <p class="classe-exemplos">Ex.: volume $V$, massa $m$, temperatura $T$.</p>
-      </div>
-      <div class="classe classe--vetor">
-        <p class="classe-nome">Grandeza vetorial</p>
-        <p class="classe-def">Precisa de <strong>módulo</strong> (valor numérico e unidade), <strong>direção</strong> e <strong>sentido</strong>.</p>
-        <ul class="requisitos">
-          <li>valor numérico</li>
-          <li>unidade</li>
-          <li>direção</li>
-          <li>sentido</li>
-        </ul>
-        <p class="classe-exemplos">Ex.: força $\vec{F}$, deslocamento $\vec{d}$, velocidade $\vec{v}$.</p>
+  <aside class="nota nota--glossario">
+    <p class="nota-titulo">Glossário</p>
+    <p><strong>Medir:</strong> comparar uma grandeza com outra de mesma espécie, tomada como padrão (a unidade).</p>
+  </aside>
+
+  <p>Para compreendermos melhor os conceitos físicos, é fundamental entendermos o que são grandezas físicas.</p>
+
+  <div class="definicao">
+    <p class="definicao-titulo">Grandeza física</p>
+    <p>É tudo aquilo que pode ser medido, de forma qualitativa ou quantitativa, em relação aos fenômenos físicos. Exemplos: massa de um corpo, força, velocidade, aceleração.</p>
+  </div>
+
+  <p>Na Física, classificamos as grandezas em <strong>escalares</strong> ou <strong>vetoriais</strong>.</p>
+  <p><strong>Grandeza escalar</strong> é aquela que fica perfeitamente definida apenas com <em>valor numérico</em> e <em>unidade</em>. Exemplos: volume, massa e temperatura.</p>
+  <p><strong>Grandeza vetorial</strong> é aquela que, para ser perfeitamente definida, precisa de <em>valor numérico</em>, <em>unidade</em>, <em>direção</em> e <em>sentido</em>. Exemplos: força, deslocamento e velocidade.</p>
+
+  <figure class="esquema">
+    <div class="classificacao" aria-label="Classificação das grandezas físicas">
+      <p class="classificacao-raiz">Grandeza física</p>
+      <div class="classificacao-ramos">
+        <div class="classe">
+          <p class="classe-nome">Escalar</p>
+          <ul class="requisitos">
+            <li>valor numérico</li>
+            <li>unidade</li>
+            <li class="nao">direção</li>
+            <li class="nao">sentido</li>
+          </ul>
+          <p class="classe-exemplos">volume $V$, massa $m$, temperatura $T$</p>
+        </div>
+        <div class="classe">
+          <p class="classe-nome">Vetorial</p>
+          <ul class="requisitos">
+            <li>valor numérico</li>
+            <li>unidade</li>
+            <li>direção</li>
+            <li>sentido</li>
+          </ul>
+          <p class="classe-exemplos">força $\vec{F}$, deslocamento $\vec{d}$, velocidade $\vec{v}$</p>
+        </div>
       </div>
     </div>
+    <figcaption>O que é necessário para definir cada tipo de grandeza.</figcaption>
   </figure>
 </section>
 
 <section class="secao" id="unidades">
-  <h2>Unidades de medidas</h2>
-  <p>Como cada fenômeno envolve uma ou mais grandezas, é fundamental conhecermos a unidade associada a cada medida na Física. Por exemplo, com uma régua milimetrada podemos medir o comprimento de um objeto. O comprimento pode ser medido em metro (m), centímetro (cm), quilômetro (km), milímetro (mm) etc.</p>
-  <p>Para facilitar e padronizar as medições e as relações internacionais, foi criado em 1960 o <strong>Sistema Internacional de Unidades (SI)</strong>. Abaixo estão as grandezas fundamentais e suas unidades padrão.</p>
+  <h2>Unidades de medida</h2>
+
+  <aside class="nota nota--saiba">
+    <p class="nota-titulo">Saiba mais</p>
+    <p>O SI foi adotado em 1960, na 11ª Conferência Geral de Pesos e Medidas. Ele reúne sete unidades de base; todas as outras, como a do newton (força) ou a do joule (energia), são obtidas a partir delas.</p>
+  </aside>
+
+  <p>Como cada fenômeno envolve uma ou mais grandezas, é fundamental conhecermos a unidade associada a cada medida. Por exemplo, com uma régua milimetrada podemos medir o comprimento de um objeto, que pode ser expresso em metro (m), centímetro (cm), quilômetro (km), milímetro (mm) etc.</p>
+  <p>Para facilitar e padronizar as medições e as relações internacionais, foi criado em 1960 o <strong>Sistema Internacional de Unidades (SI)</strong>. A tabela a seguir apresenta as grandezas de base e suas unidades.</p>
 
   <div class="tabela">
     <table>
-      <caption>Grandezas fundamentais do SI</caption>
+      <caption>Grandezas de base do SI e suas unidades.</caption>
       <thead>
         <tr><th scope="col">Grandeza</th><th scope="col">Unidade</th><th scope="col">Símbolo</th></tr>
       </thead>
       <tbody>
-        <tr><th scope="row">Comprimento</th><td>metro</td><td class="simbolo">m</td></tr>
-        <tr><th scope="row">Massa</th><td>quilograma</td><td class="simbolo">kg</td></tr>
-        <tr><th scope="row">Tempo</th><td>segundo</td><td class="simbolo">s</td></tr>
-        <tr><th scope="row">Corrente elétrica</th><td>ampere</td><td class="simbolo">A</td></tr>
-        <tr><th scope="row">Temperatura</th><td>kelvin</td><td class="simbolo">K</td></tr>
-        <tr><th scope="row">Quantidade de matéria</th><td>mol</td><td class="simbolo">mol</td></tr>
-        <tr><th scope="row">Intensidade luminosa</th><td>candela</td><td class="simbolo">cd</td></tr>
+        <tr><th scope="row">comprimento</th><td>metro</td><td class="simbolo">m</td></tr>
+        <tr><th scope="row">massa</th><td>quilograma</td><td class="simbolo">kg</td></tr>
+        <tr><th scope="row">tempo</th><td>segundo</td><td class="simbolo">s</td></tr>
+        <tr><th scope="row">corrente elétrica</th><td>ampere</td><td class="simbolo">A</td></tr>
+        <tr><th scope="row">temperatura</th><td>kelvin</td><td class="simbolo">K</td></tr>
+        <tr><th scope="row">quantidade de matéria</th><td>mol</td><td class="simbolo">mol</td></tr>
+        <tr><th scope="row">intensidade luminosa</th><td>candela</td><td class="simbolo">cd</td></tr>
       </tbody>
     </table>
   </div>
 
+  <aside class="nota nota--atencao">
+    <p class="nota-titulo">Atenção</p>
+    <p>Símbolos de unidade não têm plural nem ponto: escrevemos 3 kg (e não “3 kgs”) e 5 m (e não “5 m.”).</p>
+  </aside>
+
   <h3>Unidade de comprimento</h3>
-  <p>Existem diversas unidades para medirmos comprimento. No SI, os mais usados são o metro e seus múltiplos e submúltiplos, obtidos com prefixos.</p>
-  <div class="tabela tabela--relacao">
+  <p>Existem diversas unidades para medirmos comprimento. No SI, as mais usadas são o metro e seus múltiplos e submúltiplos, obtidos com prefixos.</p>
+  <div class="tabela">
     <table>
+      <caption>Unidades de comprimento.</caption>
       <thead><tr><th scope="col">Unidade</th><th scope="col">Relação com o SI</th></tr></thead>
       <tbody>
         <tr><th scope="row">quilômetro</th><td>$1\ \text{km} = 1000\ \text{m} = 10^3\ \text{m}$</td></tr>
@@ -91,10 +115,16 @@
     </table>
   </div>
 
+  <aside class="nota nota--lembre">
+    <p class="nota-titulo">Lembre-se</p>
+    <p>$1\ \text{h} = 60\ \text{min}$ e $1\ \text{min} = 60\ \text{s}$. Logo, $1\ \text{h} = 60 \cdot 60 = 3600\ \text{s}$.</p>
+  </aside>
+
   <h3>Unidade de tempo</h3>
   <p>No SI, a unidade de intervalo de tempo é o segundo (s). No dia a dia, porém, usamos com frequência outras unidades, como a hora, o minuto, o dia e o mês.</p>
-  <div class="tabela tabela--relacao">
+  <div class="tabela">
     <table>
+      <caption>Unidades de tempo.</caption>
       <thead><tr><th scope="col">Unidade</th><th scope="col">Relação com o SI</th></tr></thead>
       <tbody>
         <tr><th scope="row">minuto</th><td>$1\ \text{min} = 60\ \text{s}$</td></tr>
@@ -106,8 +136,9 @@
 
   <h3>Unidade de massa</h3>
   <p>Como já vimos, a unidade de massa no SI é o quilograma. Na prática, usamos diversas unidades para representar quantidades de massa.</p>
-  <div class="tabela tabela--relacao">
+  <div class="tabela">
     <table>
+      <caption>Unidades de massa.</caption>
       <thead><tr><th scope="col">Unidade</th><th scope="col">Relação com o SI</th></tr></thead>
       <tbody>
         <tr><th scope="row">quilograma</th><td>$1\ \text{kg} = 1000\ \text{g}$</td></tr>
@@ -119,31 +150,45 @@
 
 <section class="secao" id="conversoes">
   <h2>Conversões de unidades</h2>
-  <p>Saber mudar de unidade é uma habilidade muito importante na resolução de problemas. Para isso, precisamos entender o que são grandezas <strong>diretamente</strong> e <strong>inversamente proporcionais</strong>.</p>
+  <p>Saber mudar de unidade é uma habilidade muito importante na resolução de problemas. Para isso, precisamos entender o que são grandezas diretamente e inversamente proporcionais.</p>
 
-  <p class="termo"><strong>Grandezas diretamente proporcionais</strong> são aquelas em que, quando uma aumenta, a outra aumenta na mesma proporção. Exemplo: um cachorrinho come 3 kg de ração. Se dobrarmos a quantidade de cachorrinhos, a quantidade de ração também vai dobrar.</p>
+  <div class="definicao">
+    <p class="definicao-titulo">Grandezas diretamente proporcionais</p>
+    <p>Quando uma aumenta, a outra aumenta na mesma proporção.</p>
+  </div>
+  <p>Exemplo: um cachorrinho come 3 kg de ração. Se dobrarmos a quantidade de cachorrinhos, a quantidade de ração também vai dobrar.</p>
   <div class="proporcao proporcao--direta" role="group" aria-label="Grandezas diretamente proporcionais">
     <span>1 cachorrinho</span><span>3 kg de ração</span>
     <span>2 cachorrinhos</span><span>6 kg de ração</span>
   </div>
 
-  <p class="termo"><strong>Grandezas inversamente proporcionais</strong> são aquelas em que, quando uma aumenta, a outra diminui na mesma proporção. Exemplo: uma pessoa leva uma hora para pintar uma parede. Duas pessoas igualmente competentes levariam apenas meia hora.</p>
+  <div class="definicao">
+    <p class="definicao-titulo">Grandezas inversamente proporcionais</p>
+    <p>Quando uma aumenta, a outra diminui na mesma proporção.</p>
+  </div>
+  <p>Exemplo: uma pessoa leva uma hora para pintar uma parede. Duas pessoas igualmente competentes levariam apenas meia hora.</p>
   <div class="proporcao proporcao--inversa" role="group" aria-label="Grandezas inversamente proporcionais">
     <span>1 pessoa</span><span>1 h de trabalho</span>
     <span>2 pessoas</span><span>0,5 h de trabalho</span>
   </div>
 
   <h3>Regra de três simples</h3>
-  <p>A regra de três simples é uma relação de proporção entre duas grandezas diretamente ou inversamente proporcionais. Podemos resolver problemas usando as regras abaixo.</p>
 
-  <p class="termo"><strong>Grandezas diretamente proporcionais:</strong> igualamos o produto dos meios ao produto dos extremos (multiplicamos “em cruz”).</p>
+  <aside class="nota nota--lembre">
+    <p class="nota-titulo">Lembre-se</p>
+    <p>As setas indicam o sentido de variação: setas no mesmo sentido, grandezas diretamente proporcionais; setas em sentidos opostos, inversamente proporcionais.</p>
+  </aside>
+
+  <p>A regra de três simples é uma relação de proporção entre duas grandezas diretamente ou inversamente proporcionais. Podemos resolver problemas usando as regras a seguir.</p>
+
+  <p><strong>Grandezas diretamente proporcionais:</strong> igualamos o produto dos meios ao produto dos extremos (multiplicamos “em cruz”).</p>
   <div class="proporcao proporcao--direta" role="group" aria-label="Regra de três direta">
     <span>1 cachorrinho</span><span>3 kg de ração</span>
     <span>2 cachorrinhos</span><span>$x$</span>
   </div>
   $$\begin{aligned} 1 \cdot x &= 2 \cdot 3 \\ x &= 6\ \text{kg de ração} \end{aligned}$$
 
-  <p class="termo"><strong>Grandezas inversamente proporcionais:</strong> igualamos os produtos dos valores que estão na mesma linha.</p>
+  <p><strong>Grandezas inversamente proporcionais:</strong> igualamos os produtos dos valores que estão na mesma linha.</p>
   <div class="proporcao proporcao--inversa" role="group" aria-label="Regra de três inversa">
     <span>1 pessoa</span><span>1 h de trabalho</span>
     <span>2 pessoas</span><span>$x$</span>
@@ -151,11 +196,11 @@
   $$\begin{aligned} 1 \cdot 1 &= 2 \cdot x \\ x &= \tfrac{1}{2} = 0{,}5\ \text{h de trabalho} \end{aligned}$$
 </section>
 
-<section class="secao pratica" id="pratica-1">
-  <h2 class="selo">Hora de praticar!</h2>
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos-1">
+  <h2>Exercícios resolvidos</h2>
 
   <article class="questao" data-gabarito="c">
-    <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">Unesp</span></p>
+    <p class="questao-cab"><span class="questao-num">R1</span><span class="questao-fonte">Unesp</span></p>
     <p>O intervalo de tempo de 2,4 minutos equivale, no Sistema Internacional de Unidades (SI), a:</p>
     <ol class="alternativas">
       <li>24 segundos.</li>
@@ -172,12 +217,12 @@
         <span>2,4 min</span><span>$x$</span>
       </div>
       $$1 \cdot x = 60 \cdot 2{,}4 \;\Rightarrow\; x = 144\ \text{s}$$
-      <p class="gabarito-linha">Gabarito: <strong>C</strong></p>
+      <p class="resposta">Resposta: alternativa <strong>c</strong>.</p>
     </details>
   </article>
 
   <article class="questao" data-gabarito="c">
-    <p class="questao-cab"><span class="questao-num">2</span><span class="questao-fonte">G1 – CFTRJ 2019</span></p>
+    <p class="questao-cab"><span class="questao-num">R2</span><span class="questao-fonte">G1 – CFTRJ 2019</span></p>
     <p>Podemos considerar que a velocidade de crescimento do cabelo humano é, em média, de 1 milímetro a cada três dias. Essa velocidade pode variar de pessoa para pessoa, mas é constante para cada um de nós, não havendo qualquer base científica que comprove que podemos acelerar o crescimento capilar cortando o cabelo em determinada fase da Lua ou aparando as pontas para dar força ao fio. O que se pode afirmar é que os hábitos de alimentação e o metabolismo de cada indivíduo influenciam diretamente no crescimento dos fios.</p>
     <p>Se os cabelos de uma jovem têm velocidade de crescimento que acompanha a média, em quanto tempo seu cabelo crescerá 9 cm?</p>
     <ol class="alternativas">
@@ -194,12 +239,12 @@
         <span>90 mm</span><span>$t$</span>
       </div>
       $$t = 270\ \text{dias} \approx 9\ \text{meses}$$
-      <p class="gabarito-linha">Gabarito: <strong>C</strong></p>
+      <p class="resposta">Resposta: alternativa <strong>c</strong>.</p>
     </details>
   </article>
 
   <article class="questao" data-gabarito="d">
-    <p class="questao-cab"><span class="questao-num">3</span><span class="questao-fonte">PUC-RJ</span></p>
+    <p class="questao-cab"><span class="questao-num">R3</span><span class="questao-fonte">PUC-RJ</span></p>
     <p>Você está viajando a uma velocidade de 1 km/min. Sua velocidade em km/h é:</p>
     <ol class="alternativas">
       <li>3600</li>
@@ -218,13 +263,14 @@
       $$x = \frac{1}{60}\ \text{h}$$
       <p>Portanto,</p>
       $$1\ \frac{\text{km}}{\text{min}} = \frac{1\ \text{km}}{\frac{1}{60}\ \text{h}} = 60\ \text{km/h}$$
-      <p class="gabarito-linha">Gabarito: <strong>D</strong></p>
+      <p class="resposta">Resposta: alternativa <strong>d</strong>.</p>
     </details>
   </article>
 </section>
 
 <section class="secao" id="notacao-cientifica">
   <h2>Notação científica</h2>
+
   <p>A <strong>notação científica</strong> é uma maneira simplificada de representar valores compostos por muitos algarismos. De forma geral, escrevemos um número em notação científica assim:</p>
 
   <div class="formula">
@@ -232,7 +278,7 @@
     <dl class="formula-legenda">
       <div><dt>$X$</dt><dd>número em notação científica</dd></div>
       <div><dt>$N$</dt><dd>valor numérico, com $1 \le N &lt; 10$</dd></div>
-      <div><dt>$L$</dt><dd>expoente (inteiro)</dd></div>
+      <div><dt>$L$</dt><dd>expoente (número inteiro)</dd></div>
       <div><dt>$10$</dt><dd>base da potência</dd></div>
     </dl>
   </div>
@@ -245,14 +291,14 @@
     <li>$0{,}000000234 = 2{,}34 \cdot 10^{-7}$</li>
   </ol>
 
-  <p class="rotulo">Regra simples</p>
+  <p class="rotulo">Regra prática</p>
   <ol class="regras">
     <li>
-      <p>Se “passarmos” a vírgula da <strong>direita para a esquerda</strong>, o expoente é <strong>positivo</strong>.</p>
+      <p>Se “deslocarmos” a vírgula da <strong>direita para a esquerda</strong>, o expoente é <strong>positivo</strong>.</p>
       <div class="virgula virgula--esquerda">$24.000.000 = 2{,}4 \cdot 10^{\htmlClass{sinal sinal--mais}{(+)}7}$</div>
     </li>
     <li>
-      <p>Se “passarmos” a vírgula da <strong>esquerda para a direita</strong>, o expoente é <strong>negativo</strong>.</p>
+      <p>Se “deslocarmos” a vírgula da <strong>esquerda para a direita</strong>, o expoente é <strong>negativo</strong>.</p>
       <div class="virgula virgula--direita">$0{,}000013 = 1{,}3 \cdot 10^{\htmlClass{sinal sinal--menos}{(-)}5}$</div>
     </li>
   </ol>
@@ -260,21 +306,30 @@
 
 <section class="secao" id="ordem-de-grandeza">
   <h2>Ordem de grandeza</h2>
-  <p>A <strong>ordem de grandeza</strong> de uma medida é a potência de base 10 mais próxima do valor encontrado para a grandeza. É uma estimativa que nos dá uma ideia do tamanho da medida.</p>
 
-  <p class="rotulo">Regras</p>
+  <aside class="nota nota--saiba">
+    <p class="nota-titulo">Saiba mais</p>
+    <p>Por que 3,16? Esse valor é $\sqrt{10}$, o “meio do caminho” entre $10^0 = 1$ e $10^1 = 10$ na escala de potências de 10: $10^{0{,}5} \approx 3{,}16$.</p>
+  </aside>
+
+  <div class="definicao">
+    <p class="definicao-titulo">Ordem de grandeza</p>
+    <p>É a potência de base 10 mais próxima do valor de uma medida. É uma estimativa que nos dá uma ideia do tamanho dessa medida.</p>
+  </div>
+
+  <p class="rotulo">Como determinar</p>
   <ol class="regras">
     <li>Escreva a medida em notação científica: $N \cdot 10^{L}$.</li>
     <li>
       Analise o valor de $N$:
       <div class="decisao">
         <div class="decisao-caso">
-          <p class="decisao-condicao">$N &lt; \sqrt{10} \approx 3{,}16$</p>
+          <p class="decisao-condicao">se $N &lt; \sqrt{10} \approx 3{,}16$</p>
           <p class="decisao-resultado">$\text{OG} = 10^{L}$</p>
-          <p class="decisao-nota">$L$ não muda</p>
+          <p class="decisao-nota">o expoente não muda</p>
         </div>
         <div class="decisao-caso">
-          <p class="decisao-condicao">$N \ge \sqrt{10} \approx 3{,}16$</p>
+          <p class="decisao-condicao">se $N \ge \sqrt{10} \approx 3{,}16$</p>
           <p class="decisao-resultado">$\text{OG} = 10^{L+1}$</p>
           <p class="decisao-nota">soma-se 1 ao expoente</p>
         </div>
@@ -283,11 +338,11 @@
   </ol>
 </section>
 
-<section class="secao pratica" id="pratica-2">
-  <h2 class="selo">Hora de praticar!</h2>
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos-2">
+  <h2>Exercícios resolvidos</h2>
 
   <article class="questao" data-gabarito="b">
-    <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">Uespi 2012</span></p>
+    <p class="questao-cab"><span class="questao-num">R4</span><span class="questao-fonte">Uespi 2012</span></p>
     <p>Estima-se que o planeta Terra tenha se formado há cerca de 4,5 bilhões de anos. Qual é a ordem de grandeza da idade da Terra em horas?</p>
     <ol class="alternativas">
       <li>$10^{11}$</li>
@@ -304,12 +359,12 @@
       $$\begin{aligned} \Delta t &= 4{,}5 \cdot 10^{9}\ \text{anos} \times 365\ \frac{\text{dias}}{\text{ano}} \times 24\ \frac{\text{horas}}{\text{dia}} \\ \Delta t &\approx 3{,}9 \cdot 10^{13}\ \text{horas} \end{aligned}$$
       <p>Como $3{,}9 &gt; \sqrt{10}$:</p>
       $$\text{OG} = 10^{13+1} = 10^{14}$$
-      <p class="gabarito-linha">Gabarito: <strong>B</strong></p>
+      <p class="resposta">Resposta: alternativa <strong>b</strong>.</p>
     </details>
   </article>
 
   <article class="questao" data-gabarito="b">
-    <p class="questao-cab"><span class="questao-num">2</span><span class="questao-fonte">UPF 2021</span></p>
+    <p class="questao-cab"><span class="questao-num">R5</span><span class="questao-fonte">UPF 2021</span></p>
     <p>A galáxia de Andrômeda é considerada atualmente a mais próxima da Via Láctea, estando a aproximadamente 2,54 milhões de anos-luz de distância da Terra. Isso significa que a distância de Andrômeda até a Terra, em metros, é da ordem de grandeza de: (Considere a velocidade da luz como sendo $3 \cdot 10^{8}\ \text{m/s}$.)</p>
     <ol class="alternativas">
       <li>$10^{17}$</li>
@@ -325,29 +380,30 @@
       <p>Assim, a distância entre Andrômeda e a Terra equivale a:</p>
       $$\begin{aligned} \Delta s &= v \cdot \Delta t \\ \Delta s &= 3 \cdot 10^{8} \cdot \left(3{,}15 \cdot 10^{7} \cdot 2{,}54 \cdot 10^{6}\right) \\ \Delta s &\approx 2{,}4 \cdot 10^{22}\ \text{m} \end{aligned}$$
       <p>Portanto, a ordem de grandeza é $10^{22}$.</p>
-      <p class="gabarito-linha">Gabarito: <strong>B</strong></p>
+      <p class="resposta">Resposta: alternativa <strong>b</strong>.</p>
     </details>
   </article>
 
   <article class="questao" data-gabarito="">
-    <p class="questao-cab"><span class="questao-num">3</span><span class="questao-fonte">UFPE 2011</span></p>
+    <p class="questao-cab"><span class="questao-num">R6</span><span class="questao-fonte">UFPE 2011</span></p>
     <p>Um estudante de Física aceita o desafio de determinar a ordem de grandeza do número de feijões em 5 kg de feijão, sem utilizar qualquer instrumento de medição. Ele simplesmente despeja os feijões em um recipiente com formato de paralelepípedo e conta quantos feijões há na aresta de menor comprimento $c$, como mostrado na figura. Ele verifica que a aresta $c$ comporta 10 feijões. Calcule a potência da ordem de grandeza do número de feijões no recipiente, sabendo que a relação entre os comprimentos das arestas é:</p>
     $$\frac{a}{4} = \frac{b}{3} = \frac{c}{1}$$
     <figure class="figura">
       <img src="assets/figuras/cap01-feijoes.jpg" width="291" height="339" alt="Recipiente em forma de paralelepípedo cheio de feijões, com arestas a (altura), b (profundidade) e c (largura); a aresta c comporta 10 feijões.">
-      <figcaption>Fonte: Interbits®</figcaption>
+      <figcaption>Recipiente com feijões. Fonte: Interbits®.</figcaption>
     </figure>
     <details class="resolucao">
       <summary>Resolução</summary>
       $$\frac{a}{4} = \frac{b}{3} = \frac{c}{1} \;\Rightarrow\; a = 4c,\quad b = 3c$$
       $$\begin{aligned} V &= a \cdot b \cdot c = 4c \cdot 3c \cdot c = 12c^{3} \\ V &= 12 \cdot 10^{3} = 1{,}2 \cdot 10^{4} \;\rightarrow\; 10^{4} \end{aligned}$$
-      <p>Portanto, a potência da ordem de grandeza do número de feijões é igual a <strong>4</strong>.</p>
+      <p class="resposta">Resposta: a potência da ordem de grandeza do número de feijões é <strong>4</strong>.</p>
     </details>
   </article>
 </section>
 
-<section class="secao lista" id="lista">
-  <h2 class="selo">Lista de exercícios</h2>
+<section class="secao exercicios exercicios--propostos lista" id="propostos">
+  <h2>Exercícios propostos</h2>
+  <p class="caderno">Faça no caderno. Não escreva na apostila.</p>
 
   <article class="questao" data-gabarito="a">
     <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">UFPE</span></p>
@@ -479,6 +535,15 @@
     </ol>
   </article>
 
-  <!-- O gabarito é gerado pelo build a partir dos data-gabarito da lista. -->
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">16</span><span class="questao-fonte">UFC</span></p>
+    <p>“A próxima geração de chips da Intel, os P7, deverá estar saindo da fábrica dentro de dois anos, reunindo nada menos do que dez milhões de transistores num quadrinho com quatro ou cinco milímetros de lado.” (<cite>Revista IstoÉ</cite>, n. 1945, p. 61.)</p>
+    <p>Tendo como base a informação anterior, podemos afirmar que cada um desses transistores ocupa uma área da ordem de:</p>
+    <ol class="alternativas">
+      <li>$10^{-2}\ \text{m}^2$</li><li>$10^{-4}\ \text{m}^2$</li><li>$10^{-8}\ \text{m}^2$</li><li>$10^{-10}\ \text{m}^2$</li><li>$10^{-12}\ \text{m}^2$</li>
+    </ol>
+  </article>
+
+  <!-- O gabarito é gerado pelo build a partir dos data-gabarito desta seção. -->
   <aside class="gabarito" data-gerar-gabarito></aside>
 </section>
