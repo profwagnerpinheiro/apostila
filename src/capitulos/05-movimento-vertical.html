@@ -1,0 +1,171 @@
+<!-- meta
+{
+  "numero": "5",
+  "titulo": "Movimento vertical",
+  "volume": "Volume 1",
+  "ano": "2025",
+  "arquivo": "cap05-movimento-vertical",
+  "ilustracao": "queda",
+  "legendaIlustracao": "Bola solta do repouso, fotografada a cada segundo (g = 10 m/s², sem resistência do ar). A velocidade aumenta 10 m/s a cada segundo e a distância percorrida cresce cada vez mais.",
+  "paraComecar": "Solte uma pedra e ela cai; jogue uma bola para cima e ela sobe, para por um instante e volta. Esses movimentos parecem diferentes, mas têm algo em comum: acontecem sob a ação da gravidade, com a mesma aceleração, perto da superfície da Terra. Neste capítulo, você vai aplicar o que aprendeu sobre o movimento uniformemente variado à queda livre e ao lançamento vertical, e conhecer a descoberta de Galileu sobre a queda dos corpos.",
+  "objetivos": [
+    "reconhecer o movimento vertical como um MUV com aceleração g;",
+    "aplicar as equações da queda livre;",
+    "descrever as etapas de um lançamento vertical para cima;",
+    "compreender por que, sem o ar, todos os corpos caem juntos."
+  ]
+}
+-->
+
+<section class="secao" id="movimento-vertical">
+  <h2>Equações do movimento vertical</h2>
+
+  <aside class="nota nota--lembre">
+    <p class="nota-titulo">Lembre-se</p>
+    <p>Perto da superfície da Terra, usamos $g = 10\ \text{m/s}^2$. Isso significa que, em queda livre, a velocidade aumenta 10 m/s a cada segundo.</p>
+  </aside>
+
+  <p>Movimento vertical é um movimento uniformemente variado com direção vertical. Devido à ação da força gravitacional presente na superfície terrestre, temos a presença da aceleração gravitacional, indicada por $\vec{g}$.</p>
+  <p>Como o movimento vertical é uniformemente variado, as equações vistas no capítulo anterior continuam válidas. A diferença é que, na grande maioria das vezes, a aceleração é igual a $\vec{g}$, com $g = 10\ \text{m/s}^2$.</p>
+
+  <div class="tabela">
+    <table>
+      <caption>Equações do movimento vertical.</caption>
+      <thead><tr><th scope="col">Grandeza</th><th scope="col">Equação</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">deslocamento</th><td>$\Delta H = v_0\,t \pm \dfrac{g}{2}\,t^2$</td></tr>
+        <tr><th scope="row">velocidade</th><td>$v = v_0 \pm g\,t$</td></tr>
+        <tr><th scope="row">equação de Torricelli</th><td>$v^2 = v_0^2 \pm 2\,g\,\Delta H$</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <aside class="nota nota--atencao">
+    <p class="nota-titulo">Atenção</p>
+    <p>Quando o objeto está subindo, use $-g$ (sinal negativo). Quando está descendo, use $+g$ (sinal positivo).</p>
+  </aside>
+</section>
+
+<section class="secao" id="queda-livre">
+  <h2>Queda livre</h2>
+
+  <div class="definicao">
+    <p class="definicao-titulo">Queda livre</p>
+    <p>Quando um objeto é <strong>solto</strong> de uma determinada altura $H$ e atua sobre ele apenas a força gravitacional, dizemos que esse objeto está em queda livre.</p>
+  </div>
+
+  <figure class="figura">
+    <img src="assets/figuras/cap05-queda-livre.png" width="784" height="559" alt="Bola solta do repouso, com v0 = 0 m/s, a uma altura H do solo; a aceleração da gravidade aponta para baixo.">
+    <figcaption>Objeto solto do repouso ($v_0 = 0$) a uma altura $H$.</figcaption>
+  </figure>
+
+  <p>Quando o objeto é solto (abandonado), temos $v_0 = 0\ \text{m/s}$. Assim, as equações ficam:</p>
+  <div class="tabela">
+    <table>
+      <caption>Equações da queda livre.</caption>
+      <thead><tr><th scope="col">Grandeza</th><th scope="col">Equação</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">deslocamento</th><td>$H = \dfrac{g}{2}\,t^2$</td></tr>
+        <tr><th scope="row">velocidade</th><td>$v = g\,t$</td></tr>
+        <tr><th scope="row">equação de Torricelli</th><td>$v^2 = 2\,g\,H$</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="secao" id="lancamento-vertical">
+  <h2>Lançamento vertical</h2>
+
+  <aside class="nota nota--saiba">
+    <p class="nota-titulo">Saiba mais</p>
+    <p>Como no ponto mais alto $v = 0$, da equação da velocidade e da de Torricelli saem o tempo de subida e a altura máxima:</p>
+    <p>$t_s = \dfrac{v_0}{g}$ &nbsp; e &nbsp; $H_{\text{máx}} = \dfrac{v_0^2}{2g}$</p>
+  </aside>
+
+  <p>Quando lançamos um objeto na direção vertical, para cima, observamos que:</p>
+
+  <figure class="figura">
+    <img src="assets/figuras/cap05-lancamento.png" width="618" height="855" alt="Jogadora chuta uma bola para cima a partir do ponto A; a bola sobe com v maior que 0, para no ponto mais alto B com v = 0 e desce com v menor que 0, passando por C na mesma altura de A.">
+    <figcaption>Lançamento vertical: a bola sobe de A até B, onde para, e desce até C.</figcaption>
+  </figure>
+
+  <ul class="topicos">
+    <li>quando o objeto está subindo ($v_0 &gt; 0$) e atinge o ponto mais alto, ou seja, a <strong>altura máxima</strong> $H_{\text{máx}}$ (ponto B), a velocidade nesse ponto é zero: $v = 0\ \text{m/s}$;</li>
+    <li>enquanto o objeto está subindo, o movimento é <strong>retardado</strong>, devido à aceleração da gravidade $\vec{g}$;</li>
+    <li>quando o objeto, partindo do ponto A, atinge o ponto C, na mesma altura, suas velocidades têm o mesmo módulo: $v_A = v_C$;</li>
+    <li>enquanto o objeto está descendo, o movimento é <strong>acelerado</strong>, devido à aceleração da gravidade $\vec{g}$;</li>
+    <li>o tempo de subida é igual ao tempo de descida: $t_{\text{subida}} = t_{\text{descida}}$.</li>
+  </ul>
+</section>
+
+<section class="secao" id="galileu">
+  <h2>Galileu e a queda dos corpos</h2>
+
+  <aside class="nota nota--glossario">
+    <p class="nota-titulo">Quem foi</p>
+    <p><strong>Galileu Galilei</strong> (1564–1642), físico, matemático e astrônomo italiano, considerado um dos fundadores da ciência experimental.</p>
+  </aside>
+
+  <p>Na Grécia antiga, por volta do século IV a.C., Aristóteles levantou a hipótese de que, se dois objetos fossem soltos de uma mesma altura, o mais pesado chegaria primeiro ao chão.</p>
+  <p>No final do século XVI, Galileu Galilei contestou essa ideia. Segundo o relato tradicional, ele teria abandonado do alto da Torre de Pisa, na Itália, várias vezes, dois objetos de massas diferentes, observando que ao final do movimento os dois chegavam praticamente ao mesmo tempo ao solo. O que fazia o tempo de queda ser diferente, às vezes, era apenas a resistência do ar.</p>
+
+  <div class="definicao">
+    <p class="definicao-titulo">Queda dos corpos</p>
+    <p>Desprezando a resistência do ar, todos os objetos soltos de uma mesma altura, perto da superfície terrestre, levam o mesmo tempo para chegar ao solo. A massa não influencia o tempo de queda.</p>
+  </div>
+
+  <figure class="figura">
+    <img src="assets/figuras/cap05-pisa.png" width="876" height="676" alt="Ilustração da Torre de Pisa com um elefante e uma formiga caindo lado a lado.">
+    <figcaption>Sem a resistência do ar, um elefante e uma formiga soltos juntos chegariam juntos ao chão.</figcaption>
+  </figure>
+</section>
+
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos">
+  <h2>Exercícios resolvidos</h2>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R1</span><span class="questao-fonte">Uerj 2015</span></p>
+    <p>Uma ave marinha costuma mergulhar de uma altura de 20 m para buscar alimento no mar. Suponha que um desses mergulhos tenha sido feito em sentido vertical, a partir do repouso e exclusivamente sob ação da força da gravidade. Desprezando-se as forças de atrito e de resistência do ar, a ave chegará à superfície do mar a uma velocidade, em m/s, aproximadamente igual a:</p>
+    <ol class="alternativas">
+      <li>20</li><li>40</li><li>60</li><li>80</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Usando a equação de Torricelli com $a = g = 10\ \text{m/s}^2$ e $\Delta S = h = 20\ \text{m}$:</p>
+      $$v^2 = v_0^2 + 2gh \;\Rightarrow\; v^2 = 0 + 2 \cdot 10 \cdot 20 = 400 \;\Rightarrow\; v = 20\ \text{m/s}$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R2</span><span class="questao-fonte">Fuvest 2018</span></p>
+    <p>Em uma tribo indígena de uma ilha tropical, o teste derradeiro de coragem de um jovem é deixar-se cair em um rio, do alto de um penhasco. Um desses jovens se soltou verticalmente, a partir do repouso, de uma altura de 45 m em relação à superfície da água. O tempo decorrido, em segundos, entre o instante em que o jovem iniciou sua queda e aquele em que um espectador, parado no alto do penhasco, ouviu o barulho do impacto do jovem na água é, aproximadamente:</p>
+    <p><strong>Note e adote:</strong> considere o ar em repouso e ignore sua resistência; ignore as dimensões das pessoas envolvidas; velocidade do som no ar: 360 m/s; aceleração da gravidade: 10 m/s².</p>
+    <ol class="alternativas">
+      <li>3,1</li><li>4,3</li><li>5,2</li><li>6,2</li><li>7,0</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Tempo de queda do jovem (queda livre):</p>
+      $$H = \frac{g}{2}\,t_q^2 \;\Rightarrow\; 45 = 5\,t_q^2 \;\Rightarrow\; t_q = 3\ \text{s}$$
+      <p>Tempo para o som do impacto subir até o alto do penhasco (movimento uniforme):</p>
+      $$t_{\text{som}} = \frac{45}{360} = 0{,}125\ \text{s}$$
+      <p>Tempo total: $3 + 0{,}125 \approx 3{,}1\ \text{s}$.</p>
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R3</span><span class="questao-fonte">EEAR 2019</span></p>
+    <p>Um atleta pratica salto ornamental, fazendo uso de uma plataforma situada a 5 m do nível da água da piscina. Se o atleta saltar desta plataforma, a partir do repouso, com que velocidade se chocará com a água? (Obs.: despreze a resistência do ar e considere o módulo da aceleração da gravidade $g = 10\ \text{m/s}^2$.)</p>
+    <ol class="alternativas">
+      <li>10 m/s.</li><li>20 m/s.</li><li>30 m/s.</li><li>50 m/s.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Em queda livre, pela equação de Torricelli:</p>
+      $$v^2 = 2\,g\,H = 2 \cdot 10 \cdot 5 = 100 \;\Rightarrow\; v = 10\ \text{m/s}$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+</section>

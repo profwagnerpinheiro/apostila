@@ -1,0 +1,446 @@
+<!-- meta
+{
+  "numero": "4",
+  "titulo": "Movimento uniformemente variado",
+  "volume": "Volume 1",
+  "ano": "2025",
+  "arquivo": "cap04-muv",
+  "ilustracao": "acelerado",
+  "legendaIlustracao": "Posições de um carro que parte do repouso com aceleração de 10 m/s², fotografado a cada segundo. A cada segundo ele percorre uma distância maior que no segundo anterior.",
+  "paraComecar": "Nenhum carro sai do lugar já a 100 km/h, e nenhum para instantaneamente. Na maior parte dos movimentos do dia a dia, a velocidade muda: aumenta na largada, diminui na freada. Quando essa mudança acontece sempre no mesmo ritmo, temos o movimento uniformemente variado. Neste capítulo, você vai aprender a calcular a aceleração, a prever posição e velocidade a cada instante e a tirar informações dos gráficos desse movimento.",
+  "objetivos": [
+    "calcular a aceleração média de um móvel;",
+    "usar as funções horárias do espaço e da velocidade no MUV;",
+    "aplicar a equação de Torricelli quando o tempo não é dado;",
+    "ler velocidade, aceleração e deslocamento nos gráficos do MUV."
+  ]
+}
+-->
+
+<section class="secao" id="muv">
+  <h2>Movimento variado</h2>
+
+  <aside class="nota nota--saiba">
+    <p class="nota-titulo">Curiosidade</p>
+    <p>Qual é o animal terrestre mais rápido do mundo? O guepardo, que chega a 110 km/h, segundo o Cheetah Conservation Fund, organização fundada na Namíbia para conservar esse animal na natureza.</p>
+    <p>Fonte: “Por que o guepardo é o animal terrestre mais rápido do mundo?”, <cite>National Geographic Brasil</cite>, 2022. Acesso em: 5 jan. 2022.</p>
+  </aside>
+
+  <p>Movimento variado é aquele em que ocorrem variações de velocidade. A taxa de variação da velocidade em um determinado intervalo de tempo é chamada de <strong>aceleração</strong>.</p>
+
+  <div class="definicao">
+    <p class="definicao-titulo">Movimento uniformemente variado (MUV)</p>
+    <p>É o movimento em que a aceleração é constante: a velocidade varia sempre na mesma quantidade em intervalos de tempo iguais.</p>
+  </div>
+</section>
+
+<section class="secao" id="aceleracao">
+  <h2>Aceleração média</h2>
+  <p>A aceleração média é a grandeza que indica a variação da velocidade escalar num dado intervalo de tempo:</p>
+  <div class="formula">
+    $$a_m = \frac{\Delta v}{\Delta t} = \frac{v - v_0}{t - t_0}$$
+  </div>
+  <p><strong>Unidade no SI:</strong> metro por segundo ao quadrado (m/s²), pois</p>
+  $$a_m = \frac{\Delta v}{\Delta t} = \frac{[\text{m/s}]}{[\text{s}]} = \text{m/s}^2$$
+</section>
+
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos-1">
+  <h2>Exercícios resolvidos</h2>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R1</span><span class="questao-fonte">Unesp 2018</span></p>
+    <p>Um foguete lançador de satélites, partindo do repouso, atinge a velocidade de 5.400 km/h após 50 segundos. Supondo que esse foguete se desloque em trajetória retilínea, sua aceleração escalar média é de:</p>
+    <ol class="alternativas">
+      <li>$30\ \text{m/s}^2$</li><li>$150\ \text{m/s}^2$</li><li>$388\ \text{m/s}^2$</li><li>$108\ \text{m/s}^2$</li><li>$54\ \text{m/s}^2$</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Partindo do repouso, a velocidade inicial é zero; a velocidade final é $5400\ \text{km/h} = 1500\ \text{m/s}$, e o intervalo de tempo é 50 s:</p>
+      $$a_m = \frac{\Delta v}{\Delta t} = \frac{1500 - 0}{50} \;\Rightarrow\; a_m = 30\ \text{m/s}^2$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+</section>
+
+<section class="secao" id="funcoes-horarias">
+  <h2>Funções horárias do MUV</h2>
+
+  <aside class="nota nota--lembre">
+    <p class="nota-titulo">Lembre-se</p>
+    <p>Se o tempo não é informado nem pedido no problema, use a equação de Torricelli.</p>
+  </aside>
+
+  <h3>Função horária do espaço</h3>
+  <div class="formula">
+    $$S = S_0 + v_0\,t + \frac{a}{2}\,t^2$$
+    <dl class="formula-legenda">
+      <div><dt>$S_0$</dt><dd>posição inicial</dd></div>
+      <div><dt>$v_0$</dt><dd>velocidade inicial</dd></div>
+      <div><dt>$a$</dt><dd>aceleração</dd></div>
+      <div><dt>$t$</dt><dd>intervalo de tempo</dd></div>
+    </dl>
+  </div>
+
+  <h3>Função horária da velocidade</h3>
+  <div class="formula">
+    $$v = v_0 + a\,t$$
+  </div>
+
+  <h3>Equação de Torricelli</h3>
+  <div class="formula">
+    $$v^2 = v_0^2 + 2\,a\,\Delta S$$
+    <dl class="formula-legenda">
+      <div><dt>$v$</dt><dd>velocidade final</dd></div>
+      <div><dt>$v_0$</dt><dd>velocidade inicial</dd></div>
+      <div><dt>$a$</dt><dd>aceleração</dd></div>
+      <div><dt>$\Delta S$</dt><dd>deslocamento</dd></div>
+    </dl>
+  </div>
+  <p><strong>Observação:</strong> em situações em que não é informado o intervalo de tempo, ou em que não é pedido para determiná-lo, use a <strong>equação de Torricelli</strong>.</p>
+</section>
+
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos-2">
+  <h2>Exercícios resolvidos</h2>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R2</span><span class="questao-fonte">Cesgranrio 2010</span></p>
+    <p>Uma partícula é lançada verticalmente para cima realizando um movimento retilíneo até atingir o solo. A função horária da partícula é dada por $S(t) = 3{,}4 + 16t - 5t^2$. O tempo ($t$) está medido em segundos e a posição ($S$), em metros. Com base nas informações apresentadas acima, analise as afirmativas a seguir.</p>
+    <ol class="itens-romanos">
+      <li>A partícula é inicialmente lançada para cima com velocidade igual a 16 m/s.</li>
+      <li>A partícula atinge sua altura máxima 1,5 segundo após o lançamento para cima.</li>
+      <li>A partícula se move em MRU (movimento retilíneo uniforme).</li>
+    </ol>
+    <p>É correto APENAS o que se afirma em:</p>
+    <ol class="alternativas">
+      <li>I</li><li>II</li><li>I e II</li><li>I e III</li><li>II e III</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p><strong>I – Correta.</strong> Comparando com a função horária $S = S_0 + v_0 t + \frac{a}{2}t^2$, a velocidade inicial é 16 m/s, e $\frac{a}{2} = -5$, ou seja, $a = -10\ \text{m/s}^2$.</p>
+      <p><strong>II – Incorreta.</strong> No ponto mais alto, $v = 0$. O tempo de subida é:</p>
+      $$0 = 16 - 10\,t_s \;\Rightarrow\; t_s = 1{,}6\ \text{s}$$
+      <p><strong>III – Incorreta.</strong> O movimento possui aceleração; portanto, é um MUV.</p>
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">R3</span><span class="questao-fonte">EPCAr (Afa) 2023</span></p>
+    <p>Duas partículas, A e B, se movem em sentidos opostos, em uma mesma trajetória. No instante $t_0 = 0$, a partícula A inicia do repouso e da origem dos espaços um movimento uniformemente variado, e a partícula B passa pela posição 3,0 m com velocidade constante, permanecendo em movimento uniforme. No instante $t = 2\ \text{s}$, as duas partículas, A e B, se encontram, tendo a partícula B percorrido uma distância igual a duas vezes a distância percorrida pela partícula A, conforme indica a figura a seguir.</p>
+    <figure class="figura figura--larga">
+      <img src="assets/figuras/cap04-epcar-particulas.png" width="1025" height="217" alt="Trajetória horizontal: A parte da origem 0; B parte de 3,0 m; as duas se encontram no ponto marcado A B.">
+    </figure>
+    <p>Nessas condições, a velocidade da partícula A, em m/s, no momento em que as partículas se encontram, é igual a:</p>
+    <ol class="alternativas">
+      <li>0,25</li><li>0,50</li><li>1,0</li><li>2,0</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Como B percorre o dobro da distância de A até o encontro, e as duas juntas cobrem os 3 m:</p>
+      $$s_A + s_B = 3 \;\Rightarrow\; s_A + 2s_A = 3 \;\Rightarrow\; s_A = 1\ \text{m}$$
+      <p>Da equação horária do espaço de A, obtemos sua aceleração:</p>
+      $$1 = 0 + 0 \cdot 2 + \frac{a_A \cdot 2^2}{2} \;\Rightarrow\; a_A = 0{,}5\ \text{m/s}^2$$
+      <p>Logo, a velocidade de A no encontro é:</p>
+      $$v_A = v_{0A} + a_A\,t = 0 + 0{,}5 \cdot 2 \;\Rightarrow\; v_A = 1\ \text{m/s}$$
+      <p class="resposta">Resposta: alternativa <strong>c</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R4</span><span class="questao-fonte">EsPCEx (Aman) 2016</span></p>
+    <p>Um móvel descreve um movimento retilíneo uniformemente acelerado. Ele parte da posição inicial igual a 40 m com uma velocidade de 30 m/s, no sentido contrário à orientação positiva da trajetória, e a sua aceleração é de 10 m/s² no sentido positivo da trajetória. A posição do móvel no instante 4 s é:</p>
+    <ol class="alternativas">
+      <li>0 m</li><li>40 m</li><li>80 m</li><li>100 m</li><li>240 m</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Pelos dados do enunciado e pela função horária do espaço (a velocidade inicial é negativa, pois tem sentido contrário ao da trajetória):</p>
+      $$\begin{aligned} S &= S_0 + v_0\,t + \frac{a\,t^2}{2} \\ S &= 40 - 30 \cdot 4 + \frac{10 \cdot 16}{2} \\ S &= 40 - 120 + 80 = 0\ \text{m} \end{aligned}$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">R5</span><span class="questao-fonte">UTFPR 2014</span></p>
+    <p>Suponha que um automóvel de motor muito potente possa desenvolver uma aceleração média de módulo igual a 10 m/s². Partindo do repouso, este automóvel poderia chegar à velocidade de 90 km/h num intervalo de tempo mínimo, em segundos, igual a:</p>
+    <ol class="alternativas">
+      <li>2,0.</li><li>9,0.</li><li>2,5.</li><li>4,5.</li><li>3,0.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Dados: $a = 10\ \text{m/s}^2$; $v_0 = 0$; $v = 90\ \text{km/h} = 25\ \text{m/s}$.</p>
+      $$a = \frac{\Delta v}{\Delta t} \;\Rightarrow\; \Delta t = \frac{\Delta v}{a} = \frac{25 - 0}{10} \;\Rightarrow\; \Delta t = 2{,}5\ \text{s}$$
+      <p class="resposta">Resposta: alternativa <strong>c</strong>.</p>
+    </details>
+  </article>
+</section>
+
+<section class="secao" id="graficos-muv">
+  <h2>Gráficos do MUV</h2>
+
+  <aside class="nota nota--atencao">
+    <p class="nota-titulo">Atenção</p>
+    <p>O movimento é acelerado quando velocidade e aceleração têm o mesmo sinal, e retardado quando têm sinais opostos. As regras ao lado valem para velocidade positiva.</p>
+  </aside>
+
+  <h3>Gráfico da velocidade em função do tempo (v × t)</h3>
+  <p>No MUV, o gráfico v × t é uma reta inclinada.</p>
+  <p>Se a reta é <strong>crescente</strong>, $a &gt; 0$ e o movimento é <strong>acelerado</strong>. A inclinação da reta dá o valor da aceleração:</p>
+  <div class="formula">
+    $$\operatorname{tg}\theta \overset{N}{=} a = \frac{\Delta v}{\Delta t}$$
+  </div>
+  <figure class="figura figura--vetorial">
+    {{fig:muvVxtCrescente}}
+    <figcaption>Reta crescente: aceleração positiva, igual à inclinação da reta.</figcaption>
+  </figure>
+  <p>Se a reta é <strong>decrescente</strong>, $a &lt; 0$ e o movimento é <strong>retardado</strong>.</p>
+  <figure class="figura figura--vetorial">
+    {{fig:muvVxtDecrescente}}
+    <figcaption>Reta decrescente: aceleração negativa.</figcaption>
+  </figure>
+  <p>Pela <strong>área do gráfico</strong> da velocidade em função do tempo, obtemos o valor numérico do <strong>deslocamento</strong> $\Delta S$.</p>
+  <div class="formula">
+    $$A \overset{N}{=} \Delta S$$
+  </div>
+  <figure class="figura figura--vetorial">
+    {{fig:muvArea}}
+    <figcaption>A área sob a reta (um trapézio) é numericamente igual ao deslocamento.</figcaption>
+  </figure>
+
+  <h3>Gráfico da aceleração em função do tempo (a × t)</h3>
+  <p>No MUV, o gráfico da aceleração em função do tempo é uma reta paralela ao eixo do tempo, pois a aceleração é constante. A área desse gráfico é numericamente igual à variação da velocidade.</p>
+  <div class="formula">
+    $$A \overset{N}{=} \Delta v$$
+  </div>
+  <figure class="figura figura--vetorial">
+    {{fig:muvAxt}}
+    <figcaption>A área sob a reta é numericamente igual à variação da velocidade.</figcaption>
+  </figure>
+
+  <h3>Gráfico do espaço em função do tempo (S × t)</h3>
+  <p>No MUV, o gráfico do espaço em função do tempo é uma <strong>parábola</strong>:</p>
+  <ul class="topicos">
+    <li>se $a &gt; 0$, a concavidade é voltada para cima;</li>
+    <li>se $a &lt; 0$, a concavidade é voltada para baixo.</li>
+  </ul>
+  <figure class="figura figura--vetorial figura--dupla">
+    {{fig:muvParabolas}}
+    <figcaption>A concavidade da parábola indica o sinal da aceleração.</figcaption>
+  </figure>
+</section>
+
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos-3">
+  <h2>Exercícios resolvidos</h2>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">R6</span><span class="questao-fonte">FMJ 2022</span></p>
+    <p>A velocidade de um automóvel nos primeiros instantes após a largada de uma corrida está representada no gráfico.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap04-fmj-grafico.png" width="846" height="467" alt="Gráfico velocidade (m/s) por tempo (s): reta de 0 a 50 m/s entre 0 e 6 s, constante em 50 m/s até 8 s e depois decrescendo.">
+    </figure>
+    <p>A distância percorrida pelo automóvel até atingir a velocidade máxima foi de:</p>
+    <ol class="alternativas">
+      <li>100 m.</li><li>300 m.</li><li>200 m.</li><li>150 m.</li><li>50 m.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>A distância percorrida é dada pela área sob o gráfico, um triângulo de base 6 s e altura 50 m/s:</p>
+      $$\Delta S = \frac{6 \cdot 50}{2} \;\Rightarrow\; \Delta S = 150\ \text{m}$$
+      <p class="resposta">Resposta: alternativa <strong>d</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R7</span><span class="questao-fonte">Famema 2021</span></p>
+    <p>Um motociclista, partindo do repouso, acelera uniformemente sua motocicleta até atingir uma velocidade desejada que, atingida, é mantida constante, de acordo com o gráfico.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap04-famema-grafico.png" width="808" height="592" alt="Gráfico v (m/s) por t (s): reta de 0 a 10 m/s entre 0 e 40 s e depois constante em 10 m/s até 60 s.">
+    </figure>
+    <p>O deslocamento realizado pela motocicleta no período de tempo em que ela é uniformemente acelerada foi de:</p>
+    <ol class="alternativas">
+      <li>200 m.</li><li>500 m.</li><li>400 m.</li><li>300 m.</li><li>100 m.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>O deslocamento pedido é numericamente igual à área sob o gráfico de 0 a 40 s:</p>
+      $$\Delta S = \frac{40 \cdot 10}{2} \;\Rightarrow\; \Delta S = 200\ \text{m}$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">R8</span><span class="questao-fonte">FGV 2017</span></p>
+    <p>O gráfico horário da posição ($S$) em função do tempo ($t$) descreve, qualitativamente, o deslocamento de um veículo sobre uma trajetória. As curvas, nos trechos A, B e D, são arcos de parábola cujos vértices estão presentes no gráfico.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap04-fgv-grafico.png" width="742" height="517" alt="Gráfico S por t com quatro trechos: A curva côncava para cima a partir da origem, B curva côncava para baixo, C trecho horizontal e D curva côncava para cima.">
+    </figure>
+    <p>Analisando o gráfico, é correto concluir que:</p>
+    <ol class="alternativas">
+      <li>a trajetória por onde o veículo se move é sinuosa nos trechos A, B e D e retilínea no trecho C.</li>
+      <li>a trajetória por onde o veículo se move é toda retilínea, mas com lombada em B e valetas em A e D.</li>
+      <li>o trecho B é percorrido em movimento uniformemente desacelerado e retrógrado.</li>
+      <li>nos trechos A e D, o veículo se desloca em movimentos uniformemente acelerados com velocidade inicial nula.</li>
+      <li>a velocidade escalar do veículo no trecho C é constante e não nula, sendo variável nos outros trechos.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p><strong>[A] Falsa.</strong> O gráfico mostra a posição em relação ao tempo; não podemos afirmar que a pista tem trechos sinuosos. Para isso, precisaríamos de um gráfico com as posições em ambos os eixos.</p>
+      <p><strong>[B] Falsa.</strong> Não há como dizer se há lombadas ou valetas; para tanto, seria preciso um gráfico da altura em função do tempo.</p>
+      <p><strong>[C] Falsa.</strong> No trecho B, a posição aumenta com o tempo, porém cada vez menos, até que em C não varia mais: é um movimento desacelerado, mas progressivo, até parar em C.</p>
+      <p><strong>[D] Verdadeira.</strong> O móvel realiza movimento progressivo acelerado a partir do repouso em A e em D, pois fica claro que em C o mesmo está parado (os vértices das parábolas indicam velocidade nula).</p>
+      <p><strong>[E] Falsa.</strong> O veículo está parado em C; portanto, sua velocidade é nula.</p>
+      <p class="resposta">Resposta: alternativa <strong>d</strong>.</p>
+    </details>
+  </article>
+</section>
+
+<section class="secao exercicios exercicios--propostos lista" id="propostos">
+  <h2>Exercícios propostos</h2>
+  <p class="caderno">Faça no caderno. Não escreva na apostila.</p>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">UFJF – Pism 1 2022</span></p>
+    <p>O tempo de reação de um condutor ao ver um obstáculo, até acionar os freios, é de aproximadamente 0,7 s. Os freios de um carro popular podem reduzir a sua velocidade a uma razão máxima de 5,0 m/s a cada segundo. Um motorista conduz um carro popular a uma velocidade constante de 25 m/s em uma autoestrada. O tempo mínimo decorrido entre o instante em que ele avista uma vaca na estrada (o que o leva a acionar os freios) e o instante em que o carro para, e a distância percorrida durante esse intervalo de tempo são, respectivamente:</p>
+    <ol class="alternativas">
+      <li>5,0 s e 62,5 m.</li><li>0,7 s e 17,5 m.</li><li>5,7 s e 80,0 m.</li><li>4,3 s e 45,0 m.</li><li>5,0 s e 17,5 m.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">2</span><span class="questao-fonte">Unisinos 2022</span></p>
+    <p>No instante em que um sinal de trânsito fica verde (instante de tempo $t = 0\ \text{s}$), um carro, partindo do repouso, inicia seu movimento com uma aceleração constante cujo módulo é de 2 m/s². No mesmo instante em que o carro parte do repouso, um micro-ônibus, que se move com uma velocidade constante de módulo 36 km/h, ultrapassa o automóvel. Em qual instante de tempo ($t &gt; 0\ \text{s}$) ocorrerá, novamente, o encontro entre o carro e o micro-ônibus?</p>
+    <ol class="alternativas">
+      <li>2 s</li><li>6 s</li><li>10 s</li><li>20 s</li><li>30 s</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">3</span><span class="questao-fonte">Enem 2017</span></p>
+    <p>Um motorista que atende a uma chamada de celular é levado à desatenção, aumentando a possibilidade de acidentes ocorrerem em razão do aumento de seu tempo de reação. Considere dois motoristas, o primeiro atento e o segundo utilizando o celular enquanto dirige. Eles aceleram seus carros inicialmente a 1,00 m/s². Em resposta a uma emergência, freiam com uma desaceleração igual a 5,00 m/s². O motorista atento aciona o freio à velocidade de 14,0 m/s, enquanto o desatento, em situação análoga, leva 1,00 segundo a mais para iniciar a frenagem. Que distância o motorista desatento percorre a mais do que o motorista atento, até a parada total dos carros?</p>
+    <ol class="alternativas">
+      <li>2,90 m</li><li>14,0 m</li><li>14,5 m</li><li>15,0 m</li><li>17,4 m</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">4</span><span class="questao-fonte">Enem 2016</span></p>
+    <p>Dois veículos que trafegam com velocidade constante em uma estrada, na mesma direção e sentido, devem manter entre si uma distância mínima. Isso porque o movimento de um veículo, até que ele pare totalmente, ocorre em duas etapas, a partir do momento em que o motorista detecta um problema que exige uma freada brusca. A primeira etapa é associada à distância que o veículo percorre entre o intervalo de tempo da detecção do problema e o acionamento dos freios. Já a segunda se relaciona com a distância que o automóvel percorre enquanto os freios agem com desaceleração constante. Considerando a situação descrita, qual esboço gráfico representa a velocidade do automóvel em relação à distância percorrida até parar totalmente?</p>
+    <ol class="alternativas">
+      <li><img src="assets/figuras/cap04-enem-a.png" width="425" height="313" alt="Velocidade diminui em linha reta desde o início até zero."></li>
+      <li><img src="assets/figuras/cap04-enem-b.png" width="425" height="317" alt="Velocidade constante e depois diminui em linha reta até zero."></li>
+      <li><img src="assets/figuras/cap04-enem-c.png" width="425" height="317" alt="Velocidade diminui desde o início, em curva cada vez mais inclinada, até zero."></li>
+      <li><img src="assets/figuras/cap04-enem-d.png" width="425" height="321" alt="Velocidade constante e depois diminui em curva cada vez mais inclinada até zero."></li>
+      <li><img src="assets/figuras/cap04-enem-e.png" width="425" height="325" alt="Velocidade sobe e depois desce em forma de arco até zero."></li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">5</span><span class="questao-fonte">Enem 2020</span></p>
+    <p>Você foi contratado para sincronizar os quatro semáforos de uma avenida, indicados pelas letras O, A, B e C, conforme a figura.</p>
+    <figure class="figura figura--vetorial">
+      {{fig:semaforos}}
+    </figure>
+    <p>Os semáforos estão separados por uma distância de 500 m. Segundo os dados estatísticos da companhia controladora de trânsito, um veículo, que está inicialmente parado no semáforo O, tipicamente parte com aceleração constante de $1\ \text{m}\,\text{s}^{-2}$ até atingir a velocidade de $72\ \text{km}\,\text{h}^{-1}$ e, a partir daí, prossegue com velocidade constante. Você deve ajustar os semáforos A, B e C de modo que eles mudem para a cor verde quando o veículo estiver a 100 m de cruzá-los, para que ele não tenha que reduzir a velocidade em nenhum momento. Considerando essas condições, aproximadamente quanto tempo depois da abertura do semáforo O os semáforos A, B e C devem abrir, respectivamente?</p>
+    <ol class="alternativas">
+      <li>20 s, 45 s e 70 s.</li><li>25 s, 50 s e 75 s.</li><li>28 s, 42 s e 53 s.</li><li>30 s, 55 s e 80 s.</li><li>35 s, 60 s e 85 s.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="texto-base"><strong>Considere os dados a seguir.</strong> O guepardo é um velocista por excelência. O animal mais rápido da Terra atinge uma velocidade máxima de cerca de 110 km/h. O que é ainda mais notável: leva apenas três segundos para isso. Mas não consegue manter esse ritmo por muito tempo; a maioria das perseguições é limitada a menos de meio minuto, pois o exercício anaeróbico intenso produz um grande débito de oxigênio e causa uma elevação abrupta da temperatura do corpo (até quase 41 °C, perto do limite letal). Um longo período de recuperação deve se seguir. O elevado gasto de energia significa que o guepardo deve escolher sua presa cuidadosamente, pois não pode se permitir muitas perseguições infrutíferas. (ASHCROFT, Francis. <cite>A vida no limite – a ciência da sobrevivência</cite>. Rio de Janeiro: Jorge Zahar, 2001.)</p>
+    <p class="questao-cab"><span class="questao-num">6</span><span class="questao-fonte">PUC-PR 2018</span></p>
+    <p>Considere um guepardo que, partindo do repouso com aceleração constante, atinge 108 km/h após três segundos de corrida, mantendo essa velocidade nos oito segundos subsequentes. Nesses onze segundos de movimento, a distância total percorrida pelo guepardo foi de:</p>
+    <ol class="alternativas">
+      <li>180 m.</li><li>215 m.</li><li>240 m.</li><li>285 m.</li><li>305 m.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">7</span><span class="questao-fonte">G1 – UTFPR 2018</span></p>
+    <p>Um ciclista movimenta-se em sua bicicleta, partindo do repouso e mantendo uma aceleração aproximadamente constante de valor médio igual a 2,0 m/s². Depois de 7,0 s de movimento, atinge uma velocidade, em m/s, igual a:</p>
+    <ol class="alternativas">
+      <li>49.</li><li>14.</li><li>98.</li><li>35.</li><li>10.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">8</span><span class="questao-fonte">Acafe 2018</span></p>
+    <p>A Física é a ciência responsável pelos fenômenos que acontecem ao nosso redor, sendo que a relação com a Matemática traduz-se em expressões algébricas ou fórmulas matemáticas que embasam os fundamentos teóricos. Em um MRUV, para um determinado móvel, a velocidade do mesmo é descrita pela equação $v = 50 - 10t$ (em unidades do SI). Neste caso, a alternativa correta que apresenta o instante, em s, em que o móvel inverte o sentido do movimento é:</p>
+    <ol class="alternativas">
+      <li>0,5</li><li>5,0</li><li>1,0</li><li>0,2</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">9</span><span class="questao-fonte">G1 – IFPE 2018</span></p>
+    <p>Um móvel parte do repouso e, após 8 segundos de movimento, está com velocidade de 32 m/s. Pode-se afirmar que a aceleração do móvel e o espaço percorrido por ele são, respectivamente:</p>
+    <ol class="alternativas">
+      <li>$4{,}0\ \text{m/s}^2$, 128 m.</li><li>$4{,}0\ \text{m/s}^2$, 32 m.</li><li>$-4{,}0\ \text{m/s}^2$, 128 m.</li><li>$2{,}0\ \text{m/s}^2$, 128 m.</li><li>$2{,}0\ \text{m/s}^2$, 32 m.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">10</span><span class="questao-fonte">EFOMM 2017</span></p>
+    <p>Um trem deve partir de uma estação A e parar na estação B, distante 4 km de A. A aceleração e a desaceleração podem ser, no máximo, de 5,0 m/s², e a maior velocidade que o trem atinge é de 72 km/h. O tempo mínimo para o trem completar o percurso de A a B é, em minutos, de:</p>
+    <ol class="alternativas">
+      <li>1,7</li><li>2,0</li><li>2,5</li><li>3,0</li><li>3,4</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">11</span><span class="questao-fonte">UPF 2017</span></p>
+    <p>Um vaso de cerâmica cai da janela de um prédio, a qual está a uma distância de 31 m do solo. Sobre esse solo, está um colchão de 1 m de altura. Após atingir o colchão, o vaso penetra 0,5 m nesse objeto. Nessas condições e desprezando a resistência do ar durante a queda livre, a desaceleração do vaso, em m/s², depois de atingir o colchão é de, aproximadamente: (Adote: $g = 10\ \text{m/s}^2$.)</p>
+    <ol class="alternativas">
+      <li>600</li><li>300</li><li>15</li><li>150</li><li>30</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">12</span><span class="questao-fonte">UFRGS 2017</span></p>
+    <p>Um atleta, partindo do repouso, percorre 100 m em uma pista horizontal retilínea, em 10 s, e mantém a aceleração constante durante todo o percurso. Desprezando a resistência do ar, considere as afirmações abaixo, sobre esse movimento.</p>
+    <ol class="itens-romanos">
+      <li>O módulo de sua velocidade média é 36 km/h.</li>
+      <li>O módulo de sua aceleração é 10 m/s².</li>
+      <li>O módulo de sua maior velocidade instantânea é 10 m/s.</li>
+    </ol>
+    <p>Quais estão corretas?</p>
+    <ol class="alternativas">
+      <li>Apenas I.</li><li>Apenas II.</li><li>Apenas III.</li><li>Apenas I e II.</li><li>I, II e III.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">13</span><span class="questao-fonte">Unicamp 2016</span></p>
+    <p>A demanda por trens de alta velocidade tem crescido em todo o mundo. Uma preocupação importante no projeto desses trens é o conforto dos passageiros durante a aceleração. Sendo assim, considere que, em uma viagem de trem de alta velocidade, a aceleração experimentada pelos passageiros foi limitada a $a_{\text{max}} = 0{,}09\,g$, onde $g = 10\ \text{m/s}^2$ é a aceleração da gravidade. Se o trem acelera a partir do repouso com aceleração constante igual a $a_{\text{max}}$, a distância mínima percorrida pelo trem para atingir uma velocidade de 1080 km/h corresponde a:</p>
+    <ol class="alternativas">
+      <li>10 km.</li><li>20 km.</li><li>50 km.</li><li>100 km.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">14</span><span class="questao-fonte">G1 – IFCE 2016</span></p>
+    <p>Um veículo parte do repouso em movimento retilíneo e acelera com aceleração escalar constante e igual a 3,0 m/s². O valor da velocidade escalar e da distância percorrida após 4,0 segundos valem, respectivamente:</p>
+    <ol class="alternativas">
+      <li>12,0 m/s e 24,0 m.</li><li>6,0 m/s e 18,0 m.</li><li>8,0 m/s e 16,0 m.</li><li>16,0 m/s e 32,0 m.</li><li>10,0 m/s e 20,0 m.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">15</span><span class="questao-fonte">Mackenzie 2016</span></p>
+    <p>Nos testes realizados em um novo veículo, observou-se que ele percorre 100 m em 5 s, a partir do repouso. A aceleração do veículo é constante nesse intervalo de tempo e igual a:</p>
+    <ol class="alternativas">
+      <li>$2\ \text{m/s}^2$</li><li>$4\ \text{m/s}^2$</li><li>$6\ \text{m/s}^2$</li><li>$8\ \text{m/s}^2$</li><li>$10\ \text{m/s}^2$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">16</span><span class="questao-fonte">PUC-RJ 2008</span></p>
+    <p>Um corredor de 100 metros rasos, ao cruzar exatamente a marca de 50,0 m, tem uma velocidade instantânea de 10,0 m/s. Nesse instante começa a soprar um vento contrário que cria uma aceleração total de $-0{,}36\ \text{m/s}^2$ sobre o atleta. Qual a velocidade do atleta ao cruzar a faixa de chegada?</p>
+    <ol class="alternativas">
+      <li>10,0 m/s</li><li>9,0 m/s</li><li>8,0 m/s</li><li>12,0 m/s</li><li>14,0 m/s</li>
+    </ol>
+  </article>
+
+  <!-- O gabarito é gerado pelo build a partir dos data-gabarito desta seção. -->
+  <aside class="gabarito" data-gerar-gabarito></aside>
+</section>

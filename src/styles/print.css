@@ -193,3 +193,6 @@ html.imprimir-conteudo .abertura { display: none !important; }
 
 .tabela, .formula, .proporcao, .alternativas, .figura, .esquema, .classificacao,
 .decisao, .virgula, .katex-display, .gabarito, .texto-base, .exemplos li, .regras li { break-inside: avoid; }
+.alternativas img { width: 30mm; }
+.conversao, .itens-numerados li { break-inside: avoid; }
+.figura--dupla svg { width: 90mm; }

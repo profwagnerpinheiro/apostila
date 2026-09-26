@@ -131,7 +131,7 @@ As figuras de vetores ficam em `scripts/figuras.mjs` e são chamadas pelo nome. 
   <figcaption>Regra do paralelogramo.</figcaption>
 </figure>
 ```
-Disponíveis: `vetor`, `poligono`, `mesmoSentido`, `sentidosOpostos`, `pitagoras`, `paralelogramo`, `diferenca`, `produto`, `decomposicao`. Para criar outra, use os auxiliares `seta`, `rotulo`, `angulo` e `linha` do mesmo arquivo.
+Disponíveis: `vetor`, `poligono`, `mesmoSentido`, `sentidosOpostos`, `pitagoras`, `paralelogramo`, `diferenca`, `produto`, `decomposicao` (vetores); `mruSxtCrescente`, `mruSxtDecrescente`, `mruTangente`, `mruVxt`, `mruVxtNegativo`, `muvVxtCrescente`, `muvVxtDecrescente`, `muvArea`, `muvAxt`, `muvParabolas`, `semaforos` (cinemática). Para criar outra, use os auxiliares `seta`, `rotulo`, `angulo` e `linha` do mesmo arquivo.
 
 ### Fórmula em destaque
 ```html
@@ -193,7 +193,7 @@ Configurada no bloco `meta` do capítulo:
   "objetivos": ["…;", "…."]
 }
 ```
-`ilustracao` escolhe o desenho da abertura, definido em `scripts/figuras.mjs` (`ilustracoes`): `escala` (potências de 10) e `barco` (soma de velocidades). Para um capítulo novo, crie uma função ali com o desenho do assunto.
+`ilustracao` escolhe o desenho da abertura, definido em `scripts/figuras.mjs` (`ilustracoes`): `escala` (potências de 10), `barco` (soma de velocidades), `uniforme` e `acelerado` (carro fotografado a cada segundo) e `queda` (bola em queda livre). Para um capítulo novo, crie uma função ali com o desenho do assunto.
 
 ---
 

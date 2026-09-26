@@ -13,6 +13,9 @@ O guia visual completo (cores, fontes, grade, componentes e como escrever cada u
 |---|---|---|
 | 1 | Conceitos básicos de Física | [cap01-conceitos-basicos.pdf](pdf/cap01-conceitos-basicos.pdf) |
 | 2 | Vetores | [cap02-vetores.pdf](pdf/cap02-vetores.pdf) |
+| 3 | Cinemática e movimento uniforme | [cap03-movimento-uniforme.pdf](pdf/cap03-movimento-uniforme.pdf) |
+| 4 | Movimento uniformemente variado | [cap04-muv.pdf](pdf/cap04-muv.pdf) |
+| 5 | Movimento vertical | [cap05-movimento-vertical.pdf](pdf/cap05-movimento-vertical.pdf) |
 
 ## Como usar
 

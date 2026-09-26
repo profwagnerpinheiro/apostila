@@ -1,0 +1,595 @@
+<!-- meta
+{
+  "numero": "3",
+  "titulo": "Cinemática e movimento uniforme",
+  "volume": "Volume 1",
+  "ano": "2025",
+  "arquivo": "cap03-movimento-uniforme",
+  "ilustracao": "uniforme",
+  "legendaIlustracao": "Posições de um carro fotografado a cada segundo. Em movimento uniforme, ele percorre distâncias iguais em intervalos de tempo iguais.",
+  "paraComecar": "Um carro na estrada, um avião cruzando o céu, uma pessoa numa esteira rolante: tudo isso é movimento. Mas como dizer se algo está se movendo, e com que rapidez? A resposta depende de onde olhamos. Neste capítulo, começamos o estudo da Cinemática, a parte da Física que descreve os movimentos, e aprendemos a calcular velocidades e a ler os gráficos do movimento mais simples de todos: o movimento com velocidade constante.",
+  "objetivos": [
+    "reconhecer movimento, repouso, referencial e trajetória;",
+    "calcular deslocamento e velocidade escalar média;",
+    "converter velocidades entre km/h e m/s;",
+    "calcular a velocidade relativa entre dois móveis;",
+    "usar a função horária e os gráficos do movimento uniforme."
+  ]
+}
+-->
+
+<section class="secao" id="conceitos">
+  <h2>Conceitos básicos da Mecânica</h2>
+
+  <div class="definicao">
+    <p class="definicao-titulo">Cinemática</p>
+    <p>É o ramo da Física, mais especificamente da Mecânica, que estuda os movimentos realizados pelos objetos sem se preocupar com as suas causas.</p>
+  </div>
+
+  <p><strong>Movimento.</strong> Um objeto está em movimento se sua posição varia em relação a um referencial no decorrer do tempo.</p>
+  <p><strong>Repouso.</strong> Um objeto está em repouso em relação a um referencial quando sua posição não muda no decorrer do tempo.</p>
+  <p><strong>Ponto material.</strong> Corpo cujas dimensões e estrutura interna são irrelevantes para a análise e a compreensão de um fenômeno físico.</p>
+  <p><strong>Corpo extenso.</strong> Corpo cujas dimensões e estrutura interna são relevantes para a análise e a compreensão de um fenômeno físico.</p>
+  <p><strong>Referencial.</strong> Corpo (ou ponto) utilizado para determinar a posição de um móvel em relação a outros corpos.</p>
+  <p><strong>Trajetória.</strong> É o conjunto das sucessivas posições ocupadas por um móvel ao longo do tempo de seu movimento, em relação a um dado referencial.</p>
+
+  <figure class="figura">
+    <img src="assets/figuras/cap03-aviao-caixa.png" width="825" height="621" alt="Dois aviões soltam uma caixa. À esquerda, visto do avião, a caixa cai em linha reta vertical; à direita, visto do solo, a caixa descreve uma curva.">
+    <figcaption>A mesma caixa, solta de um avião: para o piloto, ela cai em linha reta; para quem está no solo, descreve uma curva.</figcaption>
+  </figure>
+
+  <aside class="nota nota--atencao">
+    <p class="nota-titulo">Atenção</p>
+    <p>Movimento, repouso e trajetória dependem do referencial. Um passageiro sentado no ônibus está em repouso em relação ao ônibus e em movimento em relação à rua.</p>
+  </aside>
+
+  <p><strong>Observação:</strong> a trajetória de um objeto pode mudar se mudarmos o referencial.</p>
+</section>
+
+<section class="secao" id="deslocamento">
+  <h2>Deslocamento</h2>
+  <p>O deslocamento escalar (ou variação de espaço) é a diferença entre a posição final e a posição inicial de um móvel em um intervalo de tempo $\Delta t$:</p>
+  <div class="formula">
+    $$\Delta S = S_{\text{final}} - S_{\text{inicial}}$$
+  </div>
+  <figure class="figura">
+    <img src="assets/figuras/cap03-carro-deslocamento.png" width="908" height="425" alt="Um carro sai da posição S0 e chega à posição S; o deslocamento é ΔS = S − S0.">
+    <figcaption>O carro sai da posição $S_0$ e chega à posição $S$: $\Delta S = S - S_0$.</figcaption>
+  </figure>
+</section>
+
+<section class="secao" id="velocidade-media">
+  <h2>Velocidade escalar média</h2>
+
+  <aside class="nota nota--lembre">
+    <p class="nota-titulo">Lembre-se</p>
+    <p>$1\ \text{km} = 1000\ \text{m}$ e $1\ \text{h} = 3600\ \text{s}$. Então $1\ \text{km/h} = \frac{1000}{3600}\ \text{m/s} = \frac{1}{3{,}6}\ \text{m/s}$. Daí vem o fator 3,6.</p>
+  </aside>
+
+  <p>A velocidade escalar média é a razão entre a variação de espaço e o intervalo de tempo do movimento de um objeto. Ela indica a rapidez com que o móvel realiza um percurso.</p>
+  <div class="formula">
+    $$v_m = \frac{\Delta S}{\Delta t}$$
+    <dl class="formula-legenda">
+      <div><dt>$v_m$</dt><dd>velocidade escalar média</dd></div>
+      <div><dt>$\Delta S$</dt><dd>variação de espaço</dd></div>
+      <div><dt>$\Delta t$</dt><dd>intervalo de tempo</dd></div>
+    </dl>
+  </div>
+  <p>No SI, a unidade de velocidade é o metro por segundo (m/s). No dia a dia, porém, é muito usado o quilômetro por hora (km/h). Para converter, usamos o fator 3,6:</p>
+  <div class="conversao" role="img" aria-label="De km/h para m/s divide-se por 3,6; de m/s para km/h multiplica-se por 3,6">
+    <span class="conversao-unidade">km/h</span>
+    <span class="conversao-setas"><span>÷ 3,6 →</span><span>← × 3,6</span></span>
+    <span class="conversao-unidade">m/s</span>
+  </div>
+</section>
+
+<section class="secao" id="velocidade-relativa">
+  <h2>Velocidade relativa</h2>
+  <p>Considere dois corpos, A e B, movendo-se em uma mesma trajetória com velocidades $v_A$ e $v_B$, em duas situações: em sentidos opostos e no mesmo sentido. A velocidade de um corpo em relação ao outro é chamada de <strong>velocidade relativa</strong>. Seu módulo é calculado assim:</p>
+  <div class="decisao">
+    <div class="decisao-caso">
+      <p class="decisao-condicao">sentidos opostos</p>
+      <p class="decisao-resultado">$v_{\text{rel}} = |v_A| + |v_B|$</p>
+    </div>
+    <div class="decisao-caso">
+      <p class="decisao-condicao">mesmo sentido</p>
+      <p class="decisao-resultado">$v_{\text{rel}} = |v_A| - |v_B|$</p>
+    </div>
+  </div>
+  <figure class="figura">
+    <img src="assets/figuras/cap03-velocidade-relativa.png" width="833" height="392" alt="Em cima, duas bolas se movendo uma em direção à outra; embaixo, duas bolas se movendo no mesmo sentido.">
+    <figcaption>Em cima, corpos em sentidos opostos; embaixo, no mesmo sentido.</figcaption>
+  </figure>
+</section>
+
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos-1">
+  <h2>Exercícios resolvidos</h2>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">R1</span><span class="questao-fonte">CFTMG</span></p>
+    <p>Sobre os conceitos de referencial, posição, velocidade e aceleração, fundamentais para o estudo dos movimentos em Ciências, afirma-se, corretamente, que o conceito de:</p>
+    <ol class="alternativas">
+      <li>posição é associado ao local em uma trajetória e não depende do referencial adotado.</li>
+      <li>referencial é associado ao valor da velocidade e da aceleração do objeto em movimento.</li>
+      <li>velocidade está relacionado à mudança de posição e não depende do referencial adotado.</li>
+      <li>aceleração está relacionado à mudança do valor da velocidade medida em um dado referencial.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Posição e velocidade dependem do referencial adotado; portanto, as alternativas a e c estão erradas. Dependendo do referencial, a aceleração e a velocidade podem ter sinais diferentes, mas não valores diferentes por causa da troca de referencial para o mesmo padrão de unidades; assim, a alternativa b também é falsa.</p>
+      <p class="resposta">Resposta: alternativa <strong>d</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R2</span><span class="questao-fonte">Unicamp</span></p>
+    <p>Em 2016 foi batido o recorde de voo ininterrupto mais longo da história. O avião Solar Impulse 2, movido a energia solar, percorreu quase 6.480 km em aproximadamente 5 dias, partindo de Nagoya no Japão até o Havaí nos Estados Unidos da América. A velocidade escalar média desenvolvida pelo avião foi de aproximadamente:</p>
+    <ol class="alternativas">
+      <li>54 km/h.</li><li>15 km/h.</li><li>1.296 km/h.</li><li>198 km/h.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      $$v_m = \frac{\Delta S}{\Delta t} = \frac{6480}{5 \times 24} \;\Rightarrow\; v_m = 54\ \text{km/h}$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">R3</span><span class="questao-fonte">IFBA</span></p>
+    <p>Dois veículos, A e B, trafegam em uma rodovia plana e horizontal, obedecendo às seguintes equações horárias, cujas unidades estão expressas no Sistema Internacional de medidas (SI): $x_A = 200{,}0 + 10{,}0\,t$ e $x_B = 1000{,}0 - 30{,}0\,t$. Ao analisar esses movimentos, pode-se afirmar que a velocidade relativa de afastamento dos veículos, em km/h, vale:</p>
+    <ol class="alternativas">
+      <li>20,0</li><li>40,0</li><li>80,0</li><li>100,0</li><li>144,0</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p><strong>Atenção ao enunciado:</strong> as unidades estão no SI. Comparando com a equação horária $x = x_0 + v_0 t$:</p>
+      $$\begin{aligned} v_A &= 10\ \text{m/s} = 36\ \text{km/h} \\ v_B &= -30\ \text{m/s} = -108\ \text{km/h} \end{aligned}$$
+      <p>O sinal negativo em B indica que ele se move em sentido oposto ao móvel A. Logo:</p>
+      $$v_{\text{rel}} = |v_A| + |v_B| = 36 + 108 = 144\ \text{km/h}$$
+      <p class="resposta">Resposta: alternativa <strong>e</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">R4</span><span class="questao-fonte">Fuvest 2022</span></p>
+    <p>Em virtude do movimento das placas tectônicas, a distância entre a América do Sul e a África aumenta, nos dias atuais, cerca de 2,0 cm a cada ano. Supondo que essa velocidade tivesse sido constante ao longo do tempo, e tomando uma distância atual de cerca de 5.000 km entre os limites dessas duas massas continentais, indique a melhor estimativa para quanto tempo teria transcorrido desde quando ambas estavam unidas em um único supercontinente.</p>
+    <p><strong>Note e adote:</strong> o valor obtido, embora da ordem de magnitude correta, não é o mesmo calculado por estimativas mais precisas.</p>
+    <ol class="alternativas">
+      <li>250.000 anos</li><li>2.500.000 anos</li><li>25.000.000 anos</li><li>250.000.000 anos</li><li>2.500.000.000 anos</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Dados: $v = 2\ \text{cm/ano}$; $d = 5000\ \text{km} = 500.000.000\ \text{cm}$. Aplicando a definição de velocidade média:</p>
+      $$v_m = \frac{d}{\Delta t} \;\Rightarrow\; \Delta t = \frac{d}{v} = \frac{500.000.000}{2} \;\Rightarrow\; \Delta t = 250.000.000\ \text{anos}$$
+      <p class="resposta">Resposta: alternativa <strong>d</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">R5</span><span class="questao-fonte">Uerj 2019</span></p>
+    <p>Observe no gráfico a curva representativa do movimento de um veículo ao longo do tempo, traçada a partir das posições registradas durante seu deslocamento.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap03-uerj-grafico.png" width="833" height="558" alt="Gráfico do deslocamento em metros em função do tempo em segundos: pontos medidos e uma reta tracejada que passa de 4 m em t = 0 a 16 m em t = 12 s.">
+    </figure>
+    <p>O valor estimado da velocidade média do veículo, em m/s, corresponde a:</p>
+    <ol class="alternativas">
+      <li>1</li><li>2</li><li>3</li><li>4</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Considerando que a questão se refere à velocidade escalar média, tem-se:</p>
+      $$v_m = \frac{\Delta S}{\Delta t} = \frac{16 - 4}{12 - 0} = \frac{12}{12} \;\Rightarrow\; v_m = 1\ \text{m/s}$$
+      <p class="resposta">Resposta: alternativa <strong>a</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">R6</span><span class="questao-fonte">UFRGS 2018</span></p>
+    <p>Em grandes aeroportos e shoppings, existem esteiras móveis horizontais para facilitar o deslocamento de pessoas. Considere uma esteira com 48 m de comprimento e velocidade de 1,0 m/s. Uma pessoa ingressa na esteira e segue caminhando sobre ela com velocidade constante no mesmo sentido de movimento da esteira. A pessoa atinge a outra extremidade 30 s após ter ingressado na esteira. Com que velocidade, em m/s, a pessoa caminha sobre a esteira?</p>
+    <ol class="alternativas">
+      <li>2,6</li><li>1,6</li><li>1,0</li><li>0,8</li><li>0,6</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>A velocidade média do movimento em relação ao solo é a soma da velocidade da esteira ($v_e$) com a velocidade da pessoa ($v_p$): $v_m = v_e + v_p$. Mas a velocidade média também é:</p>
+      $$v_m = \frac{\Delta S}{\Delta t} = \frac{48}{30} = 1{,}6\ \text{m/s}$$
+      <p>Substituindo na primeira equação:</p>
+      $$1{,}6 = 1 + v_p \;\Rightarrow\; v_p = 0{,}6\ \text{m/s}$$
+      <p class="resposta">Resposta: alternativa <strong>e</strong>.</p>
+    </details>
+  </article>
+</section>
+
+<section class="secao" id="mru">
+  <h2>Movimento retilíneo uniforme</h2>
+
+  <div class="definicao">
+    <p class="definicao-titulo">Movimento uniforme (MU)</p>
+    <p>Ocorre quando o corpo se desloca com velocidade constante. Se a trajetória é uma reta, o movimento é retilíneo uniforme (MRU).</p>
+  </div>
+
+  <p>A função horária que descreve o MRU é:</p>
+  <div class="formula">
+    $$S = S_0 + v\,t$$
+    <dl class="formula-legenda">
+      <div><dt>$S$</dt><dd>posição final do móvel</dd></div>
+      <div><dt>$S_0$</dt><dd>posição inicial do móvel</dd></div>
+      <div><dt>$v$</dt><dd>velocidade</dd></div>
+      <div><dt>$t$</dt><dd>intervalo de tempo</dd></div>
+    </dl>
+  </div>
+  <p><strong>Observação:</strong> no movimento uniforme, o módulo da velocidade também pode ser calculado por $v = \dfrac{\Delta S}{\Delta t}$.</p>
+</section>
+
+<section class="secao" id="graficos-mru">
+  <h2>Gráficos do MRU</h2>
+
+  <h3>Gráfico do espaço em função do tempo (S × t)</h3>
+  <p><strong>I.</strong> Se os espaços aumentam com o tempo ($S &gt; S_0$), a velocidade é maior que zero ($v &gt; 0$) e a reta do gráfico é <strong>crescente</strong>. O movimento é progressivo.</p>
+  <figure class="figura figura--vetorial">
+    {{fig:mruSxtCrescente}}
+    <figcaption>Movimento progressivo: reta crescente.</figcaption>
+  </figure>
+  <p><strong>II.</strong> Se os espaços diminuem com o tempo ($S &lt; S_0$), a velocidade é menor que zero ($v &lt; 0$) e a reta do gráfico é <strong>decrescente</strong>. O movimento é retrógrado.</p>
+  <figure class="figura figura--vetorial">
+    {{fig:mruSxtDecrescente}}
+    <figcaption>Movimento retrógrado: reta decrescente.</figcaption>
+  </figure>
+
+  <aside class="nota nota--saiba">
+    <p class="nota-titulo">Saiba mais</p>
+    <p>O símbolo $\overset{N}{=}$ significa “numericamente igual”: os números coincidem, mas as grandezas são de tipos diferentes (uma inclinação, uma área e uma velocidade ou um deslocamento).</p>
+  </aside>
+
+  <p><strong>Observação importante:</strong> para determinar a velocidade pelo gráfico, usamos a tangente do ângulo de inclinação da reta:</p>
+  $$\operatorname{tg}\theta = \frac{\text{cateto oposto}}{\text{cateto adjacente}} = \frac{\Delta S}{\Delta t} \;\Rightarrow\; \operatorname{tg}\theta \overset{N}{=} v$$
+  <figure class="figura figura--vetorial">
+    {{fig:mruTangente}}
+    <figcaption>A inclinação da reta no gráfico S × t é numericamente igual à velocidade.</figcaption>
+  </figure>
+
+  <h3>Gráfico da velocidade em função do tempo (v × t)</h3>
+  <p>No MRU, o gráfico da velocidade em função do tempo é sempre uma reta paralela ao eixo do tempo, pois a velocidade é constante. Acima do eixo, o movimento é progressivo; abaixo, retrógrado.</p>
+  <figure class="figura figura--vetorial">
+    {{fig:mruVxtNegativo}}
+    <figcaption>Movimento retrógrado: a reta fica abaixo do eixo do tempo.</figcaption>
+  </figure>
+  <p><strong>Observação:</strong> a área do gráfico da velocidade em função do tempo é numericamente igual ao deslocamento.</p>
+  <div class="formula">
+    $$A \overset{N}{=} \Delta S$$
+  </div>
+  <figure class="figura figura--vetorial">
+    {{fig:mruVxt}}
+    <figcaption>A área sob a reta, entre 0 e $t$, é numericamente igual ao deslocamento.</figcaption>
+  </figure>
+</section>
+
+<section class="secao exercicios exercicios--resolvidos" id="resolvidos-2">
+  <h2>Exercícios resolvidos</h2>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">R7</span><span class="questao-fonte">UFPR 2022</span></p>
+    <p>A figura a seguir apresenta o comportamento gráfico da posição $x$ em função do tempo $t$ para os objetos A (linha cheia) e B (linha tracejada), que se movem ao longo de duas pistas retas, paralelas e de origens coincidentes.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap03-ufpr-grafico.png" width="725" height="525" alt="Gráfico x (m) por t (s): a reta A sai da origem e passa por 30 m em t = 15 s; a reta tracejada B é horizontal em 30 m.">
+    </figure>
+    <p>Considerando os dados apresentados no enunciado e no gráfico, considere as seguintes afirmativas:</p>
+    <ol class="itens-numerados">
+      <li>O objeto A tem uma velocidade constante, de módulo $v = 2\ \text{m/s}$.</li>
+      <li>Os objetos se encontram no instante $t = 15\ \text{s}$.</li>
+      <li>O objeto B está parado.</li>
+      <li>O objeto A inicia o movimento em $x_0 = 0\ \text{m}$.</li>
+    </ol>
+    <p>Assinale a alternativa correta.</p>
+    <ol class="alternativas">
+      <li>Somente a afirmativa 2 é verdadeira.</li>
+      <li>Somente as afirmativas 1 e 3 são verdadeiras.</li>
+      <li>Somente as afirmativas 2 e 4 são verdadeiras.</li>
+      <li>Somente as afirmativas 1, 3 e 4 são verdadeiras.</li>
+      <li>As afirmativas 1, 2, 3 e 4 são verdadeiras.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p><strong>[1] Verdadeira.</strong> O móvel A executa um movimento retilíneo uniforme progressivo com velocidade constante igual a:</p>
+      $$v = \frac{\Delta x}{\Delta t} = \frac{30 - 0}{15 - 0} \;\Rightarrow\; v = 2\ \text{m/s}$$
+      <p><strong>[2] Verdadeira.</strong> O objeto A encontra B em 15 s, pois estão na mesma posição.</p>
+      <p><strong>[3] Verdadeira.</strong> O objeto B mantém sua posição enquanto o tempo corre; está parado na posição 30 m desde o início do movimento.</p>
+      <p><strong>[4] Verdadeira.</strong> A posição do objeto A no início do movimento é a origem das posições, isto é, a posição zero.</p>
+      <p class="resposta">Resposta: alternativa <strong>e</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">R8</span><span class="questao-fonte">UPF 2021</span></p>
+    <p>A Icarus é considerada uma das estrelas mais distantes da Terra até agora detectada, situando-se a 9 bilhões de anos-luz da Terra. Isso significa que:</p>
+    <ol class="alternativas">
+      <li>faz 9 bilhões de anos que a estrela não emite mais radiação.</li>
+      <li>a estrela está a 9 bilhões de quilômetros da Terra.</li>
+      <li>daqui a 9 bilhões de anos a estrela desaparecerá.</li>
+      <li>a estrela viaja a uma velocidade de 9 bilhões de anos-luz.</li>
+      <li>a radiação da estrela que recebemos hoje na Terra foi emitida há 9 bilhões de anos.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Essa distância significa que a luz deve viajar por 9 bilhões de anos para chegar até a Terra. Ou seja, a radiação da estrela que recebemos hoje foi emitida há 9 bilhões de anos.</p>
+      <p class="resposta">Resposta: alternativa <strong>e</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">R9</span><span class="questao-fonte">Uece 2021</span></p>
+    <p>Um turista situado entre duas colinas resolve utilizar seus conhecimentos de acústica para estimar a distância entre elas. Ao emitir um grito, ele percebe dois ecos, o primeiro recebido em 1,5 s e o segundo em 2,5 s. Sabendo que a velocidade do som no ar é 340 m/s, o valor que fornece a distância entre as colinas, considerando que o turista e as colinas estejam alinhados, é:</p>
+    <ol class="alternativas">
+      <li>1360.</li><li>510.</li><li>680.</li><li>850.</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Em cada eco, o som vai até a colina e volta; a distância do turista a cada colina é metade do caminho percorrido pelo som:</p>
+      $$d_1 = \frac{340 \cdot 1{,}5}{2} = 255\ \text{m} \qquad d_2 = \frac{340 \cdot 2{,}5}{2} = 425\ \text{m}$$
+      <p>Como o turista está entre as colinas, a distância entre elas é:</p>
+      $$d = d_1 + d_2 = 255 + 425 = 680\ \text{m}$$
+      <p class="resposta">Resposta: alternativa <strong>c</strong>.</p>
+    </details>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">R10</span><span class="questao-fonte">UPF 2021</span></p>
+    <p>Uma pessoa deseja atravessar uma rua em que o sinal do semáforo indica que o fluxo está fechado para veículos (sinal vermelho). Com o objetivo de chegar ao outro lado da rua ainda com esse sinal fechado, ela realiza mentalmente o seguinte cálculo: “caminho com velocidade de 1,5 passo/segundo, meu passo mede 50 cm e a rua tem 15 metros de largura; portanto, necessito de um tempo, em segundos, de:”</p>
+    <ol class="alternativas">
+      <li>14</li><li>10</li><li>32</li><li>20</li><li>45</li>
+    </ol>
+    <details class="resolucao">
+      <summary>Resolução</summary>
+      <p>Velocidade da pessoa:</p>
+      $$v = 1{,}5\ \frac{\text{passo}}{\text{s}} \cdot 0{,}5\ \text{m} = 0{,}75\ \text{m/s}$$
+      <p>Portanto, o tempo necessário é:</p>
+      $$\Delta t = \frac{\Delta S}{v} = \frac{15}{0{,}75} \;\Rightarrow\; \Delta t = 20\ \text{s}$$
+      <p class="resposta">Resposta: alternativa <strong>d</strong>.</p>
+    </details>
+  </article>
+</section>
+
+<section class="secao exercicios exercicios--propostos lista" id="propostos">
+  <h2>Exercícios propostos</h2>
+  <p class="caderno">Faça no caderno. Não escreva na apostila.</p>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">1</span><span class="questao-fonte">PUC-Campinas 2023</span></p>
+    <p><strong>Telescópio espacial James Webb.</strong> <em>Considerado o maior e mais potente observatório espacial já desenvolvido pela NASA, o Telescópio Espacial James Webb (TEJW) conta com quatro instrumentos sensíveis a diferentes comprimentos de onda da luz visível e infravermelha e orbitará o Sol a 1,5 milhão de quilômetros da Terra. O novo telescópio espacial ficará em um ponto que permite orbitar o Sol “vendo” a estrela e a Terra na mesma direção – o chamado Ponto de Lagrange L2, um lugar em que a gravidade de dois corpos massivos mantém um terceiro em posição fixa em relação a eles.</em> (Disponível em: https://canaltech.com.br. Adaptado.)</p>
+    <p>Os dados coletados pelo TEJW são enviados à Terra por meio de ondas eletromagnéticas, que se propagam no vácuo com velocidade de 300.000 km/s. O intervalo de tempo entre a emissão de um dado pelo TEJW e a chegada desse dado à Terra é de:</p>
+    <ol class="alternativas">
+      <li>0,05 s.</li><li>0,45 s.</li><li>45 s.</li><li>5,0 s.</li><li>50 s.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">2</span><span class="questao-fonte">UFPR 2023</span></p>
+    <p>Um objeto de massa $m$ constante se move sobre uma pista retilínea, paralela ao eixo $x$. No instante $t_1 = 2\ \text{s}$, esse objeto está na posição $x_1 = 10\ \text{cm}$. No instante $t_2 = 6\ \text{s}$, ele é encontrado na posição $x_2 = 20\ \text{cm}$. Sabe-se que em todo o movimento a força resultante sobre o objeto é nula. Diante do exposto, assinale a alternativa que apresenta corretamente o valor da velocidade $v$ desse objeto durante esse movimento.</p>
+    <ol class="alternativas">
+      <li>$v = 2{,}5\ \text{cm/s}$</li><li>$v = 4{,}0\ \text{cm/s}$</li><li>$v = 5{,}0\ \text{cm/s}$</li><li>$v = 7{,}5\ \text{cm/s}$</li><li>$v = 10\ \text{cm/s}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">3</span><span class="questao-fonte">EEAR 2022</span></p>
+    <p>Um carro a 108 km/h se encontra prestes a iniciar uma ultrapassagem de um caminhão que está a 72 km/h, conforme a figura. Ambos realizam um movimento retilíneo uniforme durante todo o percurso.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap03-eear-caminhao.png" width="375" height="467" alt="Eixo x em metros: o carro, com a frente no ponto A em 0 m, atrás do caminhão, que vai de 3 m até a frente B em 27 m.">
+    </figure>
+    <p>O tempo, em segundos, que o carro leva para ultrapassar o caminhão (ponto A chegar à mesma posição do ponto B, em relação ao referencial $x$) é igual a:</p>
+    <ol class="alternativas">
+      <li>1</li><li>2,4</li><li>2,7</li><li>3</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">4</span><span class="questao-fonte">UFGD 2022</span></p>
+    <p>A sonolência ao volante é uma das principais causas de acidentes de trânsito e um simples cochilo pode ser fatal. Considere-se a seguinte situação: dois veículos, A e B, estão em uma rodovia movendo-se em sentidos opostos; o condutor do veículo A, com velocidade constante de 100 km/h, ao passar por um poste, avista o veículo B que avança em sua direção. Nesse instante, o condutor do veículo A cochila por 3,6 segundos e desperta com o veículo B passando ao lado. Considerando-se, ainda, que o veículo B leva 2,76 segundos para alcançar o mesmo poste após os carros se cruzarem, e que sua velocidade seja constante, qual a velocidade do veículo B e qual a distância entre os dois veículos quando o condutor do veículo A iniciou o cochilo?</p>
+    <ol class="alternativas">
+      <li>$v = 120\ \text{km/h}$ e $\Delta S = 210\ \text{m}$</li>
+      <li>$v = 130\ \text{km/h}$ e $\Delta S = 230\ \text{m}$</li>
+      <li>$v = 120\ \text{km/h}$ e $\Delta S = 250\ \text{m}$</li>
+      <li>$v = 130\ \text{km/h}$ e $\Delta S = 270\ \text{m}$</li>
+      <li>$v = 110\ \text{km/h}$ e $\Delta S = 290\ \text{m}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">5</span><span class="questao-fonte">EsPCEx (Aman) 2020</span></p>
+    <p>Considere um objeto que se desloca em movimento retilíneo uniforme durante 10 s. O desenho abaixo representa o gráfico do espaço em função do tempo.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap03-espcex-grafico.png" width="517" height="600" alt="Gráfico s (m) por t (s): reta que parte de 3 m em t = 0 e chega a 12 m em t = 3 s.">
+      <figcaption>Desenho ilustrativo, fora de escala.</figcaption>
+    </figure>
+    <p>O espaço do objeto no instante $t = 10\ \text{s}$, em metros, é:</p>
+    <ol class="alternativas">
+      <li>25 m.</li><li>30 m.</li><li>33 m.</li><li>36 m.</li><li>40 m.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">6</span><span class="questao-fonte">Uerj 2014</span></p>
+    <p>Em um longo trecho retilíneo de uma estrada, um automóvel se desloca a 80 km/h e um caminhão a 60 km/h, ambos no mesmo sentido e em movimento uniforme. Em determinado instante, o automóvel encontra-se 60 km atrás do caminhão. O intervalo de tempo, em horas, necessário para que o automóvel alcance o caminhão é cerca de:</p>
+    <ol class="alternativas">
+      <li>1</li><li>2</li><li>3</li><li>4</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">7</span><span class="questao-fonte">G1 – IFSP 2012</span></p>
+    <p>Em um trecho retilíneo de estrada, dois veículos, A e B, mantêm velocidades constantes $v_A = 14\ \text{m/s}$ e $v_B = 54\ \text{km/h}$.</p>
+    <figure class="figura figura--larga">
+      <img src="assets/figuras/cap03-ifsp-carros.png" width="867" height="263" alt="Estrada com dois carros no mesmo sentido: A atrás, com velocidade vA, e B à frente, com velocidade vB.">
+    </figure>
+    <p>Sobre os movimentos desses veículos, pode-se afirmar que:</p>
+    <ol class="alternativas">
+      <li>ambos apresentam a mesma velocidade escalar.</li>
+      <li>mantidas essas velocidades, A não conseguirá ultrapassar B.</li>
+      <li>A está mais rápido do que B.</li>
+      <li>a cada segundo que passa, A fica dois metros mais distante de B.</li>
+      <li>depois de 40 s A terá ultrapassado B.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">8</span><span class="questao-fonte">Mackenzie 2018</span></p>
+    <figure class="figura">
+      <img src="assets/figuras/cap03-mackenzie-grafico.png" width="846" height="513" alt="Gráfico v (km/h) por t (h): 20 km/h de 0 a 2 h, zero de 2 a 3 h e 10 km/h de 3 a 5 h.">
+    </figure>
+    <p>Uma pessoa realiza uma viagem de carro em uma estrada retilínea, parando para um lanche, de acordo com o gráfico acima. A velocidade média nas primeiras 5 horas deste movimento é:</p>
+    <ol class="alternativas">
+      <li>10 km/h.</li><li>12 km/h.</li><li>15 km/h.</li><li>30 km/h.</li><li>60 km/h.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">9</span><span class="questao-fonte">Famema 2020</span></p>
+    <p>De dentro do ônibus, que ainda fazia manobras para estacionar no ponto de parada, o rapaz, atrasado para o encontro com a namorada, a vê indo embora pela calçada. Quando finalmente o ônibus para e o rapaz desce, a distância que o separa da namorada é de 180 m. Sabendo que a namorada do rapaz se movimenta com velocidade constante de 0,5 m/s e que o rapaz pode correr com velocidade constante de 5 m/s, o tempo mínimo para que ele consiga alcançá-la é de:</p>
+    <ol class="alternativas">
+      <li>10 s.</li><li>45 s.</li><li>25 s.</li><li>50 s.</li><li>40 s.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">10</span><span class="questao-fonte">G1 – CPS 2010</span></p>
+    <p>Considere que Roberto, em suas caminhadas de 2000 m para manter o seu condicionamento físico, desenvolva uma velocidade média de 5 km/h. O tempo gasto para percorrer esta distância é de:</p>
+    <ol class="alternativas">
+      <li>12 min.</li><li>20 min.</li><li>24 min.</li><li>36 min.</li><li>40 min.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">11</span><span class="questao-fonte">Unesp 2016</span></p>
+    <p>Em uma viagem de carro com sua família, um garoto colocou em prática o que havia aprendido nas aulas de física. Quando seu pai ultrapassou um caminhão em um trecho reto da estrada, ele calculou a velocidade do caminhão ultrapassado utilizando um cronômetro.</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap03-unesp-caminhao.png" width="467" height="675" alt="Traseira de um caminhão com a placa “Veículo longo, comprimento 30 m”.">
+      <figcaption>Disponível em: http://jiper.es. Adaptado.</figcaption>
+    </figure>
+    <p>O garoto acionou o cronômetro quando seu pai alinhou a frente do carro com a traseira do caminhão e o desligou no instante em que a ultrapassagem terminou, com a traseira do carro alinhada com a frente do caminhão, obtendo 8,5 s para o tempo de ultrapassagem. Em seguida, considerando a informação contida na figura e sabendo que o comprimento do carro era 4 m e que a velocidade do carro permaneceu constante e igual a 30 m/s, ele calculou a velocidade média do caminhão, durante a ultrapassagem, obtendo corretamente o valor:</p>
+    <ol class="alternativas">
+      <li>24 m/s.</li><li>21 m/s.</li><li>22 m/s.</li><li>26 m/s.</li><li>28 m/s.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="b">
+    <p class="questao-cab"><span class="questao-num">12</span><span class="questao-fonte">Enem 2019</span></p>
+    <p>A agricultura de precisão reúne técnicas agrícolas que consideram particularidades locais do solo ou lavoura a fim de otimizar o uso de recursos. Uma das formas de adquirir informações sobre essas particularidades é a fotografia aérea de baixa altitude realizada por um veículo aéreo não tripulado (vant). Na fase de aquisição é importante determinar o nível de sobreposição entre as fotografias. A figura ilustra como uma sequência de imagens é coletada por um vant e como são formadas as sobreposições frontais.</p>
+    <figure class="figura figura--larga">
+      <img src="assets/figuras/cap03-enem-vant.png" width="842" height="771" alt="Vant voando a uma altura H fotografa o solo em três posições; a câmera tem abertura de 90°, e as imagens 1, 2 e 3 se sobrepõem em 20%.">
+      <figcaption>Natural Resources Canada. <cite>Concepts of Aerial Photography</cite>. Disponível em: www.nrcan.gc.ca. Acesso em: 26 abr. 2019 (adaptado).</figcaption>
+    </figure>
+    <p>O operador do vant recebe uma encomenda na qual as imagens devem ter uma sobreposição frontal de 20% em um terreno plano. Para realizar a aquisição das imagens, seleciona uma altitude H fixa de voo de 1.000 m, a uma velocidade constante de $50\ \text{m}\,\text{s}^{-1}$. A abertura da câmera fotográfica do vant é de 90°. Considere $\operatorname{tg}(45°) = 1$. Com que intervalo de tempo o operador deve adquirir duas imagens consecutivas?</p>
+    <ol class="alternativas">
+      <li>40 segundos</li><li>32 segundos</li><li>28 segundos</li><li>16 segundos</li><li>8 segundos</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">13</span><span class="questao-fonte">G1 – CFTMG 2020</span></p>
+    <p>Considere o problema de Calvin na tirinha a seguir.</p>
+    <figure class="figura figura--larga">
+      <img src="assets/figuras/cap03-calvin.png" width="863" height="575" alt="Tirinha de Calvin. Problema: Jack e Joe saem de casa ao mesmo tempo e estão dirigindo um na direção do outro. Jack sai a 120 km/h e Joe a 60 km/h. Em dez minutos os dois vão chegar ao mesmo ponto. A que distância Jack e Joe estavam um do outro? No último quadro, Calvin pensa: era mais um daqueles casos intrigantes, mas não é pra isso que existem os detetives particulares?">
+      <figcaption>Disponível em: https://novaescola.org.br/conteudo/3621/calvin-e-seus-amigos. Acesso em: set. 2019.</figcaption>
+    </figure>
+    <p>A resposta correta para o desafio da tirinha, em km, é:</p>
+    <ol class="alternativas">
+      <li>10.</li><li>20.</li><li>30.</li><li>40.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">14</span><span class="questao-fonte">UFJF – Pism 1 2020</span></p>
+    <p>Uma viagem de ônibus entre Juiz de Fora e Rio de Janeiro normalmente é realizada com velocidade média de 60 km/h e tem duração de 3 horas, entre suas respectivas rodoviárias. Uma estudante fez esta viagem de ônibus e relatou que, após 2 horas do início da viagem, devido a obras na pista, o ônibus ficou parado por 30 minutos. Depois disso, a pista foi liberada e o ônibus seguiu sua viagem, mas, devido ao engarrafamento na entrada da cidade do Rio de Janeiro até a rodoviária, a estudante demorou mais 2 horas. Qual foi a velocidade média do ônibus na viagem relatada pela estudante?</p>
+    <ol class="alternativas">
+      <li>60 km/h</li><li>72 km/h</li><li>45 km/h</li><li>40 km/h</li><li>36 km/h</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">15</span><span class="questao-fonte">EEAR 2017</span></p>
+    <p>Uma aeronave F5 sai da base aérea de Santa Cruz às 16h30min para fazer um sobrevoo sobre a Escola de Especialistas de Aeronáutica (EEAR), no momento da formatura de seus alunos do Curso de Formação de Sargentos. Sabendo que o avião deve passar sobre o evento exatamente às 16h36min e que a distância entre a referida base aérea e a EEAR é de 155 km, qual a velocidade média, em km/h, que a aeronave deve desenvolver para chegar no horário previsto?</p>
+    <figure class="figura">
+      <img src="assets/figuras/cap03-eear-mapa.png" width="913" height="600" alt="Mapa com a trajetória do avião entre a Base Aérea de Santa Cruz e a EEAR, a 155 km de distância.">
+    </figure>
+    <ol class="alternativas">
+      <li>1.550</li><li>930</li><li>360</li><li>180</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">16</span><span class="questao-fonte">Enem PPL 2012</span></p>
+    <p>Em apresentações musicais realizadas em espaços onde o público fica longe do palco, é necessária a instalação de alto-falantes adicionais a grandes distâncias, além daqueles localizados no palco. Como a velocidade com que o som se propaga no ar ($v_{\text{som}} = 3{,}4 \cdot 10^{2}\ \text{m/s}$) é muito menor do que a velocidade com que o sinal elétrico se propaga nos cabos ($v_{\text{sinal}} = 2{,}6 \cdot 10^{8}\ \text{m/s}$), é necessário atrasar o sinal elétrico de modo que este chegue pelo cabo ao alto-falante no mesmo instante em que o som vindo do palco chega pelo ar. Para tentar contornar esse problema, um técnico de som pensou em simplesmente instalar um cabo elétrico com comprimento suficiente para o sinal elétrico chegar ao mesmo tempo que o som, em um alto-falante que está a uma distância de 680 metros do palco. A solução é inviável, pois seria necessário um cabo elétrico de comprimento mais próximo de:</p>
+    <ol class="alternativas">
+      <li>$1{,}1 \cdot 10^{3}\ \text{km}$</li><li>$8{,}9 \cdot 10^{4}\ \text{km}$</li><li>$1{,}3 \cdot 10^{5}\ \text{km}$</li><li>$5{,}2 \cdot 10^{5}\ \text{km}$</li><li>$6{,}0 \cdot 10^{13}\ \text{km}$</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="questao-cab"><span class="questao-num">17</span><span class="questao-fonte">Unicamp 2019</span></p>
+    <p>O físico inglês Stephen Hawking (1942-2018), além de suas contribuições importantes para a cosmologia, a física teórica e sobre a origem do universo, nos últimos anos de sua vida passou a sugerir estratégias para salvar a raça humana de uma possível extinção, entre elas, a mudança para outro planeta. Em abril de 2018, uma empresa americana, em colaboração com a Nasa, lançou o satélite TESS, que analisará cerca de vinte mil planetas fora do sistema solar. Esses planetas orbitam estrelas situadas a menos de trezentos anos-luz da Terra, sendo que um ano-luz é a distância que a luz percorre no vácuo em um ano. Considere um ônibus espacial atual que viaja a uma velocidade média $v = 2{,}0 \cdot 10^{4}\ \text{km/s}$. O tempo que esse ônibus levaria para chegar a um planeta a uma distância de 100 anos-luz é igual a:</p>
+    <p><strong>Dados:</strong> a velocidade da luz no vácuo é igual a $c = 3{,}0 \cdot 10^{8}\ \text{m/s}$. Se necessário, use aceleração da gravidade $g = 10\ \text{m/s}^2$, aproxime $\pi = 3{,}0$ e $1\ \text{atm} = 10^{5}\ \text{Pa}$.</p>
+    <ol class="alternativas">
+      <li>66 anos.</li><li>100 anos.</li><li>600 anos.</li><li>1.500 anos.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">18</span><span class="questao-fonte">UFPR 2017</span></p>
+    <p>A utilização de receptores GPS é cada vez mais frequente em veículos. O princípio de funcionamento desse instrumento é baseado no intervalo de tempo de propagação de sinais, por meio de ondas eletromagnéticas, desde os satélites até os receptores GPS. Considerando a velocidade de propagação da onda eletromagnética como sendo de 300.000 km/s e que, em determinado instante, um dos satélites encontra-se a 30.000 km de distância do receptor, qual é o tempo de propagação da onda eletromagnética emitida por esse satélite GPS até o receptor?</p>
+    <ol class="alternativas">
+      <li>10 s.</li><li>1 s.</li><li>0,1 s.</li><li>0,01 s.</li><li>1 ms.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="e">
+    <p class="questao-cab"><span class="questao-num">19</span><span class="questao-fonte">Uea 2014</span></p>
+    <p>Com aproximadamente 6.500 km de comprimento, o rio Amazonas disputa com o rio Nilo o título de rio mais extenso do planeta. Suponha que uma gota de água que percorra o rio Amazonas possua velocidade igual a 18 km/h e que essa velocidade se mantenha constante durante todo o percurso. Nessas condições, o tempo aproximado, em dias, que essa gota levaria para percorrer toda a extensão do rio é:</p>
+    <ol class="alternativas">
+      <li>20.</li><li>35.</li><li>25.</li><li>30.</li><li>15.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">20</span><span class="questao-fonte">PUC-RJ 2017</span></p>
+    <p>Um carro viaja a 100 km/h por 15 minutos e, então, baixa sua velocidade a 60 km/h, percorrendo 75 km nesta velocidade. Qual é a velocidade média do carro para o trajeto total, em km/h?</p>
+    <ol class="alternativas">
+      <li>80</li><li>75</li><li>67</li><li>85</li><li>58</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="d">
+    <p class="texto-base"><strong>Texto para a próxima questão.</strong> Recentemente, uma equipe de astrônomos afirmou ter identificado uma estrela com dimensões comparáveis às da Terra, composta predominantemente de diamante. Por ser muito frio, o astro, possivelmente uma estrela anã branca, teria tido o carbono de sua composição cristalizado em forma de um diamante praticamente do tamanho da Terra.</p>
+    <p class="questao-cab"><span class="questao-num">21</span><span class="questao-fonte">Unicamp 2015</span></p>
+    <p>Os astrônomos estimam que a estrela estaria situada a uma distância $d = 9{,}0 \cdot 10^{18}\ \text{m}$ da Terra. Considerando um foguete que se desloca a uma velocidade $v = 1{,}5 \cdot 10^{4}\ \text{m/s}$, o tempo de viagem do foguete da Terra até essa estrela seria de: ($1\ \text{ano} \approx 3{,}0 \cdot 10^{7}\ \text{s}$)</p>
+    <ol class="alternativas">
+      <li>2.000 anos.</li><li>300.000 anos.</li><li>6.000.000 anos.</li><li>20.000.000 anos.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">22</span><span class="questao-fonte">Unisc 2017</span></p>
+    <p>Um passageiro de ônibus está transitando pela Tabaí Canoas no sentido Santa Cruz do Sul – Porto Alegre quando vê uma placa indicando que faltam 12 km para chegar ao Restaurante GreNal. A partir deste momento ele marca o tempo até passar pela frente deste restaurante. O tempo marcado foi de 10 minutos. Qual foi a velocidade média do ônibus neste trajeto?</p>
+    <ol class="alternativas">
+      <li>72 km/h</li><li>50 km/h</li><li>80 km/h</li><li>68 km/h</li><li>120 km/h</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="a">
+    <p class="questao-cab"><span class="questao-num">23</span><span class="questao-fonte">UTFPR 2016</span></p>
+    <p>Uma navio de pesquisa equipado com SONAR está mapeando o fundo do oceano. Em determinado local, a onda ultrassonora é emitida e os detectores recebem o eco 0,6 s depois. Sabendo que o som se propaga na água do mar com velocidade aproximada de 1.500 m/s, assinale qual é a profundidade, em metros, do local considerado.</p>
+    <ol class="alternativas">
+      <li>450.</li><li>380.</li><li>620.</li><li>280.</li><li>662.</li>
+    </ol>
+  </article>
+
+  <article class="questao" data-gabarito="c">
+    <p class="questao-cab"><span class="questao-num">24</span><span class="questao-fonte">PUC-RJ 2017</span></p>
+    <p>Um carro saiu da posição $x_i = 0\ \text{km}$ e percorreu uma estrada retilínea e horizontal até $x_f = 10\ \text{km}$. Entre 0 km e 5 km, sua velocidade foi 60 km/h e, entre 5 km e 10 km, sua velocidade foi 30 km/h. Calcule, em km/h, a velocidade média para percorrer os 10 km totais.</p>
+    <ol class="alternativas">
+      <li>20</li><li>30</li><li>40</li><li>45</li><li>60</li>
+    </ol>
+  </article>
+
+  <!-- O gabarito é gerado pelo build a partir dos data-gabarito desta seção. -->
+  <aside class="gabarito" data-gerar-gabarito></aside>
+</section>

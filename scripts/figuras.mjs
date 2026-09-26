@@ -160,6 +160,132 @@ export const figuras = {
     ].join("")),
 };
 
+
+// ---------------------------------------------------------------- gráficos de cinemática (capítulos 3 e 4)
+
+// Eixos cartesianos com origem em (ox, oy), largura w e altura h (para cima).
+function eixos(ox, oy, w, h, rotuloX, rotuloY, { negativo = 0 } = {}) {
+  return [
+    seta(ox, oy + negativo, ox, oy - h, "eixo", { ponta: 7, largura: 3.5 }),
+    seta(ox - 4, oy, ox + w, oy, "eixo", { ponta: 7, largura: 3.5 }),
+    texto(ox + w - 2, oy + 16, rotuloX, "eixo-rotulo", "end"),
+    texto(ox + 6, oy - h + 4, rotuloY, "eixo-rotulo"),
+    texto(ox - 6, oy + 14, "0", "legenda-fig", "end"),
+  ].join("");
+}
+const curva = (d, classe = "v1") => `<g class="${classe}"><path class="curva" d="${d}"/></g>`;
+const area = (d) => `<path class="area" d="${d}"/>`;
+const tracejado = (x1, y1, x2, y2) => linha(x1, y1, x2, y2, "guia tracejada");
+
+const graficos = {
+  mruSxtCrescente: () =>
+    svg(230, 160, "Gráfico da posição em função do tempo no MRU progressivo", [
+      eixos(30, 135, 190, 125, "t (s)", "S (m)"),
+      tracejado(30, 45, 170, 45), tracejado(170, 45, 170, 135),
+      curva("M30 105L170 45"),
+      texto(24, 109, "S₀", "legenda-fig", "end"), texto(24, 49, "S", "legenda-fig", "end"),
+      texto(170, 150, "t", "legenda-fig", "middle"), texto(120, 40, "v &gt; 0", "legenda-fig"),
+    ].join("")),
+
+  mruSxtDecrescente: () =>
+    svg(230, 160, "Gráfico da posição em função do tempo no MRU retrógrado", [
+      eixos(30, 135, 190, 125, "t (s)", "S (m)"),
+      tracejado(30, 105, 170, 105), tracejado(170, 105, 170, 135),
+      curva("M30 45L170 105", "v2"),
+      texto(24, 49, "S₀", "legenda-fig", "end"), texto(24, 109, "S", "legenda-fig", "end"),
+      texto(170, 150, "t", "legenda-fig", "middle"), texto(120, 60, "v &lt; 0", "legenda-fig"),
+    ].join("")),
+
+  mruTangente: () =>
+    svg(240, 165, "A inclinação da reta no gráfico S × t dá a velocidade", [
+      eixos(30, 140, 200, 130, "t (s)", "S (m)"),
+      tracejado(30, 110, 170, 110), tracejado(170, 45, 170, 140), tracejado(30, 45, 170, 45),
+      curva("M30 110L170 45"),
+      angulo(52, 99.8, 22, 0, 24.9),
+      `<path class="cota" d="M178 45h5v65h-5"/>`, texto(188, 81, "ΔS", "eixo-rotulo"),
+      `<path class="cota" d="M52 118v5h118v-5"/>`, texto(111, 136, "Δt", "eixo-rotulo", "middle"),
+      texto(24, 114, "S₀", "legenda-fig", "end"), texto(24, 49, "S", "legenda-fig", "end"),
+    ].join("")),
+
+  mruVxt: () =>
+    svg(240, 165, "Gráfico da velocidade em função do tempo no MRU: a área é o deslocamento", [
+      eixos(30, 125, 200, 115, "t (s)", "v (m/s)"),
+      area("M30 60H170V125H30Z"),
+      curva("M30 60H170"),
+      tracejado(170, 60, 170, 125),
+      texto(100, 98, "A = ΔS", "eixo-rotulo", "middle"),
+      texto(24, 64, "v", "legenda-fig", "end"), texto(170, 140, "t", "legenda-fig", "middle"),
+    ].join("")),
+
+  mruVxtNegativo: () =>
+    svg(240, 150, "Gráfico da velocidade em função do tempo no MRU retrógrado", [
+      eixos(30, 55, 200, 45, "t (s)", "v (m/s)", { negativo: 85 }),
+      curva("M30 115H170", "v2"),
+      tracejado(170, 55, 170, 115),
+      texto(24, 119, "−v", "legenda-fig", "end"), texto(120, 108, "v &lt; 0", "legenda-fig"),
+    ].join("")),
+
+  muvVxtCrescente: () =>
+    svg(240, 165, "Gráfico v × t no MUV com aceleração positiva: a inclinação dá a aceleração", [
+      eixos(30, 140, 200, 130, "t (s)", "v (m/s)"),
+      tracejado(30, 40, 170, 40), tracejado(170, 40, 170, 140), tracejado(30, 100, 170, 100),
+      curva("M30 100L170 40"),
+      angulo(30, 100, 24, 0, 23.2),
+      `<path class="cota" d="M178 40h5v60h-5"/>`, texto(188, 74, "Δv", "eixo-rotulo"),
+      `<path class="cota" d="M30 108v5h140v-5"/>`, texto(100, 128, "Δt", "eixo-rotulo", "middle"),
+      texto(24, 104, "v₀", "legenda-fig", "end"), texto(24, 44, "v", "legenda-fig", "end"),
+      texto(96, 60, "a &gt; 0", "legenda-fig"),
+    ].join("")),
+
+  muvVxtDecrescente: () =>
+    svg(230, 160, "Gráfico v × t no MUV com aceleração negativa", [
+      eixos(30, 135, 190, 125, "t (s)", "v (m/s)"),
+      tracejado(30, 105, 170, 105), tracejado(170, 105, 170, 135),
+      curva("M30 40L170 105", "v2"),
+      texto(24, 44, "v₀", "legenda-fig", "end"), texto(24, 109, "v", "legenda-fig", "end"),
+      texto(110, 60, "a &lt; 0", "legenda-fig"),
+    ].join("")),
+
+  muvArea: () =>
+    svg(230, 160, "No gráfico v × t, a área sob a reta é o deslocamento", [
+      eixos(30, 135, 190, 125, "t (s)", "v (m/s)"),
+      area("M30 100L170 40V135H30Z"),
+      curva("M30 100L170 40"),
+      texto(100, 118, "A = ΔS", "eixo-rotulo", "middle"),
+    ].join("")),
+
+  muvAxt: () =>
+    svg(230, 150, "Gráfico da aceleração em função do tempo no MUV: a área é a variação da velocidade", [
+      eixos(30, 125, 190, 115, "t (s)", "a (m/s²)"),
+      area("M30 60H165V125H30Z"),
+      curva("M30 60H190", "vr"),
+      texto(24, 64, "a", "legenda-fig", "end"),
+      texto(98, 98, "A = Δv", "eixo-rotulo", "middle"),
+    ].join("")),
+
+  muvParabolas: () =>
+    svg(300, 150, "Gráfico S × t no MUV: parábola com concavidade para cima (a > 0) ou para baixo (a < 0)", [
+      eixos(20, 120, 120, 110, "t", "S"),
+      curva("M20 110Q70 125 130 25"),
+      texto(80, 145, "a &gt; 0", "legenda-fig", "middle"),
+      eixos(170, 120, 120, 110, "t", "S"),
+      curva("M170 110Q220 5 280 60", "v2"),
+      texto(230, 145, "a &lt; 0", "legenda-fig", "middle"),
+    ].join("")),
+
+  // Semáforos da questão do Enem 2020, redesenhados.
+  semaforos: () =>
+    svg(300, 70, "Avenida com quatro semáforos, O, A, B e C, separados por 500 m", [
+      linha(10, 38, 290, 38, "guia"),
+      ...["O", "A", "B", "C"].map((l, i) => {
+        const x = 30 + i * 80;
+        return seta(x, 60, x, 42, "v1", { ponta: 6, largura: 3 }) + texto(x, 30, l, "eixo-rotulo", "middle");
+      }),
+      ...[0, 1, 2].map((i) => `<path class="cota" d="M${34 + i * 80} 12v4h72v-4"/>` + texto(70 + i * 80, 9, "500 m", "legenda-fig", "middle")),
+    ].join("")),
+};
+Object.assign(figuras, graficos);
+
 export function substituirFiguras(html, origem) {
   return html.replace(/\{\{fig:(\w+)\}\}/g, (_, nome) => {
     if (!figuras[nome]) throw new Error(`${origem}: figura desconhecida {{fig:${nome}}}`);
@@ -215,4 +341,43 @@ function barco() {
   </svg>`;
 }
 
-export const ilustracoes = { escala, barco };
+
+// Carrinho simples para as aberturas de cinemática.
+const carro = (x, y) =>
+  `<g class="ab-carro"><path d="M${x - 7} ${y - 1.4}h14v-2.6l-3-2.4h-7l-3 2.4z"/><circle cx="${x - 4}" cy="${y - 0.6}" r="1.3"/><circle cx="${x + 4}" cy="${y - 0.6}" r="1.3"/></g>`;
+
+// Posições do móvel a cada 1 s sobre uma estrada; distâncias iguais (MRU) ou crescentes (MUV).
+function estrada(posicoes, rotulo, unidade = "m") {
+  const x0 = 14;
+  const escala = 150 / posicoes[posicoes.length - 1];
+  const partes = [`<line class="esc-eixo" x1="6" y1="36" x2="176" y2="36"/>`];
+  posicoes.forEach((s, t) => {
+    const x = n(x0 + s * escala);
+    partes.push(carro(x, 32));
+    partes.push(`<line class="esc-traco" x1="${x}" y1="34.5" x2="${x}" y2="37.5"/>`);
+    partes.push(`<text class="esc-pot" x="${x}" y="42" text-anchor="middle">${s} ${unidade}</text>`);
+    partes.push(`<text class="esc-nome" x="${x}" y="22" text-anchor="middle">t = ${t} s</text>`);
+  });
+  partes.push(`<text class="esc-pot" x="176" y="47" text-anchor="end">${rotulo}</text>`);
+  return `<svg class="ilustracao" viewBox="0 0 180 48" role="img" aria-label="Posições de um carro a cada segundo">${partes.join("")}</svg>`;
+}
+const uniforme = () => estrada([0, 20, 40, 60, 80], "velocidade constante: 20 m a cada segundo");
+const acelerado = () => estrada([0, 5, 20, 45, 80], "aceleração constante: 5 m, 15 m, 25 m, 35 m a cada segundo");
+
+// Capítulo 5: bola em queda livre fotografada a cada 1 s (g = 10 m/s²).
+function queda() {
+  const alturas = [0, 5, 20, 45];
+  const partes = [`<line class="esc-eixo" x1="60" y1="3" x2="60" y2="46"/>`];
+  alturas.forEach((h, t) => {
+    const y = n(5 + h * 0.88);
+    partes.push(`<circle class="ab-bola" cx="72" cy="${y}" r="1.8"/>`);
+    partes.push(`<line class="esc-traco" x1="58.5" y1="${y}" x2="61.5" y2="${y}"/>`);
+    partes.push(`<text class="esc-pot" x="56" y="${n(y + 0.9)}" text-anchor="end">${h} m</text>`);
+    partes.push(`<text class="esc-nome" x="78" y="${n(y + 0.9)}">t = ${t} s · v = ${10 * t} m/s</text>`);
+  });
+  partes.push(seta(140, 8, 140, 30, "ab-correnteza", { ponta: 4, largura: 2 }));
+  partes.push(`<text class="esc-nome" x="145" y="21">g = 10 m/s²</text>`);
+  return `<svg class="ilustracao" viewBox="0 0 180 48" role="img" aria-label="Bola em queda livre fotografada a cada segundo">${partes.join("")}</svg>`;
+}
+
+export const ilustracoes = { escala, barco, uniforme, acelerado, queda };
