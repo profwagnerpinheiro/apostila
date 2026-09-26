@@ -36,6 +36,7 @@
   --largura-nota: 46mm;
 }
 
+/* transparente só para as camadas se sobreporem; o pdf.mjs pinta o fundo branco da página */
 html, body { background: transparent; }
 body {
   padding: 0;
@@ -60,7 +61,7 @@ body {
   margin: 0;
   break-after: page;
 }
-.abertura-faixa { gap: 9mm; padding: 24mm 20mm 10mm; }
+.abertura-faixa { gap: 9mm; padding: 22mm 20mm 10mm; border-top-width: 8mm; }
 .abertura-cabeca { column-gap: 7mm; }
 .abertura-rotulo { font-size: 10pt; margin-bottom: 1mm; }
 .abertura-numero { font-size: 118pt; }

@@ -3,7 +3,7 @@
 Material didático de Física escrito uma vez em HTML e publicado em dois formatos:
 
 - **PDF A4** para impressão, no formato de livro didático (abertura de capítulo, boxes na margem, exercícios resolvidos e propostos) → [`pdf/`](pdf/)
-- **Versão web** para ler no celular, com sumário, tema escuro e modo estudo (o aluno marca a alternativa e recebe a correção na hora)
+- **Versão web** para ler no celular, com sumário e modo estudo (o aluno marca a alternativa e recebe a correção na hora)
 
 O guia visual completo (cores, fontes, grade, componentes e como escrever cada um) está em **[DESIGN.md](DESIGN.md)**.
 

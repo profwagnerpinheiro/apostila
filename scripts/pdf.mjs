@@ -13,7 +13,7 @@ import { readdir, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { chromium } from "playwright";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, rgb } from "pdf-lib";
 
 const raiz = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(raiz, "dist");
@@ -42,14 +42,21 @@ for (const arquivo of capitulos) {
   const miolo = await imprimir(url, "imprimir-conteudo");
 
   const final = await PDFDocument.create();
-  const [paginaAbertura] = await final.copyPages(await PDFDocument.load(abertura), [0]);
-  final.addPage(paginaAbertura);
-
   const [timbre] = await final.embedPdf(moldura, [0]);
+  const [capa] = await final.embedPdf(abertura, [0]);
   const docMiolo = await PDFDocument.load(miolo);
   const paginasMiolo = await final.embedPdf(miolo, docMiolo.getPageIndices());
-  for (const conteudo of paginasMiolo) {
+
+  // Toda página recebe um fundo branco de verdade (o HTML impresso é transparente,
+  // e alguns leitores de PDF mostram transparência como cinza ou preto).
+  const novaPagina = () => {
     const p = final.addPage([timbre.width, timbre.height]);
+    p.drawRectangle({ x: 0, y: 0, width: timbre.width, height: timbre.height, color: rgb(1, 1, 1) });
+    return p;
+  };
+  novaPagina().drawPage(capa);
+  for (const conteudo of paginasMiolo) {
+    const p = novaPagina();
     p.drawPage(timbre);
     p.drawPage(conteudo);
   }

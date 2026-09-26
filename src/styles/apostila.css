@@ -68,52 +68,52 @@ a { color: var(--titulo); text-underline-offset: 0.18em; }
 .abertura-faixa {
   display: grid;
   gap: 1.6rem;
-  padding: 2.2rem clamp(1.2rem, 4vw, 2.6rem) 1.6rem;
-  background: var(--faixa);
-  color: var(--faixa-texto);
+  padding: 2rem 0 1.6rem;
+  background: var(--fundo);
+  border-top: 6px solid var(--titulo);
+  border-bottom: 1px solid var(--fio);
 }
-.abertura-cabeca { display: grid; grid-template-columns: auto 1fr; align-items: end; column-gap: 1.4rem; }
+.abertura-cabeca { display: grid; grid-template-columns: auto 1fr; align-items: end; column-gap: 1.4rem; min-width: 0; }
 .abertura-rotulo {
   grid-column: 1 / -1;
   margin: 0;
   font: 700 var(--t-sm) / 1 var(--fonte-titulo);
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #cfe0f5;
+  color: var(--titulo);
 }
 .abertura-numero {
   margin: 0;
   font: 700 clamp(5rem, 14vw, 8.5rem) / 0.85 var(--fonte-texto);
-  color: #f7934c;
+  color: var(--acento);
   font-variant-numeric: lining-nums;
 }
 .abertura-titulo {
   margin: 0 0 0.3rem;
   font: 900 clamp(1.9rem, 5vw, 3rem) / 1.05 var(--fonte-titulo);
-  color: #fff;
+  color: var(--titulo);
   text-wrap: balance;
 }
 
 .abertura-ilustracao { margin: 0; min-width: 0; }
-.abertura-cabeca { min-width: 0; }
 .ilustracao-rolagem { overflow-x: auto; }
 .ilustracao { display: block; width: 100%; min-width: 38rem; height: auto; }
-.abertura-ilustracao figcaption { margin-top: 0.4rem; font: 400 var(--t-xs) / 1.4 var(--fonte-titulo); color: #cfe0f5; }
+.abertura-ilustracao figcaption { margin-top: 0.4rem; font: 400 var(--t-xs) / 1.4 var(--fonte-titulo); color: var(--texto-2); }
 
-/* elementos das ilustrações (sempre sobre a faixa azul) */
-.esc-eixo { stroke: rgba(255, 255, 255, 0.8); stroke-width: 0.4; }
-.esc-traco { stroke: rgba(255, 255, 255, 0.8); stroke-width: 0.35; }
-.esc-guia { stroke: rgba(255, 255, 255, 0.45); stroke-width: 0.3; fill: none; }
-.esc-ponto { fill: #f7934c; }
-.esc-pot { font: 600 2.5px var(--fonte-titulo); fill: #cfe0f5; }
+/* elementos das ilustrações da abertura */
+.esc-eixo { stroke: var(--titulo); stroke-width: 0.4; }
+.esc-traco { stroke: var(--titulo); stroke-width: 0.35; }
+.esc-guia { stroke: var(--texto-2); stroke-width: 0.3; fill: none; }
+.esc-ponto { fill: var(--acento); }
+.esc-pot { font: 600 2.5px var(--fonte-titulo); fill: var(--texto-2); }
 .esc-exp { font-size: 1.7px; }
-.esc-nome { font: 700 2.6px var(--fonte-titulo); fill: #fff; }
-.ab-barco line { stroke: #fff; stroke-width: 0.8; }
-.ab-barco polygon { fill: #fff; }
-.ab-correnteza line { stroke: #f7934c; stroke-width: 0.8; }
-.ab-correnteza polygon { fill: #f7934c; }
-.ab-resultante line { stroke: #8fe0b5; stroke-width: 0.9; }
-.ab-resultante polygon { fill: #8fe0b5; }
+.esc-nome { font: 700 2.6px var(--fonte-titulo); fill: var(--texto); }
+.ab-barco line { stroke: var(--vet-1); stroke-width: 0.8; }
+.ab-barco polygon { fill: var(--vet-1); }
+.ab-correnteza line { stroke: var(--vet-2); stroke-width: 0.8; }
+.ab-correnteza polygon { fill: var(--vet-2); }
+.ab-resultante line { stroke: var(--vet-r); stroke-width: 0.9; }
+.ab-resultante polygon { fill: var(--vet-r); }
 
 .abertura-texto { display: grid; gap: 1.6rem; padding-block: 1.8rem; }
 @media (min-width: 48rem) { .abertura-texto { grid-template-columns: 1.5fr 1fr; gap: 2.6rem; } }

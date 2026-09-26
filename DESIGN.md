@@ -4,23 +4,24 @@ Padrão visual de **livro didático**. O mesmo HTML gera duas saídas:
 
 | Saída | Para quem | Como é |
 |---|---|---|
-| **PDF A4** (`pdf/*.pdf`) | impressão | página de abertura do capítulo, texto em coluna única com coluna de margem para os boxes, cabeçalho corrido, aba lateral com o número do capítulo |
-| **Versão web** (`dist/*.html`) | leitura no celular e no computador | mesma abertura, sumário lateral, boxes na margem em telas largas, tema escuro e **modo estudo** (o aluno marca a alternativa e vê se acertou) |
+| **PDF A4** (`pdf/*.pdf`) | impressão | fundo branco; página de abertura do capítulo, texto em coluna única com coluna de margem para os boxes, cabeçalho corrido, aba lateral com o número do capítulo |
+| **Versão web** (`dist/*.html`) | leitura no celular e no computador | fundo branco, mesma abertura, sumário lateral, boxes na margem em telas largas e **modo estudo** (o aluno marca a alternativa e vê se acertou) |
 
 ---
 
 ## 1. Princípios
 
-1. **Cor organiza, não enfeita.** O azul-marinho da marca é a cor do volume (seções, faixas, aba lateral); o laranja marca os exercícios propostos e o número do capítulo; o verde é usado no box "Lembre-se" e no vetor resultante.
-2. **Texto sóbrio e confortável.** Corpo em serifa (Source Serif 4), títulos e elementos de apoio em sem serifa (Source Sans 3). Linha de ~70 caracteres.
-3. **Tudo tem lugar fixo.** Teoria na coluna principal, curiosidades e lembretes na margem, exercícios em faixas próprias, respostas no fim da lista.
-4. **Numeração de livro.** Seções numeradas (1, 2, 3…), tabelas e figuras como "Tabela 2.1" e "Figura 2.3", exercícios resolvidos como R1, R2… O build numera sozinho.
+1. **Fundo sempre branco.** Página, abertura e versão web são brancas; a cor aparece só em títulos, faixas de exercícios, boxes e figuras.
+2. **Cor organiza, não enfeita.** O azul-marinho da marca é a cor do volume (seções, faixas, aba lateral); o laranja marca os exercícios propostos e o número do capítulo; o verde é usado no box "Lembre-se" e no vetor resultante.
+3. **Texto sóbrio e confortável.** Corpo em serifa (Source Serif 4), títulos e elementos de apoio em sem serifa (Source Sans 3). Linha de ~70 caracteres.
+4. **Tudo tem lugar fixo.** Teoria na coluna principal, curiosidades e lembretes na margem, exercícios em faixas próprias, respostas no fim da lista.
+5. **Numeração de livro.** Seções numeradas (1, 2, 3…), tabelas e figuras como "Tabela 2.1" e "Figura 2.3", exercícios resolvidos como R1, R2… O build numera sozinho.
 
 ---
 
 ## 2. Estrutura de um capítulo
 
-1. **Página de abertura:** faixa azul com o número grande do capítulo, título e uma ilustração ligada ao assunto; abaixo, "Para começar" (texto de motivação) e "Neste capítulo você vai" (objetivos).
+1. **Página de abertura:** fundo branco com filete azul no topo, número grande do capítulo em laranja, título em azul e uma ilustração ligada ao assunto; abaixo, "Para começar" (texto de motivação) e "Neste capítulo você vai" (objetivos).
 2. **Seções de teoria** numeradas, com subtítulos (`h3`), definições em destaque e boxes na margem.
 3. **Exercícios resolvidos** (faixa azul) depois de cada bloco de teoria: R1, R2…, com resolução em fundo azul-claro.
 4. **Exercícios propostos** (faixa laranja), sempre em página nova, em duas colunas, com o aviso "Faça no caderno".
@@ -30,7 +31,7 @@ Padrão visual de **livro didático**. O mesmo HTML gera duas saídas:
 
 ## 3. Tokens
 
-Em `src/styles/tokens.css`. Os componentes usam os **papéis** (`--titulo`, `--faixa`…), nunca a cor crua; por isso o tema escuro funciona sozinho.
+Em `src/styles/tokens.css`. Os componentes usam os **papéis** (`--titulo`, `--faixa`…), nunca a cor crua. Há um único tema, claro, com fundo branco.
 
 ### Cores
 
@@ -192,7 +193,7 @@ Configurada no bloco `meta` do capítulo:
   "objetivos": ["…;", "…."]
 }
 ```
-`ilustracao` escolhe o desenho da faixa, definido em `scripts/figuras.mjs` (`ilustracoes`): `escala` (potências de 10) e `barco` (soma de velocidades). Para um capítulo novo, crie uma função ali com o desenho do assunto.
+`ilustracao` escolhe o desenho da abertura, definido em `scripts/figuras.mjs` (`ilustracoes`): `escala` (potências de 10) e `barco` (soma de velocidades). Para um capítulo novo, crie uma função ali com o desenho do assunto.
 
 ---
 
